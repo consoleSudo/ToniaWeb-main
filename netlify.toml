@@ -1,0 +1,19 @@
+[build]
+  command = ""
+  publish = "."
+  functions = "netlify/functions"
+
+# Security headers for admin panel and API
+[[headers]]
+  for = "/admin.html"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"

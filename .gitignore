@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Local environment variables — NEVER commit to git!
+.env
+.env.local
+.env.*.local
+
+# Netlify local dev
+.netlify/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

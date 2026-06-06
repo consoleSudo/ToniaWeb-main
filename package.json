@@ -1,0 +1,13 @@
+{
+  "name": "apartment-antonia",
+  "version": "1.0.0",
+  "description": "Apartment Antonia - static website",
+  "scripts": {
+    "dev": "npx serve . --listen 3000 --no-clipboard",
+    "start": "npx serve . --listen 3000 --no-clipboard"
+  },
+  "keywords": [],
+  "author": "Antonia",
+  "license": "UNLICENSED",
+  "private": true
+}
