@@ -1,167 +1,718 @@
 {
   "translations": {
-    "nav-logo": { "hr": "Apartment Antonia", "en": "Apartment Antonia", "de": "Apartment Antonia" },
-    "nav-about": { "hr": "O apartmanu", "en": "About", "de": "Über uns" },
-    "nav-gallery": { "hr": "Galerija", "en": "Gallery", "de": "Galerie" },
-    "nav-amenities": { "hr": "Sadržaji", "en": "Amenities", "de": "Ausstattung" },
-    "nav-reviews": { "hr": "Recenzije", "en": "Reviews", "de": "Bewertungen" },
-    "nav-faq": { "hr": "FAQ", "en": "FAQ", "de": "FAQ" },
-    "nav-map": { "hr": "Lokacija", "en": "Location", "de": "Lage" },
-    "nav-book": { "hr": "Rezerviraj", "en": "Book Now", "de": "Jetzt buchen" },
-    "hero-eyebrow": { "hr": "Podbablje · Imotski · 30 km od mora", "en": "Podbablje · Imotski · 30 km from the sea", "de": "Podbablje · Imotski · 30 km vom Meer" },
-    "hero-title": { "hr": "Antonia", "en": "Antonia", "de": "Antonia" },
-    "hero-sub": { "hr": "Privatna oaza za 3 gosta · Etno konoba · Dvorište · Roštilj", "en": "Private oasis for 3 guests · Ethno tavern · Courtyard · BBQ", "de": "Private Oase für 3 Gäste · Ethno-Taverne · Innenhof · Grill" },
-    "hero-btn-book": { "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Rezerviraj izravno", "en": "<i class=\"fa-brands fa-whatsapp\"></i> Book directly", "de": "<i class=\"fa-brands fa-whatsapp\"></i> Direkt buchen" },
-    "hero-btn-gallery": { "hr": "<i class=\"fa-regular fa-images\"></i> Pogledaj galeriju", "en": "<i class=\"fa-regular fa-images\"></i> View gallery", "de": "<i class=\"fa-regular fa-images\"></i> Galerie ansehen" },
-    "hero-scroll": { "hr": "Pomakni", "en": "Scroll", "de": "Scrollen" },
-    "proof-rating": { "hr": "Ocjena 5.0 ⭐", "en": "Rating 5.0 ⭐", "de": "Bewertung 5.0 ⭐" },
-    "proof-pets": { "hr": "Kućni ljubimci dobrodošli", "en": "Pets welcome", "de": "Haustiere willkommen" },
-    "proof-parking": { "hr": "Besplatan Parking", "en": "Free Parking", "de": "Kostenloser Parkplatz" },
-    "proof-sea": { "hr": "30km do mora", "en": "30km from sea", "de": "30km zum Meer" },
-    "proof-reply": { "hr": "Odgovor u roku od 1h", "en": "Reply within 1h", "de": "Antwort innerhalb 1 Std." },
-    "about-exp": { "hr": "2+<br>godine<br>iskustva", "en": "2+<br>years of<br>experience", "de": "2+<br>Jahre<br>Erfahrung" },
-    "about-eyebrow": { "hr": "O apartmanu", "en": "About the apartment", "de": "Über das Apartment" },
-    "about-title": { "hr": "Više od apartmana —<br><em>doživljaj</em>", "en": "More than an apartment —<br><em>an experience</em>", "de": "Mehr als nur ein Apartment —<br><em>ein Erlebnis</em>" },
-    "about-desc": { "hr": "Opustite se u ugodnom i moderno uređenom smještaju, smještenom svega 30 km od mora. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima. Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.", "en": "Relax in a cozy and modernly decorated accommodation, located just 30 km from the sea. You have at your disposal a private entrance, a fully equipped kitchen, a living room, a bedroom and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room with sound and light effects. An ideal choice for couples looking for peace, privacy, and complete relaxation.", "de": "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft, die nur 30 km vom Meer entfernt liegt. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum mit Sound- und Lichteffekten. Eine ideale Wahl für Paare, die Ruhe, Privatsphäre und völlige Entspannung suchen." },
-    "about-list-1": { "hr": "Okružen prirodom i šumom,", "en": "Surrounded by nature and forest,", "de": "Umgeben von Natur und Wald," },
-    "about-list-2": { "hr": "udaljen svega 3 km od rijeke,", "en": "only 3 km from the river,", "de": "nur 3 km vom Fluss entfernt," },
-    "about-list-3": { "hr": "7 km od jezera i 30 km od mora.", "en": "7 km from the lake and 30 km from the sea.", "de": "7 km vom See und 30 km vom Meer." },
-    "about-list-4": { "hr": "Restoran 400 m, dućan 1 km.", "en": "Restaurant 400 m, shop 1 km.", "de": "Restaurant 400 m, Geschäft 1 km." },
-    "about-btn": { "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Provjeri dostupnost", "en": "<i class=\"fa-brands fa-whatsapp\"></i> Check availability", "de": "<i class=\"fa-brands fa-whatsapp\"></i> Verfügbarkeit prüfen" },
-    "gallery-eyebrow": { "hr": "Fotografije", "en": "Photos", "de": "Fotos" },
-    "gallery-title": { "hr": "Istražite prostor", "en": "Explore the space", "de": "Erkunden Sie den Raum" },
-    "gallery-subtitle": { "hr": "Moderni apartman na gornjem katu i autentična etno konoba u prizemlju.", "en": "Modern apartment on the upper floor and authentic ethno tavern on the ground floor.", "de": "Modernes Apartment im Obergeschoss und authentische Ethno-Taverne im Erdgeschoss." },
-    "gal-show-all": { "hr": "Prikaži sve fotografije", "en": "Show all photos", "de": "Alle Fotos anzeigen" },
-    "gal-filter-all": { "hr": "Sve", "en": "All", "de": "Alle" },
-    "gal-filter-living": { "hr": "Dnevni boravak", "en": "Living room", "de": "Wohnzimmer" },
-    "gal-filter-kitchen": { "hr": "Kuhinja", "en": "Kitchen", "de": "Küche" },
-    "gal-filter-dining": { "hr": "Trpezarija", "en": "Dining room", "de": "Essbereich" },
-    "gal-filter-bed": { "hr": "Spavaća soba", "en": "Bedroom", "de": "Schlafzimmer" },
-    "gal-filter-bath": { "hr": "Kupaonica", "en": "Bathroom", "de": "Badezimmer" },
-    "gal-filter-ext": { "hr": "Eksterijer", "en": "Exterior", "de": "Außenbereich" },
-    "gal-filter-more": { "hr": "Dodatno", "en": "More", "de": "Zusätzliches" },
-    "gal-hide-btn": { "hr": "Sakrij galeriju", "en": "Hide gallery", "de": "Galerie ausblenden" },
-    "gal-book-cta": { "hr": "Sviđa mi se — Rezerviraj!", "en": "I like it — Book now!", "de": "Gefällt mir — Jetzt buchen!" },
-    "am-eyebrow": { "hr": "Što je uključeno", "en": "What's included", "de": "Was inbegriffen ist" },
-    "am-title": { "hr": "Sadržaji", "en": "Amenities", "de": "Ausstattung" },
-    "am-sub": { "hr": "Sve što vam je potrebno za ugodan boravak — i više od toga.", "en": "Everything you need for a comfortable stay — and more.", "de": "Alles, was Sie für einen angenehmen Aufenthalt benötigen — und mehr." },
-    "am-bath-title": { "hr": "Kupaonica", "en": "Bathroom", "de": "Badezimmer" },
-    "am-bath-1": { "hr": "Sušilo za kosu", "en": "Hair dryer", "de": "Haartrockner" },
-    "am-bath-2": { "hr": "Šampon i regenerator", "en": "Shampoo and conditioner", "de": "Shampoo und Spülung" },
-    "am-bath-3": { "hr": "Gel za tuširanje", "en": "Shower gel", "de": "Duschgel" },
-    "am-bath-4": { "hr": "Sapun i toaletni papir", "en": "Soap and toilet paper", "de": "Seife und Toilettenpapier" },
-    "am-bath-5": { "hr": "Topla voda", "en": "Hot water", "de": "Warmwasser" },
-    "am-bath-6": { "hr": "Sredstva za čišćenje", "en": "Cleaning products", "de": "Reinigungsmittel" },
-    "am-bed-title": { "hr": "Spavaća soba", "en": "Bedroom", "de": "Schlafzimmer" },
-    "am-bed-1": { "hr": "Posteljina i ručnici", "en": "Bed linens and towels", "de": "Bettwäsche und Handtücher" },
-    "am-bed-2": { "hr": "Dodatni jastuci i pokrivači", "en": "Extra pillows and blankets", "de": "Zusätzliche Kissen und Decken" },
-    "am-bed-3": { "hr": "Zavjese za zamračivanje", "en": "Room-darkening shades", "de": "Verdunkelungsvorhänge" },
-    "am-bed-4": { "hr": "Glačalo i vješalice", "en": "Iron and hangers", "de": "Bügeleisen und Kleiderbügel" },
-    "am-bed-5": { "hr": "Ormar i sef", "en": "Closet and safe", "de": "Kleiderschrank und Tresor" },
-    "am-bed-6": { "hr": "Mreža protiv komaraca", "en": "Mosquito net", "de": "Moskitonetz" },
-    "am-ent-title": { "hr": "Zabava", "en": "Entertainment", "de": "Unterhaltung" },
-    "am-ent-1": { "hr": "TV", "en": "TV", "de": "Fernseher" },
-    "am-ent-2": { "hr": "Zvučni sustav", "en": "Sound system", "de": "Soundsystem" },
-    "am-ent-3": { "hr": "Gramofon", "en": "Record player", "de": "Plattenspieler" },
-    "am-ent-4": { "hr": "Knjige", "en": "Books", "de": "Bücher" },
-    "am-ent-5": { "hr": "Društvene igre", "en": "Board games", "de": "Brettspiele" },
-    "am-ac-title": { "hr": "Grijanje i hlađenje", "en": "Heating and cooling", "de": "Heizung und Kühlung" },
-    "am-ac-1": { "hr": "Klima uređaj", "en": "Air conditioning", "de": "Klimaanlage" },
-    "am-ac-2": { "hr": "Grijanje", "en": "Heating", "de": "Heizung" },
-    "am-ac-3": { "hr": "Prijenosni ventilatori", "en": "Portable fans", "de": "Tragbare Ventilatoren" },
-    "am-kit-title": { "hr": "Kuhinja", "en": "Kitchen", "de": "Küche" },
-    "am-kit-1": { "hr": "Potpuno opremljena kuhinja", "en": "Fully equipped kitchen", "de": "Voll ausgestattete Küche" },
-    "am-kit-2": { "hr": "Hladnjak i zamrzivač", "en": "Refrigerator and freezer", "de": "Kühlschrank und Gefrierschrank" },
-    "am-kit-3": { "hr": "Pećnica i mikrovalna pećnica", "en": "Oven and microwave", "de": "Backofen und Mikrowelle" },
-    "am-kit-4": { "hr": "Perilica posuđa", "en": "Dishwasher", "de": "Spülmaschine" },
-    "am-kit-5": { "hr": "Aparat za kavu i toster", "en": "Coffee maker and toaster", "de": "Kaffeemaschine und Toaster" },
-    "am-kit-6": { "hr": "Pribor za roštilj", "en": "Barbecue utensils", "de": "Grillutensilien" },
-    "am-out-title": { "hr": "Vanjski prostor", "en": "Outdoor space", "de": "Außenbereich" },
-    "am-out-1": { "hr": "Privatno dvorište", "en": "Private courtyard", "de": "Privater Innenhof" },
-    "am-out-2": { "hr": "Roštilj", "en": "BBQ grill", "de": "Grillplatz" },
-    "am-out-3": { "hr": "Vanjska kuhinja", "en": "Outdoor kitchen", "de": "Außenküche" },
-    "am-out-4": { "hr": "Vanjski prostor za sjedenje", "en": "Outdoor seating area", "de": "Sitzbereich im Freien" },
-    "am-out-5": { "hr": "Ognjište", "en": "Fire pit", "de": "Feuerstelle" },
-    "am-out-6": { "hr": "Bicikli", "en": "Bicycles", "de": "Fahrräder" },
-    "am-gen-title": { "hr": "Općenito", "en": "General", "de": "Allgemein" },
-    "am-gen-1": { "hr": "Besplatan WiFi", "en": "Free WiFi", "de": "Kostenloses WLAN" },
-    "am-gen-2": { "hr": "Besplatan parking", "en": "Free parking", "de": "Kostenloser Parkplatz" },
-    "am-gen-3": { "hr": "Privatni ulaz", "en": "Private entrance", "de": "Privater Eingang" },
-    "am-gen-4": { "hr": "Perilica rublja", "en": "Washing machine", "de": "Waschmaschine" },
-    "am-gen-5": { "hr": "Vatrogasni aparat", "en": "Fire extinguisher", "de": "Feuerlöscher" },
-    "am-gen-6": { "hr": "Kutija prve pomoći", "en": "First aid kit", "de": "Erste-Hilfe-Set" },
-    "am-spec-title": { "hr": "Posebno", "en": "Special", "de": "Besonderes" },
-    "am-spec-1": { "hr": "Dopušteni kućni ljubimci", "en": "Pets allowed", "de": "Haustiere erlaubt" },
-    "am-spec-2": { "hr": "Dopušteno pušenje", "en": "Smoking allowed", "de": "Rauchen erlaubt" },
-    "am-spec-3": { "hr": "Dobrodošli dugi boravci", "en": "Long term stays allowed", "de": "Langzeitaufenthalte willkommen" },
-    "am-spec-4": { "hr": "Čišćenje na zahtjev", "en": "Cleaning on request", "de": "Reinigung auf Anfrage" },
-    "am-spec-5": { "hr": "Pohrana prtljage", "en": "Luggage dropoff allowed", "de": "Gepäckaufbewahrung erlaubt" },
-    "book-eyebrow": { "hr": "Izravna rezervacija", "en": "Direct Booking", "de": "Direktbuchung" },
-    "book-title": { "hr": "Rezervirajte bez<br><em>provizije</em>", "en": "Book without<br><em>commission</em>", "de": "Buchen ohne<br><em>Provision</em>" },
-    "book-desc": { "hr": "Pošaljite svoj upit putem WhatsAppa. Odgovor u roku od 1 sat.", "en": "Send your inquiry via WhatsApp. Reply within 1 hour.", "de": "Senden Sie Ihre Anfrage per WhatsApp. Antwort innerhalb von 1 Stunde." },
-    "book-perk-1": { "hr": "Izravna rezervacija", "en": "Direct booking", "de": "Direktbuchung" },
-    "book-perk-2": { "hr": "Odgovor u roku od 1h", "en": "Reply within 1h", "de": "Antwort innerhalb 1 Std." },
-    "book-perk-3": { "hr": "Fleksibilna prijava", "en": "Flexible check-in", "de": "Flexibler Check-in" },
-    "book-perk-4": { "hr": "Ljubimci dobrodošli", "en": "Pets welcome", "de": "Haustiere willkommen" },
-    "book-price-from": { "hr": "Od", "en": "From", "de": "Ab" },
-    "book-price-night": { "hr": "/ noćenju", "en": "/ night", "de": "/ Nacht" },
-    "book-price-note": { "hr": "Minimalno 4 noćenja · Cijena se potvrđuje na upit", "en": "Minimum 4 nights · Price confirmed upon request", "de": "Mindestaufenthalt 4 Nächte · Preis wird auf Anfrage bestätigt" },
-    "form-checkin": { "hr": "Prijava", "en": "Check-in", "de": "Check-in" },
-    "form-checkout": { "hr": "Odjava", "en": "Check-out", "de": "Check-out" },
-    "form-name-label": { "hr": "Ime i prezime", "en": "Full Name", "de": "Vor- und Nachname" },
-    "form-name-ph": { "hr": "Vaše ime", "en": "Your name", "de": "Ihr Name" },
-    "form-guests-label": { "hr": "Broj gostiju", "en": "Number of guests", "de": "Anzahl der Gäste" },
-    "form-guest-1": { "hr": "1 gost", "en": "1 guest", "de": "1 Gast" },
-    "form-guest-2": { "hr": "2 gosta", "en": "2 guests", "de": "2 Gäste" },
-    "form-guest-3": { "hr": "3 gosta", "en": "3 guests", "de": "3 Gäste" },
-    "form-email-label": { "hr": "Email (opciono)", "en": "Email (optional)", "de": "E-Mail (optional)" },
-    "form-email-ph": { "hr": "vasa@email.com", "en": "your@email.com", "de": "ihre@email.com" },
-    "form-note-label": { "hr": "Napomena", "en": "Note", "de": "Anmerkung" },
-    "form-note-ph": { "hr": "Posebni zahtjevi, pitanja...", "en": "Special requests, questions...", "de": "Besondere Wünsche, Fragen..." },
-    "form-pet-label": { "hr": "🐾 Donosim kućnog ljubimca", "en": "🐾 I'm bringing a pet", "de": "🐾 Ich bringe ein Haustier mit" },
-    "form-btn": { "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Pošalji upit na WhatsApp", "en": "<i class=\"fa-brands fa-whatsapp\"></i> Send inquiry to WhatsApp", "de": "<i class=\"fa-brands fa-whatsapp\"></i> Anfrage per WhatsApp senden" },
-    "form-reply-note": { "hr": "Antonia odgovara u roku od 1 sata", "en": "Antonia replies within 1 hour", "de": "Antonia antwortet innerhalb von 1 Stunde" },
-    "rev-eyebrow": { "hr": "Što kažu gosti", "en": "What guests say", "de": "Was Gäste sagen" },
-    "rev-title": { "hr": "Recenzije", "en": "Reviews", "de": "Bewertungen" },
-    "rev-sub": { "hr": "Ocjena 5.0 ⭐ · Gosti se uvijek rado vraćaju", "en": "Rating 5.0 ⭐ · Guests always love to return", "de": "Bewertung 5.0 ⭐ · Gäste kommen immer wieder gerne zurück" },
-    "faq-eyebrow": { "hr": "Imate pitanja?", "en": "Have questions?", "de": "Haben Sie Fragen?" },
-    "faq-title": { "hr": "FAQ", "en": "FAQ", "de": "FAQ" },
-    "faq-sub": { "hr": "Sve što trebate znati prije dolaska.", "en": "Everything you need to know before arrival.", "de": "Alles, was Sie vor Ihrer Anreise wissen müssen." },
-    "faq-q1": { "hr": "Koji je minimalni broj noći?", "en": "What is the minimum stay?", "de": "Wie hoch ist der Mindestaufenthalt?" },
-    "faq-a1": { "hr": "Minimalni boravak je 4 noći. Za duže boravke (tjedan i više) možete se dogovoriti za povoljniju cijenu direktno putem WhatsAppa.", "en": "The minimum stay is 4 nights. For longer stays (a week or more) you can negotiate a better price directly via WhatsApp.", "de": "Der Mindestaufenthalt beträgt 4 Nächte. Für längere Aufenthalte (eine Woche oder länger) können Sie direkt über WhatsApp einen günstigeren Preis vereinbaren." },
-    "faq-q2": { "hr": "Kako se vrši prijava (check-in)?", "en": "How does check-in work?", "de": "Wie läuft der Check-in ab?" },
-    "faq-a2": { "hr": "Check-in je fleksibilan i dogovara se direktno. Checkout je do 10:00. Apartman ima zaseban ulaz pa imate potpunu privatnost.", "en": "Check-in is flexible and arranged directly. Checkout is by 10:00. The apartment has a separate entrance so you have complete privacy.", "de": "Der Check-in ist flexibel und wird direkt vereinbart. Der Check-out ist bis 10:00 Uhr. Das Apartment verfügt über einen separaten Eingang, sodass Sie absolute Privatsphäre genießen." },
-    "faq-q3": { "hr": "Je li parking besplatan?", "en": "Is parking free?", "de": "Ist das Parken kostenlos?" },
-    "faq-a3": { "hr": "Da, besplatan privatni parking je dostupan direktno uz apartman. Nema ograničenja ni naplate.", "en": "Yes, free private parking is available directly at the apartment. There are no restrictions or charges.", "de": "Ja, kostenlose Privatparkplätze stehen direkt am Apartment zur Verfügung. Es gibt keine Einschränkungen oder Gebühren." },
-    "faq-q4": { "hr": "Mogu li doći s kućnim ljubimcem?", "en": "Can I bring a pet?", "de": "Kann ich ein Haustier mitbringen?" },
-    "faq-a4": { "hr": "Da! Kućni ljubimci su dobrodošli. Privatno dvorište je idealno za šetnju. Samo naznačite u upitu da donosite ljubimca.", "en": "Yes! Pets are welcome. The private courtyard is ideal for walking. Just indicate in your inquiry that you are bringing a pet.", "de": "Ja! Haustiere sind herzlich willkommen. Der private Innenhof ist ideal zum Auslauf. Bitte geben Sie bei Ihrer Anfrage an, dass Sie ein Haustier mitbringen." },
-    "faq-q5": { "hr": "Što je etno konoba?", "en": "What is the ethno tavern?", "de": "Was ist eine Ethno-Taverne?" },
-    "faq-a5": { "hr": "Etno konoba je posebna zabavna prostorija u prizemlju s kamenim zidovima, hrastovim stolom i klupama, TV-om, mini barom i hladnjakom s pićima. Ima zvučne i svjetlosne efekte — idealna za večernje druženje.", "en": "The ethno tavern is a special entertainment room on the ground floor with stone walls, oak table and benches, TV, minibar, and fridge with drinks. It features sound and light effects — ideal for evening gatherings.", "de": "Die Ethno-Taverne ist ein spezieller Partyraum im Erdgeschoss mit Steinwänden, Eichentisch und -bänken, Fernseher, Minibar und Kühlschrank mit Getränken. Sie verfügt über Sound- und Lichteffekte — ideal für gesellige Abende." },
-    "faq-q6": { "hr": "Koliko je daleko more?", "en": "How far is the sea?", "de": "Wie weit ist das Meer entfernt?" },
-    "faq-a6": { "hr": "Makarska rivijera je oko 30 km (otprilike 30 minuta vožnje). U blizini su i rijeka (3 km) i jezero (7 km) za kupanje u prirodi.", "en": "The Makarska Riviera is about 30 km (roughly a 30-minute drive). Nearby are also a river (3 km) and a lake (7 km) for nature swimming.", "de": "Die Makarska Riviera ist etwa 30 km entfernt (ca. 30 Minuten Fahrt). Fluss (3 km) und See (7 km) in der Nähe laden ebenfalls zum Schwimmen in der Natur ein." },
-    "faq-q7": { "hr": "Kako rezervirati direktno?", "en": "How to book directly?", "de": "Wie kann ich direkt buchen?" },
-    "faq-a7": { "hr": "Ispunite formu na ovoj stranici i upit će otići direktno na WhatsApp. Kontakt je direktan, cijena niža, a odgovor stiže u roku od 1 sat.", "en": "Fill out the form on this page and the inquiry will go directly to WhatsApp. Contact is direct, price is lower, and the reply arrives within 1 hour.", "de": "Füllen Sie das Formular auf dieser Seite aus, und die Anfrage geht direkt an WhatsApp. Der Konktat ist direkt, der Preis günstiger und die Antwort kommt innerhalb von 1 Stunde." },
-    "map-eyebrow": { "hr": "Kako doći do nas", "en": "How to find us", "de": "Wie Sie uns finden" },
-    "map-title": { "hr": "Lokacija", "en": "Location", "de": "Lage" },
-    "map-sub": { "hr": "Podbablje Gornje, Imotski · 30 km do mora · Besplatan parking", "en": "Podbablje Gornje, Imotski · 30 km to the sea · Free parking", "de": "Podbablje Gornje, Imotski · 30 km zum Meer · Kostenloser Parkplatz" },
-    "map-btn": { "hr": "Navigiraj — Google Maps", "en": "Navigate — Google Maps", "de": "Navigieren — Google Maps" },
-    "map-pill-1": { "hr": "Podbablje Gornje, Imotski, HR", "en": "Podbablje Gornje, Imotski, HR", "de": "Podbablje Gornje, Imotski, HR" },
-    "map-pill-2": { "hr": "30 km do Makarske rivijere", "en": "30 km to Makarska Riviera", "de": "30 km zur Makarska Riviera" },
-    "map-pill-3": { "hr": "7 km do jezera", "en": "7 km to the lake", "de": "7 km zum See" },
-    "map-pill-4": { "hr": "Besplatan privatni parking", "en": "Free private parking", "de": "Kostenloser privater Parkplatz" },
-    "footer-tagline": { "hr": "Vaše utočište u srcu Dalmatinske zagore.<br>Luksuz, priroda i toplina doma.", "en": "Your sanctuary in the heart of the Dalmatian Hinterland.<br>Luxury, nature, and the warmth of home.", "de": "Ihre Oase im Herzen des dalmatinischen Hinterlandes.<br>Luxus, Natur und die Wärme des Zuhauses." },
-    "footer-links": { "hr": "Brzi linkovi", "en": "Quick links", "de": "Schnelllinks" },
-    "footer-contact": { "hr": "Kontakt", "en": "Contact", "de": "Kontakt" },
-    "footer-addr": { "hr": "Podbablje Gornje<br>Imotski, Hrvatska", "en": "Podbablje Gornje<br>Imotski, Croatia", "de": "Podbablje Gornje<br>Imotski, Kroatien" },
-    "footer-reply": { "hr": "Odgovor u roku od 1 sata", "en": "Reply within 1 hour", "de": "Antwort innerhalb von 1 Stunde" },
-    "footer-btn": { "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Pošalji upit", "en": "<i class=\"fa-brands fa-whatsapp\"></i> Send inquiry", "de": "<i class=\"fa-brands fa-whatsapp\"></i> Anfrage senden" },
-    "footer-copy": { "hr": "© 2026 Apartment Antonia · Podbablje Gornje, Hrvatska", "en": "© 2026 Apartment Antonia · Podbablje Gornje, Croatia", "de": "© 2026 Apartment Antonia · Podbablje Gornje, Kroatien" },
-    "news-eyebrow": { "hr": "Najnovije obavijesti", "en": "Latest updates", "de": "Aktuelle Mitteilungen" },
-    "news-title": { "hr": "Novosti & Događanja", "en": "News & Events", "de": "Neuigkeiten & Events" },
-    "news-sub": { "hr": "Pratite najnovije obavijesti i posebne ponude.", "en": "Follow our latest updates and special offers.", "de": "Verfolgen Sie unsere neuesten Updates und Angebote." }
+    "nav-logo": {
+      "hr": "Apartment Antonia",
+      "en": "Apartment Antonia",
+      "de": "Apartment Antonia"
+    },
+    "nav-about": {
+      "hr": "O apartmanu",
+      "en": "About",
+      "de": "Über uns"
+    },
+    "nav-gallery": {
+      "hr": "Galerija",
+      "en": "Gallery",
+      "de": "Galerie"
+    },
+    "nav-amenities": {
+      "hr": "Sadržaji",
+      "en": "Amenities",
+      "de": "Ausstattung"
+    },
+    "nav-reviews": {
+      "hr": "Recenzije",
+      "en": "Reviews",
+      "de": "Bewertungen"
+    },
+    "nav-faq": {
+      "hr": "FAQ",
+      "en": "FAQ",
+      "de": "FAQ"
+    },
+    "nav-map": {
+      "hr": "Lokacija",
+      "en": "Location",
+      "de": "Lage"
+    },
+    "nav-book": {
+      "hr": "Rezerviraj",
+      "en": "Book Now",
+      "de": "Jetzt buchen"
+    },
+    "hero-eyebrow": {
+      "hr": "Podbablje · Imotski · 30 km od mora",
+      "en": "Podbablje · Imotski · 30 km from the sea",
+      "de": "Podbablje · Imotski · 30 km vom Meer"
+    },
+    "hero-title": {
+      "hr": "Antonia",
+      "en": "Antonia",
+      "de": "Antonia"
+    },
+    "hero-sub": {
+      "hr": "Privatna oaza za 3 gosta · Etno konoba · Dvorište · Roštilj",
+      "en": "Private oasis for 3 guests · Ethno tavern · Courtyard · BBQ",
+      "de": "Private Oase für 3 Gäste · Ethno-Taverne · Innenhof · Grill"
+    },
+    "hero-btn-book": {
+      "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Rezerviraj izravno",
+      "en": "<i class=\"fa-brands fa-whatsapp\"></i> Book directly",
+      "de": "<i class=\"fa-brands fa-whatsapp\"></i> Direkt buchen"
+    },
+    "hero-btn-gallery": {
+      "hr": "<i class=\"fa-regular fa-images\"></i> Pogledaj galeriju",
+      "en": "<i class=\"fa-regular fa-images\"></i> View gallery",
+      "de": "<i class=\"fa-regular fa-images\"></i> Galerie ansehen"
+    },
+    "hero-scroll": {
+      "hr": "Pomakni",
+      "en": "Scroll",
+      "de": "Scrollen"
+    },
+    "proof-rating": {
+      "hr": "Ocjena 5.0 ⭐",
+      "en": "Rating 5.0 ⭐",
+      "de": "Bewertung 5.0 ⭐"
+    },
+    "proof-pets": {
+      "hr": "Kućni ljubimci dobrodošli",
+      "en": "Pets welcome",
+      "de": "Haustiere willkommen"
+    },
+    "proof-parking": {
+      "hr": "Besplatan Parking",
+      "en": "Free Parking",
+      "de": "Kostenloser Parkplatz"
+    },
+    "proof-sea": {
+      "hr": "30km do mora",
+      "en": "30km from sea",
+      "de": "30km zum Meer"
+    },
+    "proof-reply": {
+      "hr": "Odgovor u roku od 1h",
+      "en": "Reply within 1h",
+      "de": "Antwort innerhalb 1 Std."
+    },
+    "about-exp": {
+      "hr": "2+<br>godine<br>iskustva",
+      "en": "2+<br>years of<br>experience",
+      "de": "2+<br>Jahre<br>Erfahrung"
+    },
+    "about-eyebrow": {
+      "hr": "O apartmanu",
+      "en": "About the apartment",
+      "de": "Über das Apartment"
+    },
+    "about-title": {
+      "hr": "Više od apartmana —<br><em>doživljaj</em>",
+      "en": "More than an apartment —<br><em>an experience</em>",
+      "de": "Mehr als nur ein Apartment —<br><em>ein Erlebnis</em>"
+    },
+    "about-desc": {
+      "hr": "Opustite se u ugodnom i moderno uređenom smještaju, smještenom svega 30 km od mora. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima. Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.",
+      "en": "Relax in a cozy and modernly decorated accommodation, located just 30 km from the sea. You have at your disposal a private entrance, a fully equipped kitchen, a living room, a bedroom and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room with sound and light effects. An ideal choice for couples looking for peace, privacy, and complete relaxation.",
+      "de": "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft, die nur 30 km vom Meer entfernt liegt. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum mit Sound- und Lichteffekten. Eine ideale Wahl für Paare, die Ruhe, Privatsphäre und völlige Entspannung suchen."
+    },
+    "about-list-1": {
+      "hr": "Okružen prirodom i šumom,",
+      "en": "Surrounded by nature and forest,",
+      "de": "Umgeben von Natur und Wald,"
+    },
+    "about-list-2": {
+      "hr": "udaljen svega 3 km od rijeke,",
+      "en": "only 3 km from the river,",
+      "de": "nur 3 km vom Fluss entfernt,"
+    },
+    "about-list-3": {
+      "hr": "7 km od jezera i 30 km od mora.",
+      "en": "7 km from the lake and 30 km from the sea.",
+      "de": "7 km vom See und 30 km vom Meer."
+    },
+    "about-list-4": {
+      "hr": "Restoran 400 m, dućan 1 km.",
+      "en": "Restaurant 400 m, shop 1 km.",
+      "de": "Restaurant 400 m, Geschäft 1 km."
+    },
+    "about-btn": {
+      "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Provjeri dostupnost",
+      "en": "<i class=\"fa-brands fa-whatsapp\"></i> Check availability",
+      "de": "<i class=\"fa-brands fa-whatsapp\"></i> Verfügbarkeit prüfen"
+    },
+    "gallery-eyebrow": {
+      "hr": "Fotografije",
+      "en": "Photos",
+      "de": "Fotos"
+    },
+    "gallery-title": {
+      "hr": "Istražite prostor",
+      "en": "Explore the space",
+      "de": "Erkunden Sie den Raum"
+    },
+    "gallery-subtitle": {
+      "hr": "Moderni apartman na gornjem katu i autentična etno konoba u prizemlju.",
+      "en": "Modern apartment on the upper floor and authentic ethno tavern on the ground floor.",
+      "de": "Modernes Apartment im Obergeschoss und authentische Ethno-Taverne im Erdgeschoss."
+    },
+    "gal-show-all": {
+      "hr": "Prikaži sve fotografije",
+      "en": "Show all photos",
+      "de": "Alle Fotos anzeigen"
+    },
+    "gal-filter-all": {
+      "hr": "Sve",
+      "en": "All",
+      "de": "Alle"
+    },
+    "gal-filter-living": {
+      "hr": "Dnevni boravak",
+      "en": "Living room",
+      "de": "Wohnzimmer"
+    },
+    "gal-filter-kitchen": {
+      "hr": "Kuhinja",
+      "en": "Kitchen",
+      "de": "Küche"
+    },
+    "gal-filter-dining": {
+      "hr": "Trpezarija",
+      "en": "Dining room",
+      "de": "Essbereich"
+    },
+    "gal-filter-bed": {
+      "hr": "Spavaća soba",
+      "en": "Bedroom",
+      "de": "Schlafzimmer"
+    },
+    "gal-filter-bath": {
+      "hr": "Kupaonica",
+      "en": "Bathroom",
+      "de": "Badezimmer"
+    },
+    "gal-filter-ext": {
+      "hr": "Eksterijer",
+      "en": "Exterior",
+      "de": "Außenbereich"
+    },
+    "gal-filter-more": {
+      "hr": "Dodatno",
+      "en": "More",
+      "de": "Zusätzliches"
+    },
+    "gal-hide-btn": {
+      "hr": "Sakrij galeriju",
+      "en": "Hide gallery",
+      "de": "Galerie ausblenden"
+    },
+    "gal-book-cta": {
+      "hr": "Sviđa mi se — Rezerviraj!",
+      "en": "I like it — Book now!",
+      "de": "Gefällt mir — Jetzt buchen!"
+    },
+    "am-eyebrow": {
+      "hr": "Što je uključeno",
+      "en": "What's included",
+      "de": "Was inbegriffen ist"
+    },
+    "am-title": {
+      "hr": "Sadržaji",
+      "en": "Amenities",
+      "de": "Ausstattung"
+    },
+    "am-sub": {
+      "hr": "Sve što vam je potrebno za ugodan boravak — i više od toga.",
+      "en": "Everything you need for a comfortable stay — and more.",
+      "de": "Alles, was Sie für einen angenehmen Aufenthalt benötigen — und mehr."
+    },
+    "am-bath-title": {
+      "hr": "Kupaonica",
+      "en": "Bathroom",
+      "de": "Badezimmer"
+    },
+    "am-bath-1": {
+      "hr": "Sušilo za kosu",
+      "en": "Hair dryer",
+      "de": "Haartrockner"
+    },
+    "am-bath-2": {
+      "hr": "Šampon i regenerator",
+      "en": "Shampoo and conditioner",
+      "de": "Shampoo und Spülung"
+    },
+    "am-bath-3": {
+      "hr": "Gel za tuširanje",
+      "en": "Shower gel",
+      "de": "Duschgel"
+    },
+    "am-bath-4": {
+      "hr": "Sapun i toaletni papir",
+      "en": "Soap and toilet paper",
+      "de": "Seife und Toilettenpapier"
+    },
+    "am-bath-5": {
+      "hr": "Topla voda",
+      "en": "Hot water",
+      "de": "Warmwasser"
+    },
+    "am-bath-6": {
+      "hr": "Sredstva za čišćenje",
+      "en": "Cleaning products",
+      "de": "Reinigungsmittel"
+    },
+    "am-bed-title": {
+      "hr": "Spavaća soba",
+      "en": "Bedroom",
+      "de": "Schlafzimmer"
+    },
+    "am-bed-1": {
+      "hr": "Posteljina i ručnici",
+      "en": "Bed linens and towels",
+      "de": "Bettwäsche und Handtücher"
+    },
+    "am-bed-2": {
+      "hr": "Dodatni jastuci i pokrivači",
+      "en": "Extra pillows and blankets",
+      "de": "Zusätzliche Kissen und Decken"
+    },
+    "am-bed-3": {
+      "hr": "Zavjese za zamračivanje",
+      "en": "Room-darkening shades",
+      "de": "Verdunkelungsvorhänge"
+    },
+    "am-bed-4": {
+      "hr": "Glačalo i vješalice",
+      "en": "Iron and hangers",
+      "de": "Bügeleisen und Kleiderbügel"
+    },
+    "am-bed-5": {
+      "hr": "Ormar i sef",
+      "en": "Closet and safe",
+      "de": "Kleiderschrank und Tresor"
+    },
+    "am-bed-6": {
+      "hr": "Mreža protiv komaraca",
+      "en": "Mosquito net",
+      "de": "Moskitonetz"
+    },
+    "am-ent-title": {
+      "hr": "Zabava",
+      "en": "Entertainment",
+      "de": "Unterhaltung"
+    },
+    "am-ent-1": {
+      "hr": "TV",
+      "en": "TV",
+      "de": "Fernseher"
+    },
+    "am-ent-2": {
+      "hr": "Zvučni sustav",
+      "en": "Sound system",
+      "de": "Soundsystem"
+    },
+    "am-ent-3": {
+      "hr": "Gramofon",
+      "en": "Record player",
+      "de": "Plattenspieler"
+    },
+    "am-ent-4": {
+      "hr": "Knjige",
+      "en": "Books",
+      "de": "Bücher"
+    },
+    "am-ent-5": {
+      "hr": "Društvene igre",
+      "en": "Board games",
+      "de": "Brettspiele"
+    },
+    "am-ac-title": {
+      "hr": "Grijanje i hlađenje",
+      "en": "Heating and cooling",
+      "de": "Heizung und Kühlung"
+    },
+    "am-ac-1": {
+      "hr": "Klima uređaj",
+      "en": "Air conditioning",
+      "de": "Klimaanlage"
+    },
+    "am-ac-2": {
+      "hr": "Grijanje",
+      "en": "Heating",
+      "de": "Heizung"
+    },
+    "am-ac-3": {
+      "hr": "Prijenosni ventilatori",
+      "en": "Portable fans",
+      "de": "Tragbare Ventilatoren"
+    },
+    "am-kit-title": {
+      "hr": "Kuhinja",
+      "en": "Kitchen",
+      "de": "Küche"
+    },
+    "am-kit-1": {
+      "hr": "Potpuno opremljena kuhinja",
+      "en": "Fully equipped kitchen",
+      "de": "Voll ausgestattete Küche"
+    },
+    "am-kit-2": {
+      "hr": "Hladnjak i zamrzivač",
+      "en": "Refrigerator and freezer",
+      "de": "Kühlschrank und Gefrierschrank"
+    },
+    "am-kit-3": {
+      "hr": "Pećnica i mikrovalna pećnica",
+      "en": "Oven and microwave",
+      "de": "Backofen und Mikrowelle"
+    },
+    "am-kit-4": {
+      "hr": "Perilica posuđa",
+      "en": "Dishwasher",
+      "de": "Spülmaschine"
+    },
+    "am-kit-5": {
+      "hr": "Aparat za kavu i toster",
+      "en": "Coffee maker and toaster",
+      "de": "Kaffeemaschine und Toaster"
+    },
+    "am-kit-6": {
+      "hr": "Pribor za roštilj",
+      "en": "Barbecue utensils",
+      "de": "Grillutensilien"
+    },
+    "am-out-title": {
+      "hr": "Vanjski prostor",
+      "en": "Outdoor space",
+      "de": "Außenbereich"
+    },
+    "am-out-1": {
+      "hr": "Privatno dvorište",
+      "en": "Private courtyard",
+      "de": "Privater Innenhof"
+    },
+    "am-out-2": {
+      "hr": "Roštilj",
+      "en": "BBQ grill",
+      "de": "Grillplatz"
+    },
+    "am-out-3": {
+      "hr": "Vanjska kuhinja",
+      "en": "Outdoor kitchen",
+      "de": "Außenküche"
+    },
+    "am-out-4": {
+      "hr": "Vanjski prostor za sjedenje",
+      "en": "Outdoor seating area",
+      "de": "Sitzbereich im Freien"
+    },
+    "am-out-5": {
+      "hr": "Ognjište",
+      "en": "Fire pit",
+      "de": "Feuerstelle"
+    },
+    "am-out-6": {
+      "hr": "Bicikli",
+      "en": "Bicycles",
+      "de": "Fahrräder"
+    },
+    "am-gen-title": {
+      "hr": "Općenito",
+      "en": "General",
+      "de": "Allgemein"
+    },
+    "am-gen-1": {
+      "hr": "Besplatan WiFi",
+      "en": "Free WiFi",
+      "de": "Kostenloses WLAN"
+    },
+    "am-gen-2": {
+      "hr": "Besplatan parking",
+      "en": "Free parking",
+      "de": "Kostenloser Parkplatz"
+    },
+    "am-gen-3": {
+      "hr": "Privatni ulaz",
+      "en": "Private entrance",
+      "de": "Privater Eingang"
+    },
+    "am-gen-4": {
+      "hr": "Perilica rublja",
+      "en": "Washing machine",
+      "de": "Waschmaschine"
+    },
+    "am-gen-5": {
+      "hr": "Vatrogasni aparat",
+      "en": "Fire extinguisher",
+      "de": "Feuerlöscher"
+    },
+    "am-gen-6": {
+      "hr": "Kutija prve pomoći",
+      "en": "First aid kit",
+      "de": "Erste-Hilfe-Set"
+    },
+    "am-spec-title": {
+      "hr": "Posebno",
+      "en": "Special",
+      "de": "Besonderes"
+    },
+    "am-spec-1": {
+      "hr": "Dopušteni kućni ljubimci",
+      "en": "Pets allowed",
+      "de": "Haustiere erlaubt"
+    },
+    "am-spec-2": {
+      "hr": "Dopušteno pušenje",
+      "en": "Smoking allowed",
+      "de": "Rauchen erlaubt"
+    },
+    "am-spec-3": {
+      "hr": "Dobrodošli dugi boravci",
+      "en": "Long term stays allowed",
+      "de": "Langzeitaufenthalte willkommen"
+    },
+    "am-spec-4": {
+      "hr": "Čišćenje na zahtjev",
+      "en": "Cleaning on request",
+      "de": "Reinigung auf Anfrage"
+    },
+    "am-spec-5": {
+      "hr": "Pohrana prtljage",
+      "en": "Luggage dropoff allowed",
+      "de": "Gepäckaufbewahrung erlaubt"
+    },
+    "book-eyebrow": {
+      "hr": "Izravna rezervacija",
+      "en": "Direct Booking",
+      "de": "Direktbuchung"
+    },
+    "book-title": {
+      "hr": "Rezervirajte bez<br><em>provizije</em>",
+      "en": "Book without<br><em>commission</em>",
+      "de": "Buchen ohne<br><em>Provision</em>"
+    },
+    "book-desc": {
+      "hr": "Pošaljite svoj upit putem WhatsAppa. Odgovor u roku od 1 sat.",
+      "en": "Send your inquiry via WhatsApp. Reply within 1 hour.",
+      "de": "Senden Sie Ihre Anfrage per WhatsApp. Antwort innerhalb von 1 Stunde."
+    },
+    "book-perk-1": {
+      "hr": "Izravna rezervacija",
+      "en": "Direct booking",
+      "de": "Direktbuchung"
+    },
+    "book-perk-2": {
+      "hr": "Odgovor u roku od 1h",
+      "en": "Reply within 1h",
+      "de": "Antwort innerhalb 1 Std."
+    },
+    "book-perk-3": {
+      "hr": "Fleksibilna prijava",
+      "en": "Flexible check-in",
+      "de": "Flexibler Check-in"
+    },
+    "book-perk-4": {
+      "hr": "Ljubimci dobrodošli",
+      "en": "Pets welcome",
+      "de": "Haustiere willkommen"
+    },
+    "book-price-from": {
+      "hr": "Od",
+      "en": "From",
+      "de": "Ab"
+    },
+    "book-price-night": {
+      "hr": "/ noćenju",
+      "en": "/ night",
+      "de": "/ Nacht"
+    },
+    "book-price-note": {
+      "hr": "Minimalno 4 noćenja · Cijena se potvrđuje na upit",
+      "en": "Minimum 4 nights · Price confirmed upon request",
+      "de": "Mindestaufenthalt 4 Nächte · Preis wird auf Anfrage bestätigt"
+    },
+    "form-checkin": {
+      "hr": "Prijava",
+      "en": "Check-in",
+      "de": "Check-in"
+    },
+    "form-checkout": {
+      "hr": "Odjava",
+      "en": "Check-out",
+      "de": "Check-out"
+    },
+    "form-name-label": {
+      "hr": "Ime i prezime",
+      "en": "Full Name",
+      "de": "Vor- und Nachname"
+    },
+    "form-name-ph": {
+      "hr": "Vaše ime",
+      "en": "Your name",
+      "de": "Ihr Name"
+    },
+    "form-guests-label": {
+      "hr": "Broj gostiju",
+      "en": "Number of guests",
+      "de": "Anzahl der Gäste"
+    },
+    "form-guest-1": {
+      "hr": "1 gost",
+      "en": "1 guest",
+      "de": "1 Gast"
+    },
+    "form-guest-2": {
+      "hr": "2 gosta",
+      "en": "2 guests",
+      "de": "2 Gäste"
+    },
+    "form-guest-3": {
+      "hr": "3 gosta",
+      "en": "3 guests",
+      "de": "3 Gäste"
+    },
+    "form-email-label": {
+      "hr": "Email (opciono)",
+      "en": "Email (optional)",
+      "de": "E-Mail (optional)"
+    },
+    "form-email-ph": {
+      "hr": "vasa@email.com",
+      "en": "your@email.com",
+      "de": "ihre@email.com"
+    },
+    "form-note-label": {
+      "hr": "Napomena",
+      "en": "Note",
+      "de": "Anmerkung"
+    },
+    "form-note-ph": {
+      "hr": "Posebni zahtjevi, pitanja...",
+      "en": "Special requests, questions...",
+      "de": "Besondere Wünsche, Fragen..."
+    },
+    "form-pet-label": {
+      "hr": "🐾 Donosim kućnog ljubimca",
+      "en": "🐾 I'm bringing a pet",
+      "de": "🐾 Ich bringe ein Haustier mit"
+    },
+    "form-btn": {
+      "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Pošalji upit na WhatsApp",
+      "en": "<i class=\"fa-brands fa-whatsapp\"></i> Send inquiry to WhatsApp",
+      "de": "<i class=\"fa-brands fa-whatsapp\"></i> Anfrage per WhatsApp senden"
+    },
+    "form-reply-note": {
+      "hr": "Antonia odgovara u roku od 1 sata",
+      "en": "Antonia replies within 1 hour",
+      "de": "Antonia antwortet innerhalb von 1 Stunde"
+    },
+    "rev-eyebrow": {
+      "hr": "Što kažu gosti",
+      "en": "What guests say",
+      "de": "Was Gäste sagen"
+    },
+    "rev-title": {
+      "hr": "Recenzije",
+      "en": "Reviews",
+      "de": "Bewertungen"
+    },
+    "rev-sub": {
+      "hr": "Ocjena 5.0 ⭐ · Gosti se uvijek rado vraćaju",
+      "en": "Rating 5.0 ⭐ · Guests always love to return",
+      "de": "Bewertung 5.0 ⭐ · Gäste kommen immer wieder gerne zurück"
+    },
+    "faq-eyebrow": {
+      "hr": "Imate pitanja?",
+      "en": "Have questions?",
+      "de": "Haben Sie Fragen?"
+    },
+    "faq-title": {
+      "hr": "FAQ",
+      "en": "FAQ",
+      "de": "FAQ"
+    },
+    "faq-sub": {
+      "hr": "Sve što trebate znati prije dolaska.",
+      "en": "Everything you need to know before arrival.",
+      "de": "Alles, was Sie vor Ihrer Anreise wissen müssen."
+    },
+    "map-eyebrow": {
+      "hr": "Kako doći do nas",
+      "en": "How to find us",
+      "de": "Wie Sie uns finden"
+    },
+    "map-title": {
+      "hr": "Lokacija",
+      "en": "Location",
+      "de": "Lage"
+    },
+    "map-sub": {
+      "hr": "Podbablje Gornje, Imotski · 30 km do mora · Besplatan parking",
+      "en": "Podbablje Gornje, Imotski · 30 km to the sea · Free parking",
+      "de": "Podbablje Gornje, Imotski · 30 km zum Meer · Kostenloser Parkplatz"
+    },
+    "map-btn": {
+      "hr": "Navigiraj — Google Maps",
+      "en": "Navigate — Google Maps",
+      "de": "Navigieren — Google Maps"
+    },
+    "map-pill-1": {
+      "hr": "Podbablje Gornje, Imotski, HR",
+      "en": "Podbablje Gornje, Imotski, HR",
+      "de": "Podbablje Gornje, Imotski, HR"
+    },
+    "map-pill-2": {
+      "hr": "30 km do Makarske rivijere",
+      "en": "30 km to Makarska Riviera",
+      "de": "30 km zur Makarska Riviera"
+    },
+    "map-pill-3": {
+      "hr": "7 km do jezera",
+      "en": "7 km to the lake",
+      "de": "7 km zum See"
+    },
+    "map-pill-4": {
+      "hr": "Besplatan privatni parking",
+      "en": "Free private parking",
+      "de": "Kostenloser privater Parkplatz"
+    },
+    "footer-tagline": {
+      "hr": "Vaše utočište u srcu Dalmatinske zagore.<br>Luksuz, priroda i toplina doma.",
+      "en": "Your sanctuary in the heart of the Dalmatian Hinterland.<br>Luxury, nature, and the warmth of home.",
+      "de": "Ihre Oase im Herzen des dalmatinischen Hinterlandes.<br>Luxus, Natur und die Wärme des Zuhauses."
+    },
+    "footer-links": {
+      "hr": "Brzi linkovi",
+      "en": "Quick links",
+      "de": "Schnelllinks"
+    },
+    "footer-contact": {
+      "hr": "Kontakt",
+      "en": "Contact",
+      "de": "Kontakt"
+    },
+    "footer-addr": {
+      "hr": "Podbablje Gornje<br>Imotski, Hrvatska",
+      "en": "Podbablje Gornje<br>Imotski, Croatia",
+      "de": "Podbablje Gornje<br>Imotski, Kroatien"
+    },
+    "footer-reply": {
+      "hr": "Odgovor u roku od 1 sata",
+      "en": "Reply within 1 hour",
+      "de": "Antwort innerhalb von 1 Stunde"
+    },
+    "footer-btn": {
+      "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Pošalji upit",
+      "en": "<i class=\"fa-brands fa-whatsapp\"></i> Send inquiry",
+      "de": "<i class=\"fa-brands fa-whatsapp\"></i> Anfrage senden"
+    },
+    "footer-copy": {
+      "hr": "© 2026 Apartment Antonia · Podbablje Gornje, Hrvatska",
+      "en": "© 2026 Apartment Antonia · Podbablje Gornje, Croatia",
+      "de": "© 2026 Apartment Antonia · Podbablje Gornje, Kroatien"
+    }
   },
   "pricePerNight": 70,
-  "minNights": 4,
+  "minNights": 5,
   "contactWhatsApp": "385915575156",
   "contactEmail": "tona0009@icloud.com",
   "reviews": [
@@ -230,58 +781,277 @@
       }
     }
   ],
-  "news": [
+  "faqs": [
     {
-      "date": "2026-06-01",
-      "title": {
-        "hr": "Otvorene rezervacije za sezonu 2026!",
-        "en": "Reservations for the 2026 season are open!",
-        "de": "Reservierungen für die Saison 2026 sind geöffnet!"
+      "q": {
+        "hr": "Koji je minimalni broj noći?",
+        "en": "What is the minimum number of nights?",
+        "de": "Was ist die Mindestanzahl an Nächten?"
       },
-      "text": {
-        "hr": "Rezervirajte svoj luksuzni boravak direktno bez agencijske provizije. Naša etno konoba i prekrasno dvorište spremni su za vas!",
-        "en": "Book your luxury stay directly without agency commissions. Our ethno tavern and beautiful courtyard are ready for you!",
-        "de": "Buchen Sie Ihren Luxusaufenthalt direkt ohne Agenturprovision. Unsere Ethno-Taverne und unser schöner Innenhof stehen für Sie bereit!"
+      "a": {
+        "hr": "Minimalni boravak je 4 noći. Za duže boravke (tjedan i više) možete se dogovoriti za povoljniju cijenu direktno putem WhatsAppa.",
+        "en": "Minimum stay is 4 nights. For longer stays (a week or more), you can negotiate a cheaper price directly through WhatsApp.",
+        "de": "Der Mindestaufenthalt beträgt 4 Nächte. Bei längeren Aufenthalten (ab einer Woche) kannst du direkt über WhatsApp einen günstigeren Preis aushandeln."
+      }
+    },
+    {
+      "q": {
+        "hr": "Kako se vrši prijava (check-in)?",
+        "en": "How does check-in work?",
+        "de": "Wie läuft der Check-in ab?"
+      },
+      "a": {
+        "hr": "Check-in je fleksibilan i dogovara se direktno. Checkout je do 10:00. Apartman ima zaseban ulaz pa imate potpunu privatnost.",
+        "en": "Check-in is flexible and arranged directly. Checkout is by 10:00. The apartment has a separate entrance so you have complete privacy.",
+        "de": "Der Check-in ist flexibel und wird direkt vereinbart. Der Check-out ist bis 10:00 Uhr. Das Apartment verfügt über einen separaten entrance, sodass Sie absolute Privatsphäre genießen."
+      }
+    },
+    {
+      "q": {
+        "hr": "Je li parking besplatan?",
+        "en": "Is parking free?",
+        "de": "Ist das Parken kostenlos?"
+      },
+      "a": {
+        "hr": "Da, besplatan privatni parking je dostupan direktno uz apartman. Nema ograničenja ni naplate.",
+        "en": "Yes, free private parking is available directly at the apartment. There are no restrictions or charges.",
+        "de": "Ja, kostenlose Privatparkplätze stehen direkt am Apartment zur Verfügung. Es gibt keine Einschränkungen oder Gebühren."
+      }
+    },
+    {
+      "q": {
+        "hr": "Mogu li doći s kućnim ljubimcem?",
+        "en": "Can I bring a pet?",
+        "de": "Kann ich ein Haustier mitbringen?"
+      },
+      "a": {
+        "hr": "Da! Kućni ljubimci su dobrodošli. Privatno dvorište je idealno za šetnju. Samo naznačite u upitu da donosite ljubimca.",
+        "en": "Yes! Pets are welcome. The private courtyard is ideal for walking. Just indicate in your inquiry that you are bringing a pet.",
+        "de": "Ja! Haustiere sind herzlich willkommen. Der private Innenhof ist ideal zum Auslauf. Bitte geben Sie bei Ihrer Anfrage an, dass Sie ein Haustier mitbringen."
+      }
+    },
+    {
+      "q": {
+        "hr": "Što je etno konoba?",
+        "en": "What is the ethno tavern?",
+        "de": "Was ist eine Ethno-Taverne?"
+      },
+      "a": {
+        "hr": "Etno konoba je posebna zabavna prostorija u prizemlju s kamenim zidovima, hrastovim stolom i klupama, TV-om, mini barom i hladnjakom s pićima. Ima zvučne i svjetlosne efekte — idealna za večernje druženje.",
+        "en": "The ethno tavern is a special entertainment room on the ground floor with stone walls, oak table and benches, TV, minibar, and fridge with drinks. It features sound and light effects — ideal for evening gatherings.",
+        "de": "Die Ethno-Taverne ist ein spezieller Partyraum im Erdgeschoss mit Steinwänden, Eichentisch und -bänken, Fernseher, Minibar und Kühlschrank mit Getränken. Sie verfügt über Sound- und Lichteffekte — ideal für gesellige Abende."
+      }
+    },
+    {
+      "q": {
+        "hr": "Koliko je daleko more?",
+        "en": "How far is the sea?",
+        "de": "Wie weit ist das Meer entfernt?"
+      },
+      "a": {
+        "hr": "Makarska rivijera je oko 30 km (otprilike 30 minuta vožnje). U blizini su i rijeka (3 km) i jezero (7 km) za kupanje u prirodi.",
+        "en": "The Makarska Riviera is about 30 km (roughly a 30-minute drive). Nearby are also a river (3 km) and a lake (7 km) for nature swimming.",
+        "de": "Die Makarska Riviera ist etwa 30 km entfernt (ca. 30 Minuten Fahrt). Fluss (3 km) und See (7 km) in der Nähe laden ebenfalls zum Schwimmen in der Natur ein."
+      }
+    },
+    {
+      "q": {
+        "hr": "Kako rezervirati direktno?",
+        "en": "How to book directly?",
+        "de": "Wie kann ich direkt buchen?"
+      },
+      "a": {
+        "hr": "Ispunite formu na ovoj stranici i upit će otići direktno na WhatsApp. Kontakt je direktan, cijena niža, a odgovor stiže u roku od 1 sat.",
+        "en": "Fill out the form on this page and the inquiry will go directly to WhatsApp. Contact is direct, price is lower, and the reply arrives within 1 hour.",
+        "de": "Füllen Sie das Formular auf dieser Seite aus, und die Anfrage gine direkt an WhatsApp. Der Konktat ist direkt, der Preis günstiger i odgovor dolazi u roku od 1 sata."
       }
     }
   ],
   "gallery": [
-    { "src": "images/dnevni2.jpg", "alt": "Dnevni boravak", "cat": "dnevni" },
-    { "src": "images/kupaonica4.jpg", "alt": "Kupaonica", "cat": "kupaonica" },
-    { "src": "images/kuhinja1.jpg", "alt": "Kuhinja", "cat": "kuhinja" },
-    { "src": "images/exterior1.jpg", "alt": "Eksterijer", "cat": "eksterijer" },
-    { "src": "images/dodatno1.jpg", "alt": "Više", "cat": "dodatno" },
-    { "src": "images/dnevni1.jpg", "alt": "Dnevni boravak", "cat": "dnevni" },
-    { "src": "images/dnevni3.jpg", "alt": "Dnevni boravak", "cat": "dnevni" },
-    { "src": "images/dnevni4.jpg", "alt": "Dnevni boravak", "cat": "dnevni" },
-    { "src": "images/dnevni5.jpg", "alt": "Dnevni boravak", "cat": "dnevni" },
-    { "src": "images/kuhinja2.jpg", "alt": "Kuhinja", "cat": "kuhinja" },
-    { "src": "images/kuhinja3.jpg", "alt": "Kuhinja", "cat": "kuhinja" },
-    { "src": "images/kuhinja4.jpg", "alt": "Kuhinja", "cat": "kuhinja" },
-    { "src": "images/kuhinja5.jpg", "alt": "Kuhinja", "cat": "kuhinja" },
-    { "src": "images/trpezarija1.jpg", "alt": "Trpezarija", "cat": "trpezarija" },
-    { "src": "images/trpezarija2.jpg", "alt": "Trpezarija", "cat": "trpezarija" },
-    { "src": "images/trpezarija3.jpg", "alt": "Trpezarija", "cat": "trpezarija" },
-    { "src": "images/trpezarija4.jpg", "alt": "Trpezarija", "cat": "trpezarija" },
-    { "src": "images/soba1.jpg", "alt": "Spavaća soba", "cat": "spavaca" },
-    { "src": "images/soba2.jpg", "alt": "Spavaća soba", "cat": "spavaca" },
-    { "src": "images/kupaonica1.jpg", "alt": "Kupaonica", "cat": "kupaonica" },
-    { "src": "images/kupaonica2.jpg", "alt": "Kupaonica", "cat": "kupaonica" },
-    { "src": "images/kupaonica3.jpg", "alt": "Kupaonica", "cat": "kupaonica" },
-    { "src": "images/exterior2.jpg", "alt": "Eksterijer", "cat": "eksterijer" },
-    { "src": "images/exterior3.jpg", "alt": "Eksterijer", "cat": "eksterijer" },
-    { "src": "images/exterior4.jpg", "alt": "Eksterijer", "cat": "eksterijer" },
-    { "src": "images/exterior5.jpg", "alt": "Eksterijer", "cat": "eksterijer" },
-    { "src": "images/exterior6.jpg", "alt": "Eksterijer", "cat": "eksterijer" },
-    { "src": "images/dodatno2.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno3.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno4.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno5.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno6.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno7.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno8.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno9.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno10.jpg", "alt": "Dodatno", "cat": "dodatno" },
-    { "src": "images/dodatno11.jpg", "alt": "Dodatno", "cat": "dodatno" }
+    {
+      "src": "images/dnevni2.jpg",
+      "alt": "Dnevni boravak",
+      "cat": "dnevni"
+    },
+    {
+      "src": "images/kupaonica4.jpg",
+      "alt": "Kupaonica",
+      "cat": "kupaonica"
+    },
+    {
+      "src": "images/kuhinja1.jpg",
+      "alt": "Kuhinja",
+      "cat": "kuhinja"
+    },
+    {
+      "src": "images/exterior1.jpg",
+      "alt": "Eksterijer",
+      "cat": "eksterijer"
+    },
+    {
+      "src": "images/dodatno1.jpg",
+      "alt": "Više",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dnevni1.jpg",
+      "alt": "Dnevni boravak",
+      "cat": "dnevni"
+    },
+    {
+      "src": "images/dnevni3.jpg",
+      "alt": "Dnevni boravak",
+      "cat": "dnevni"
+    },
+    {
+      "src": "images/dnevni4.jpg",
+      "alt": "Dnevni boravak",
+      "cat": "dnevni"
+    },
+    {
+      "src": "images/dnevni5.jpg",
+      "alt": "Dnevni boravak",
+      "cat": "dnevni"
+    },
+    {
+      "src": "images/kuhinja2.jpg",
+      "alt": "Kuhinja",
+      "cat": "kuhinja"
+    },
+    {
+      "src": "images/kuhinja3.jpg",
+      "alt": "Kuhinja",
+      "cat": "kuhinja"
+    },
+    {
+      "src": "images/kuhinja4.jpg",
+      "alt": "Kuhinja",
+      "cat": "kuhinja"
+    },
+    {
+      "src": "images/kuhinja5.jpg",
+      "alt": "Kuhinja",
+      "cat": "kuhinja"
+    },
+    {
+      "src": "images/trpezarija1.jpg",
+      "alt": "Trpezarija",
+      "cat": "trpezarija"
+    },
+    {
+      "src": "images/trpezarija2.jpg",
+      "alt": "Trpezarija",
+      "cat": "trpezarija"
+    },
+    {
+      "src": "images/trpezarija3.jpg",
+      "alt": "Trpezarija",
+      "cat": "trpezarija"
+    },
+    {
+      "src": "images/trpezarija4.jpg",
+      "alt": "Trpezarija",
+      "cat": "trpezarija"
+    },
+    {
+      "src": "images/soba1.jpg",
+      "alt": "Spavaća soba",
+      "cat": "spavaca"
+    },
+    {
+      "src": "images/soba2.jpg",
+      "alt": "Spavaća soba",
+      "cat": "spavaca"
+    },
+    {
+      "src": "images/kupaonica1.jpg",
+      "alt": "Kupaonica",
+      "cat": "kupaonica"
+    },
+    {
+      "src": "images/kupaonica2.jpg",
+      "alt": "Kupaonica",
+      "cat": "kupaonica"
+    },
+    {
+      "src": "images/kupaonica3.jpg",
+      "alt": "Kupaonica",
+      "cat": "kupaonica"
+    },
+    {
+      "src": "images/exterior2.jpg",
+      "alt": "Eksterijer",
+      "cat": "eksterijer"
+    },
+    {
+      "src": "images/exterior3.jpg",
+      "alt": "Eksterijer",
+      "cat": "eksterijer"
+    },
+    {
+      "src": "images/exterior4.jpg",
+      "alt": "Eksterijer",
+      "cat": "eksterijer"
+    },
+    {
+      "src": "images/exterior5.jpg",
+      "alt": "Eksterijer",
+      "cat": "eksterijer"
+    },
+    {
+      "src": "images/exterior6.jpg",
+      "alt": "Eksterijer",
+      "cat": "eksterijer"
+    },
+    {
+      "src": "images/dodatno2.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno3.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno4.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno5.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno6.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno7.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno8.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno9.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno10.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    },
+    {
+      "src": "images/dodatno11.jpg",
+      "alt": "Dodatno",
+      "cat": "dodatno"
+    }
   ]
 }

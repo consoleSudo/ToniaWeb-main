@@ -73,7 +73,7 @@ function isValidContent(content) {
   if (!content || typeof content !== 'object' || Array.isArray(content)) return false;
 
   // Required top-level keys
-  const required = ['translations', 'pricePerNight', 'minNights', 'contactWhatsApp', 'contactEmail', 'reviews', 'gallery'];
+  const required = ['translations', 'pricePerNight', 'minNights', 'contactWhatsApp', 'contactEmail', 'reviews', 'gallery', 'faqs'];
   for (const key of required) {
     if (!(key in content)) return false;
   }
@@ -84,6 +84,7 @@ function isValidContent(content) {
   if (typeof content.contactWhatsApp !== 'string' || !/^\d{7,15}$/.test(content.contactWhatsApp)) return false;
   if (typeof content.contactEmail !== 'string' || content.contactEmail.length > 200) return false;
   if (!Array.isArray(content.reviews) || content.reviews.length > 100) return false;
+  if (!Array.isArray(content.faqs) || content.faqs.length > 100) return false;
   if (!Array.isArray(content.gallery) || content.gallery.length > 200) return false;
   if (typeof content.translations !== 'object') return false;
 
@@ -251,6 +252,73 @@ exports.handler = async function (event) {
   const REPO   = process.env.GITHUB_REPO;
   const BRANCH = process.env.GITHUB_BRANCH || 'main';
 
+  const isLocalDev = process.env.NETLIFY_DEV === 'true' || PAT === 'mock_token_za_testiranje';
+
+  // Ako smo u lokalnom razvoju, spremi izravno na disk
+  if (isLocalDev) {
+    const fs = require('fs');
+    const path = require('path');
+    const uploads = Array.isArray(content._uploads) ? content._uploads : [];
+    delete content._uploads;
+
+    const errors = [];
+    const uploaded = [];
+
+    // Lokalno spremi slike u images/
+    for (const upload of uploads) {
+      if (!isValidImageUpload(upload)) {
+        errors.push(`Preskočen neispravan prijenos: ${upload?.filename || 'unnamed'}`);
+        continue;
+      }
+
+      const safeFilename = upload.filename
+        .toLowerCase()
+        .replace(/[^a-z0-9._-]/g, '_')
+        .replace(/_{2,}/g, '_');
+
+      try {
+        const imgPath = path.resolve(process.cwd(), 'images', safeFilename);
+        const base64Data = upload.base64.includes(',')
+          ? upload.base64.split(',')[1]
+          : upload.base64;
+
+        fs.writeFileSync(imgPath, Buffer.from(base64Data, 'base64'));
+        uploaded.push(safeFilename);
+      } catch (err) {
+        console.error(`Local image write error for ${upload.filename}:`, err);
+        errors.push(`Greška pri lokalnom spremanju slike ${upload.filename}: ${err.message}`);
+      }
+    }
+
+    // Lokalno spremi content.json
+    try {
+      const localPath = path.resolve(process.cwd(), 'content.json');
+      fs.writeFileSync(localPath, JSON.stringify(content, null, 2), 'utf8');
+
+      return {
+        statusCode: 200,
+        headers: SECURITY_HEADERS,
+        body: JSON.stringify({
+          success: true,
+          message: 'Lokalne promjene su uspješno spremljene na disk!',
+          uploadedImages: uploaded,
+          warnings: errors.length ? errors : undefined
+        })
+      };
+    } catch (err) {
+      console.error('Local content.json write error:', err);
+      return {
+        statusCode: 500,
+        headers: SECURITY_HEADERS,
+        body: JSON.stringify({
+          error: `Greška pri lokalnom spremanju content.json: ${err.message}`,
+          uploadedImages: uploaded
+        })
+      };
+    }
+  }
+
+  // Produkcijska provjera GitHub konfiguracije
   if (!PAT || !REPO) {
     console.error('GITHUB_PAT or GITHUB_REPO environment variable is not set.');
     return { statusCode: 500, headers: SECURITY_HEADERS, body: JSON.stringify({ error: 'Server misconfiguration: missing GitHub credentials' }) };
