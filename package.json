@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Apartment Antonia - static website",
   "scripts": {
+    "build": "echo 'No build step required'",
     "dev": "npx serve . --listen 3000 --no-clipboard",
     "start": "npx serve . --listen 3000 --no-clipboard"
   },
