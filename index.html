@@ -1156,7 +1156,7 @@
     @media (max-width: 640px) {
       .gallery-preview {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 180px 90px;
+        grid-template-rows: 180px 120px;
         height: auto;
         gap: 4px;
       }
@@ -1170,7 +1170,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
-        height: 90px;
+        height: 120px;
         grid-column: span 2;
         gap: 4px;
       }
@@ -1204,15 +1204,15 @@
       }
 
       .amenities-track {
-        display: flex;
-        gap: 1.5rem;
-        width: max-content;
-        will-change: transform;
+        display: flex !important;
+        gap: 1.5rem !important;
+        width: max-content !important;
+        will-change: transform !important;
       }
 
       .amenity-group {
-        flex: 0 0 280px;
-        box-sizing: border-box;
+        flex: 0 0 280px !important;
+        box-sizing: border-box !important;
       }
     }
 
