@@ -1156,7 +1156,7 @@
     @media (max-width: 640px) {
       .gallery-preview {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 180px 180px;
+        grid-template-rows: 180px 90px;
         height: auto;
         gap: 4px;
       }
@@ -1168,10 +1168,15 @@
 
       .gp-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        height: 180px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        height: 90px;
         grid-column: span 2;
+        gap: 4px;
+      }
+
+      .gp-grid > div:nth-child(3) {
+        display: none;
       }
 
       .gallery-cta-wrap {
@@ -1231,7 +1236,7 @@
       color: rgba(255, 255, 255, 0.55);
       font-family: 'DM Sans', sans-serif;
       font-size: 0.82rem;
-      margin-top: 0.9rem;
+      margin-top: 0;
       letter-spacing: 0.1em;
     }
 
@@ -1298,6 +1303,34 @@
       transform: translateY(-50%) translateX(3px);
     }
 
+    .lb-mobile-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .lb-mob-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .lb-mob-btn:active {
+      transform: scale(0.92);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
     @media (max-width: 600px) {
       .lb-nav {
         display: none;
@@ -1306,6 +1339,10 @@
       .lb-content img {
         max-width: 96vw;
         max-height: 75vh;
+      }
+
+      .lb-mob-btn {
+        display: flex;
       }
     }
 
@@ -2344,17 +2381,21 @@
       /* Galerija preview */
       .gallery-preview {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 150px 150px;
+        grid-template-rows: 150px 75px;
         height: auto;
       }
 
-      .gallery-preview .gallery-item--wide {
-        grid-column: span 2;
-        grid-row: span 1;
+      .gallery-preview .gp-grid {
+        height: 75px;
+      }
+
+      .gallery-expand-btn i {
+        font-size: 1.1rem;
       }
 
       .gallery-expand-btn span {
-        font-size: 0.72rem;
+        font-size: 0.65rem;
+        line-height: 1.2;
       }
 
       /* Gallery tabs */
@@ -3659,7 +3700,13 @@
         class="fa-solid fa-chevron-left"></i></button>
     <div class="lb-content">
       <img id="lightboxImg" src="" alt="" />
-      <div class="lb-counter" id="lightboxCounter"></div>
+      <div class="lb-mobile-nav">
+        <button class="lb-mob-btn lb-mob-prev" id="lightboxMobilePrev" aria-label="Prethodna"><i
+            class="fa-solid fa-chevron-left"></i></button>
+        <span class="lb-counter" id="lightboxCounter"></span>
+        <button class="lb-mob-btn lb-mob-next" id="lightboxMobileNext" aria-label="Sljedeća"><i
+            class="fa-solid fa-chevron-right"></i></button>
+      </div>
     </div>
     <button class="lb-nav lb-next" id="lightboxNext" aria-label="Sljedeća"><i
         class="fa-solid fa-chevron-right"></i></button>
@@ -3674,6 +3721,8 @@
       const lbClose = document.getElementById('lightboxClose');
       const lbPrev = document.getElementById('lightboxPrev');
       const lbNext = document.getElementById('lightboxNext');
+      const lbMobilePrev = document.getElementById('lightboxMobilePrev');
+      const lbMobileNext = document.getElementById('lightboxMobileNext');
 
       let images = [];   // { src, alt }
       let current = 0;
@@ -3721,6 +3770,8 @@
       lbClose.addEventListener('click', close);
       lbPrev.addEventListener('click', prev);
       lbNext.addEventListener('click', next);
+      if (lbMobilePrev) lbMobilePrev.addEventListener('click', prev);
+      if (lbMobileNext) lbMobileNext.addEventListener('click', next);
       lb.addEventListener('click', e => { if (e.target === lb) close(); });
       document.addEventListener('keydown', e => {
         if (!lb.classList.contains('open')) return;
