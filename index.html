@@ -1021,6 +1021,11 @@
       opacity: 0.85;
     }
 
+    .about-text .divider,
+    .booking-info .divider {
+      margin: 1.25rem 0;
+    }
+
     .about-desc {
       color: var(--color-text-muted);
       margin-bottom: 2rem;
@@ -1517,6 +1522,86 @@
 
       .gallery-item {
         height: 200px;
+      }
+
+      /* Centering page sections dynamically on tablet/mobile */
+      .about-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-list {
+        text-align: left;
+        margin: 0 auto 2rem !important;
+        width: fit-content;
+      }
+
+      .about-text .divider,
+      .booking-info .divider {
+        margin: 1.25rem auto !important;
+      }
+
+      .booking-info {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .booking-perks {
+        text-align: left;
+        margin: 0 auto 2rem !important;
+        width: fit-content;
+      }
+
+      .booking-price {
+        justify-content: center;
+        margin: 0 auto 1.5rem !important;
+        width: fit-content;
+      }
+
+      /* Reposition theme switcher to bottom-left horizontally */
+      .theme-switcher {
+        top: auto !important;
+        bottom: 2rem !important;
+        right: auto !important;
+        left: 1.5rem !important;
+        transform: none !important;
+        flex-direction: row !important;
+        gap: 0.6rem !important;
+      }
+
+      /* Gallery Preview Layout stack (1 large + 2 small) on all screens <= 768px */
+      .gallery-preview {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 220px 140px !important;
+        height: auto !important;
+        gap: 4px !important;
+      }
+
+      .gp-main {
+        height: 100% !important;
+        grid-column: span 2 !important;
+      }
+
+      .gallery-preview .gp-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr !important;
+        height: 140px !important;
+        grid-column: span 2 !important;
+        gap: 4px !important;
+      }
+
+      .gallery-preview .gp-grid > div:nth-child(2),
+      .gallery-preview .gp-grid > div:nth-child(3) {
+        display: none !important;
+      }
+
+      .gallery-expand-btn span {
+        font-size: 0.68rem !important;
       }
     }
 
@@ -2444,12 +2529,12 @@
       /* Galerija preview */
       .gallery-preview {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 150px 75px;
+        grid-template-rows: 160px 100px;
         height: auto;
       }
 
       .gallery-preview .gp-grid {
-        height: 75px;
+        height: 100px;
       }
 
       .gallery-expand-btn i {
@@ -2565,6 +2650,12 @@
         height: 50px;
         font-size: 1.4rem;
       }
+
+      /* Theme Switcher alignment with WhatsApp FAB on small mobile */
+      .theme-switcher {
+        bottom: 1.2rem !important;
+        left: 1.2rem !important;
+      }
     }
 
     /* Tablet fixes 481px–768px */
@@ -2575,12 +2666,6 @@
 
       .booking-wrap {
         grid-template-columns: 1fr;
-      }
-
-      .gallery-preview {
-        grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 200px 200px;
-        height: auto;
       }
 
       .footer-grid {
