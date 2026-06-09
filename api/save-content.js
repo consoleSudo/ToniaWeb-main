@@ -202,22 +202,26 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid or oversized request body' });
   }
 
-  // ── Extract and validate password field ───────────────────────────────────
-  const { password } = payload;
+  // ── Extract and validate username and password fields ──────────────────────
+  const { username, password } = payload;
 
-  if (typeof password !== 'string' || password.length === 0 || password.length > 200) {
+  if (
+    typeof username !== 'string' || username.length === 0 || username.length > 200 ||
+    typeof password !== 'string' || password.length === 0 || password.length > 200
+  ) {
     await new Promise(r => setTimeout(r, FAILURE_DELAY_MS));
-    return res.status(400).json({ error: 'Invalid request: missing password' });
+    return res.status(400).json({ error: 'Invalid request: missing username or password' });
   }
 
-  // ── 1. Validate password ──────────────────────────────────────────────────
+  // ── 1. Validate credentials ───────────────────────────────────────────────
   const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+  const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'antonia';
   if (!ADMIN_PASSWORD) {
     console.error('ADMIN_PASSWORD environment variable is not set.');
     return res.status(500).json({ error: 'Server misconfiguration' });
   }
 
-  if (!safeCompare(password, ADMIN_PASSWORD)) {
+  if (!safeCompare(username, ADMIN_USERNAME) || !safeCompare(password, ADMIN_PASSWORD)) {
     recordFailure(clientIP);
     const attempts = failedAttempts.get(clientIP)?.count || 1;
     const remaining = Math.max(0, MAX_ATTEMPTS - attempts);
@@ -225,9 +229,9 @@ module.exports = async function handler(req, res) {
     // Progressive delay: each failed attempt is slower
     await new Promise(r => setTimeout(r, FAILURE_DELAY_MS * attempts));
 
-    console.warn(`Failed login attempt from ${clientIP} (attempt ${attempts}/${MAX_ATTEMPTS})`);
+    console.warn(`Failed login attempt from ${clientIP} for user ${username} (attempt ${attempts}/${MAX_ATTEMPTS})`);
     return res.status(401).json({
-      error: 'Unauthorized: incorrect password',
+      error: 'Unauthorized: incorrect username or password',
       ...(remaining > 0
         ? { hint: `${remaining} pokušaja preostalo prije zaključavanja` }
         : { hint: 'Previše neuspješnih pokušaja. Pokušajte za 15 minuta.' })

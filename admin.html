@@ -689,6 +689,12 @@
         <p class="auth-subtitle">Prijavite se za uređivanje sadržaja web stranice</p>
 
         <div class="form-group">
+          <label for="username">Korisničko ime</label>
+          <input type="text" id="username" class="form-input" placeholder="Unesite korisničko ime"
+            onkeydown="if(event.key === 'Enter') login()">
+        </div>
+
+        <div class="form-group">
           <label for="password">Lozinka</label>
           <input type="password" id="password" class="form-input" placeholder="Unesite lozinku"
             onkeydown="if(event.key === 'Enter') login()">
@@ -959,9 +965,10 @@
 
     /* ── AUTHENTICATION ── */
     async function login() {
+      const user = document.getElementById('username').value.trim();
       const pwd = document.getElementById('password').value;
-      if (!pwd) {
-        showToast('Molimo unesite lozinku.', true);
+      if (!user || !pwd) {
+        showToast('Molimo unesite korisničko ime i lozinku.', true);
         return;
       }
 
@@ -974,17 +981,18 @@
         const response = await fetch('/api/save-content', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: pwd, dryRun: true })
+          body: JSON.stringify({ username: user, password: pwd, dryRun: true })
         });
 
         if (response.ok) {
-          // Save password in session storage
+          // Save credentials in session storage
+          sessionStorage.setItem('admin_user', user);
           sessionStorage.setItem('admin_key', pwd);
           // Attempt to load content
           await loadDashboard();
         } else {
           const errData = await response.json().catch(() => ({}));
-          showToast('Pogrešna lozinka: ' + (errData.error || 'Autorizacija neuspješna'), true);
+          showToast('Neuspješna prijava: ' + (errData.error || 'Autorizacija neuspješna'), true);
         }
       } catch (err) {
         showToast('Greška prilikom provjere lozinke.', true);
@@ -995,6 +1003,7 @@
     }
 
     function logout() {
+      sessionStorage.removeItem('admin_user');
       sessionStorage.removeItem('admin_key');
       document.getElementById('dashboard').style.display = 'none';
       document.getElementById('auth-screen').style.display = 'flex';
@@ -1002,7 +1011,8 @@
 
     async function loadDashboard() {
       const pwd = sessionStorage.getItem('admin_key');
-      if (!pwd) {
+      const user = sessionStorage.getItem('admin_user');
+      if (!pwd || !user) {
         document.getElementById('auth-screen').style.display = 'flex';
         document.getElementById('dashboard').style.display = 'none';
         return;
@@ -1458,8 +1468,10 @@
       rawContent.contactEmail = document.getElementById('contact-email').value.trim();
 
       const pwd = sessionStorage.getItem('admin_key');
+      const user = sessionStorage.getItem('admin_user');
 
       const payload = {
+        username: user,
         password: pwd,
         content: rawContent
       };
