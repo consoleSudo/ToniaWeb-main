@@ -486,9 +486,9 @@
       "de": "Direktbuchung"
     },
     "book-title": {
-      "hr": "Izravna<br><em>rezervacija</em>",
-      "en": "Direct<br><em>booking</em>",
-      "de": "Direkt<br><em>buchen</em>"
+      "hr": "Izravna <em>rezervacija</em>",
+      "en": "Direct <em>booking</em>",
+      "de": "Direkt <em>buchen</em>"
     },
     "book-desc": {
       "hr": "Pošaljite svoj upit putem WhatsAppa. Odgovor u roku od 1 sat.",

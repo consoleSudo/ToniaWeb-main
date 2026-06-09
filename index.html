@@ -1186,27 +1186,33 @@
 
       /* Scrollable Amenities on Mobile */
       .amenities-grid {
-        display: flex !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        gap: 1rem !important;
-        padding: 0.5rem 0.25rem 1.5rem !important;
-        margin: 0 -1rem !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        scrollbar-width: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
       }
 
-      .amenities-grid::-webkit-scrollbar {
-        display: none;
+      .amenities-carousel-wrap {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        cursor: grab;
+        user-select: none;
+      }
+
+      .amenities-carousel-wrap.dragging {
+        cursor: grabbing;
+      }
+
+      .amenities-track {
+        display: flex;
+        gap: 1.5rem;
+        width: max-content;
+        will-change: transform;
       }
 
       .amenity-group {
-        flex: 0 0 280px !important;
-        scroll-snap-align: start !important;
-        box-sizing: border-box !important;
+        flex: 0 0 280px;
+        box-sizing: border-box;
       }
     }
 
@@ -1495,9 +1501,20 @@
        AMENITIJI
     ============================================================ */
     .amenities-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .amenities-carousel-wrap {
+      width: 100%;
+    }
+
+    .amenities-track {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
+      will-change: transform;
     }
 
     .amenity-group {
@@ -1544,20 +1561,8 @@
     }
 
     @media (max-width: 1024px) {
-      .amenities-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .amenities-grid {
+      .amenities-track {
         grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .amenities-grid {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -2844,103 +2849,113 @@
       </div>
       <div class="amenities-grid">
 
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-bath"></i> <span
-              data-i18n="am-bath-title">Kupaonica</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-1">Fen za kosu</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-2">Šampon i regenerator</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-3">Gel za tuširanje</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-4">Sapun i toaletni papir</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-5">Topla voda</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-6">Sredstva za čišćenje</span></li>
-          </ul>
+        <!-- Track 1 -->
+        <div class="amenities-carousel-wrap" id="amenitiesWrap1">
+          <div class="amenities-track" id="amenitiesTrack1">
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-bath"></i> <span
+                  data-i18n="am-bath-title">Kupaonica</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-1">Fen za kosu</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-2">Šampon i regenerator</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-3">Gel za tuširanje</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-4">Sapun i toaletni papir</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-5">Topla voda</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bath-6">Sredstva za čišćenje</span></li>
+              </ul>
+            </div>
+
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-bed"></i> <span data-i18n="am-bed-title">Spavaća
+                  soba</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-1">Posteljina i ručnici</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-2">Dodatni jastuci i pokrivači</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-3">Zavjese za zamračivanje</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-4">Glačalo i vješalice</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-5">Ormar i sef</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-6">Mreža protiv komaraca</span></li>
+              </ul>
+            </div>
+
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-tv"></i> <span data-i18n="am-ent-title">Zabava</span>
+              </h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-1">TV</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-2">Zvučni sustav</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-3">Gramofon</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-4">Knjige</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-5">Društvene igre</span></li>
+              </ul>
+            </div>
+
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-temperature-half"></i> <span
+                  data-i18n="am-ac-title">Grijanje i hlađenje</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ac-1">Klima uređaj</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ac-2">Grijanje</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ac-3">Prijenosni ventilatori</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-bed"></i> <span data-i18n="am-bed-title">Spavaća
-              soba</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-1">Posteljina i ručnici</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-2">Dodatni jastuci i pokrivači</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-3">Zavjese za zamračivanje</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-4">Glačalo i vješalice</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-5">Ormar i sef</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-bed-6">Mreža protiv komaraca</span></li>
-          </ul>
-        </div>
+        <!-- Track 2 -->
+        <div class="amenities-carousel-wrap" id="amenitiesWrap2">
+          <div class="amenities-track" id="amenitiesTrack2">
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-kitchen-set"></i> <span
+                  data-i18n="am-kit-title">Kuhinja</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-1">Potpuno opremljena kuhinja</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-2">Hladnjak i zamrzivač</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-3">Pećnica i mikrovalna pećnica</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-4">Perilica posuđa</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-5">Aparat za kavu i toster</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-6">Pribor za roštilj</span></li>
+              </ul>
+            </div>
 
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-tv"></i> <span data-i18n="am-ent-title">Zabava</span>
-          </h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-1">TV</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-2">Zvučni sustav</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-3">Gramofon</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-4">Knjige</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ent-5">Društvene igre</span></li>
-          </ul>
-        </div>
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-tree"></i> <span data-i18n="am-out-title">Vanjski
+                  prostor</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-1">Privatno dvorište</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-2">Roštilj</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-3">Vanjska kuhinja</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-4">Vanjski prostor za sjedenje</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-5">Ognjište</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-6">Bicikli</span></li>
+              </ul>
+            </div>
 
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-temperature-half"></i> <span
-              data-i18n="am-ac-title">Grijanje i hlađenje</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ac-1">Klima uređaj</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ac-2">Grijanje</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-ac-3">Prijenosni ventilatori</span></li>
-          </ul>
-        </div>
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-wifi"></i> <span
+                  data-i18n="am-gen-title">Općenito</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-1">Besplatan WiFi</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-2">Besplatan parking</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-3">Privatni ulaz</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-4">Perilica rublja</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-5">Vatrogasni aparat</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-6">Kutija prve pomoći</span></li>
+              </ul>
+            </div>
 
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-kitchen-set"></i> <span
-              data-i18n="am-kit-title">Kuhinja</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-1">Potpuno opremljena kuhinja</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-2">Hladnjak i zamrzivač</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-3">Pećnica i mikrovalna pećnica</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-4">Perilica posuđa</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-5">Aparat za kavu i toster</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-kit-6">Pribor za roštilj</span></li>
-          </ul>
-        </div>
-
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-tree"></i> <span data-i18n="am-out-title">Vanjski
-              prostor</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-1">Privatno dvorište</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-2">Roštilj</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-3">Vanjska kuhinja</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-4">Vanjski prostor za sjedenje</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-5">Ognjište</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-out-6">Bicikli</span></li>
-          </ul>
-        </div>
-
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-wifi"></i> <span
-              data-i18n="am-gen-title">Općenito</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-1">Besplatan WiFi</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-2">Besplatan parking</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-3">Privatni ulaz</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-4">Perilica rublja</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-5">Vatrogasni aparat</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-gen-6">Kutija prve pomoći</span></li>
-          </ul>
-        </div>
-
-        <div class="amenity-group">
-          <h4 class="amenity-group-title"><i class="fa-solid fa-heart"></i> <span
-              data-i18n="am-spec-title">Posebno</span></h4>
-          <ul class="amenity-list">
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-1">Dopušteni kućni ljubimci</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-2">Dopušteno pušenje</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-3">Dobrodošli dugi boravci</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-4">Čišćenje na zahtjev</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-5">Pohrana prtljage</span></li>
-          </ul>
+            <div class="amenity-group">
+              <h4 class="amenity-group-title"><i class="fa-solid fa-heart"></i> <span
+                  data-i18n="am-spec-title">Posebno</span></h4>
+              <ul class="amenity-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-1">Dopušteni kućni ljubimci</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-2">Dopušteno pušenje</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-3">Dobrodošli dugi boravci</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-4">Čišćenje na zahtjev</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="am-spec-5">Pohrana prtljage</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -2954,7 +2969,7 @@
         <div class="booking-info">
           <p class="eyebrow" data-i18n="book-eyebrow">Izravna rezervacija</p>
           <div class="divider"></div>
-          <h2 class="section-title" data-i18n="book-title">Izravna<br><em>rezervacija</em></h2>
+          <h2 class="section-title" data-i18n="book-title">Izravna <em>rezervacija</em></h2>
           <p class="booking-desc" data-i18n="book-desc">Pošaljite svoj upit putem WhatsAppa. Odgovor u roku od 1 sat.
           </p>
           <ul class="booking-perks">
@@ -3587,110 +3602,196 @@
     })();
   </script>
 
-  <!-- REVIEWS CAROUSEL JS -->
+  <!-- CAROUSELS (REVIEWS & AMENITIES) JS -->
   <script>
     (function () {
-      const wrap = document.querySelector('.reviews-carousel-wrap');
-      const track = document.getElementById('reviewsTrack');
-      if (!track || !wrap) return;
+      // Reusable carousel function
+      function initCarousel(wrap, track, speed, shouldDuplicate = true) {
+        if (!wrap || !track) return null;
 
-      const SPEED = 0.6; // px per frame — auto-scroll speed
-      let x = 0;       // current translateX
-      let halfW = 0;       // half of total track width (loop point)
-      let raf = null;
-      let isDragging = false;
-      let dragStartX = 0;
-      let dragStartScroll = 0;
-      let lastDragX = 0;
-      let velocity = 0;
-      let paused = false;
-
-      function getHalfW() {
-        return track.scrollWidth / 2;
-      }
-
-      function setX(val) {
-        halfW = getHalfW();
-        if (val <= -halfW) val += halfW;
-        if (val > 0) val -= halfW;
-        x = val;
-        track.style.transform = `translateX(${x}px)`;
-      }
-
-      function tick() {
-        if (!isDragging) {
-          if (!paused) {
-            setX(x - SPEED);
-          }
-          if (Math.abs(velocity) > 0.1) {
-            setX(x + velocity);
-            velocity *= 0.94;
-          }
-        }
-        raf = requestAnimationFrame(tick);
-      }
-
-      window.initReviewsCarousel = function () {
-        if (raf) cancelAnimationFrame(raf);
+        let x = 0;       // current translateX
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartScroll = 0;
+        let lastDragX = 0;
+        let velocity = 0;
+        let paused = false;
+        let raf = null;
 
         // Duplicate content for seamless loop
-        track.innerHTML += track.innerHTML;
-        x = 0;
-        track.style.transform = `translateX(0px)`;
+        if (shouldDuplicate) {
+          const children = Array.from(track.children);
+          children.forEach(child => {
+            track.appendChild(child.cloneNode(true));
+          });
+        }
+
+        function getHalfW() {
+          return track.scrollWidth / 2;
+        }
+
+        function setX(val) {
+          const halfW = getHalfW();
+          if (halfW <= 0) return;
+          if (val <= -halfW) val += halfW;
+          if (val > 0) val -= halfW;
+          x = val;
+          track.style.transform = `translateX(${x}px)`;
+        }
+
+        function tick() {
+          if (!isDragging) {
+            if (!paused) {
+              setX(x - speed);
+            }
+            if (Math.abs(velocity) > 0.1) {
+              setX(x + velocity);
+              velocity *= 0.94;
+            }
+          }
+          raf = requestAnimationFrame(tick);
+        }
+
+        // Mouse events
+        const onMouseDown = (e) => {
+          isDragging = true;
+          dragStartX = e.clientX;
+          dragStartScroll = x;
+          lastDragX = e.clientX;
+          velocity = 0;
+          wrap.classList.add('dragging');
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(tick);
+        };
+
+        const onMouseMove = (e) => {
+          if (!isDragging) return;
+          velocity = e.clientX - lastDragX;
+          lastDragX = e.clientX;
+          const delta = e.clientX - dragStartX;
+          setX(dragStartScroll + delta);
+        };
+
+        const onMouseUp = () => {
+          if (!isDragging) return;
+          isDragging = false;
+          wrap.classList.remove('dragging');
+        };
+
+        wrap.addEventListener('mousedown', onMouseDown);
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+
+        // Touch events
+        const onTouchStart = (e) => {
+          isDragging = true;
+          dragStartX = e.touches[0].clientX;
+          dragStartScroll = x;
+          lastDragX = e.touches[0].clientX;
+          velocity = 0;
+        };
+
+        const onTouchMove = (e) => {
+          if (!isDragging) return;
+          velocity = e.touches[0].clientX - lastDragX;
+          lastDragX = e.touches[0].clientX;
+          const delta = e.touches[0].clientX - dragStartX;
+          setX(dragStartScroll + delta);
+        };
+
+        const onTouchEnd = () => {
+          isDragging = false;
+        };
+
+        wrap.addEventListener('touchstart', onTouchStart, { passive: true });
+        wrap.addEventListener('touchmove', onTouchMove, { passive: true });
+        wrap.addEventListener('touchend', onTouchEnd);
+
+        // Pause on hover (desktop only)
+        const onMouseEnter = () => { paused = true; };
+        const onMouseLeave = () => { paused = false; };
+        wrap.addEventListener('mouseenter', onMouseEnter);
+        wrap.addEventListener('mouseleave', onMouseLeave);
 
         raf = requestAnimationFrame(tick);
+
+        return {
+          destroy: () => {
+            if (raf) cancelAnimationFrame(raf);
+            wrap.removeEventListener('mousedown', onMouseDown);
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseup', onMouseUp);
+            wrap.removeEventListener('touchstart', onTouchStart);
+            wrap.removeEventListener('touchmove', onTouchMove);
+            wrap.removeEventListener('touchend', onTouchEnd);
+            wrap.removeEventListener('mouseenter', onMouseEnter);
+            wrap.removeEventListener('mouseleave', onMouseLeave);
+          }
+        };
+      }
+
+      // Reviews carousel setup
+      window.initReviewsCarousel = function () {
+        if (window.reviewsCarouselInstance) {
+          window.reviewsCarouselInstance.destroy();
+        }
+        const wrap = document.querySelector('.reviews-carousel-wrap');
+        const track = document.getElementById('reviewsTrack');
+        if (wrap && track) {
+          window.reviewsCarouselInstance = initCarousel(wrap, track, 0.6, true);
+        }
       };
 
-      // Mouse events
-      wrap.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        dragStartX = e.clientX;
-        dragStartScroll = x;
-        lastDragX = e.clientX;
-        velocity = 0;
-        wrap.classList.add('dragging');
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(tick);
+      // Amenities carousels setup (only on mobile)
+      let amenitiesCarousels = [];
+
+      window.setupAmenitiesCarousels = function () {
+        // Destroy existing instances first
+        amenitiesCarousels.forEach(c => {
+          if (c) c.destroy();
+        });
+        amenitiesCarousels = [];
+
+        const track1 = document.getElementById('amenitiesTrack1');
+        const track2 = document.getElementById('amenitiesTrack2');
+
+        // Restore original HTML (first 4 items)
+        if (track1) {
+          while (track1.children.length > 4) {
+            track1.removeChild(track1.lastChild);
+          }
+          track1.style.transform = '';
+        }
+        if (track2) {
+          while (track2.children.length > 4) {
+            track2.removeChild(track2.lastChild);
+          }
+          track2.style.transform = '';
+        }
+
+        if (window.innerWidth <= 640) {
+          const wrap1 = document.getElementById('amenitiesWrap1');
+          const wrap2 = document.getElementById('amenitiesWrap2');
+
+          if (wrap1 && track1) {
+            const c1 = initCarousel(wrap1, track1, 0.5, true);
+            if (c1) amenitiesCarousels.push(c1);
+          }
+          if (wrap2 && track2) {
+            const c2 = initCarousel(wrap2, track2, -0.5, true);
+            if (c2) amenitiesCarousels.push(c2);
+          }
+        }
+      };
+
+      // Resize listener
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          window.setupAmenitiesCarousels();
+        }, 250);
       });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        velocity = e.clientX - lastDragX;
-        lastDragX = e.clientX;
-        const delta = e.clientX - dragStartX;
-        setX(dragStartScroll + delta);
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        wrap.classList.remove('dragging');
-      });
-
-      // Touch events
-      wrap.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        dragStartX = e.touches[0].clientX;
-        dragStartScroll = x;
-        lastDragX = e.touches[0].clientX;
-        velocity = 0;
-      }, { passive: true });
-
-      wrap.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        velocity = e.touches[0].clientX - lastDragX;
-        lastDragX = e.touches[0].clientX;
-        const delta = e.touches[0].clientX - dragStartX;
-        setX(dragStartScroll + delta);
-      }, { passive: true });
-
-      wrap.addEventListener('touchend', () => {
-        isDragging = false;
-      });
-
-      // Pause on hover (desktop only)
-      wrap.addEventListener('mouseenter', () => { paused = true; });
-      wrap.addEventListener('mouseleave', () => { paused = false; });
     })();
   </script>
 
@@ -3943,7 +4044,7 @@
         "am-spec-4": { hr: "Čišćenje na zahtjev", en: "Cleaning on request", de: "Reinigung auf Anfrage" },
         "am-spec-5": { hr: "Pohrana prtljage", en: "Luggage dropoff allowed", de: "Gepäckaufbewahrung erlaubt" },
         "book-eyebrow": { hr: "Izravna rezervacija", en: "Direct Booking", de: "Direktbuchung" },
-        "book-title": { hr: "Izravna<br><em>rezervacija</em>", en: "Direct<br><em>booking</em>", de: "Direkt<br><em>buchen</em>" },
+        "book-title": { hr: "Izravna <em>rezervacija</em>", en: "Direct <em>booking</em>", de: "Direkt <em>buchen</em>" },
         "book-desc": { hr: "Pošaljite svoj upit putem WhatsAppa. Odgovor u roku od 1 sat.", en: "Send your inquiry via WhatsApp. Reply within 1 hour.", de: "Senden Sie Ihre Anfrage per WhatsApp. Antwort innerhalb von 1 Stunde." },
         "book-perk-1": { hr: "Izravna rezervacija", en: "Direct booking", de: "Direktbuchung" },
         "book-perk-2": { hr: "Odgovor u roku od 1h", en: "Reply within 1h", de: "Antwort innerhalb 1 Std." },
@@ -4374,6 +4475,9 @@
 
       // Initial translation
       applyTranslations(getCurrentLang());
+      if (window.setupAmenitiesCarousels) {
+        window.setupAmenitiesCarousels();
+      }
 
       // Set up click listeners for switcher buttons
       document.querySelectorAll('.lang-switcher-box .lang-btn').forEach(btn => {
@@ -4385,6 +4489,9 @@
           renderFaqs(siteContent.faqs, selectedLang);
           if (window.updateBookingConstraints) {
             window.updateBookingConstraints(siteContent.pricePerNight, siteContent.minNights);
+          }
+          if (window.setupAmenitiesCarousels) {
+            window.setupAmenitiesCarousels();
           }
         });
       });
