@@ -1,9 +1,10 @@
 {
   "outputDirectory": ".",
   "buildCommand": null,
+  "cleanUrls": true,
   "headers": [
     {
-      "source": "/admin.html",
+      "source": "/admin",
       "headers": [
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
@@ -20,3 +21,4 @@
     }
   ]
 }
+
