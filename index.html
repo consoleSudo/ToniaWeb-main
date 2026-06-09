@@ -1168,13 +1168,14 @@
 
       .gp-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         height: 90px;
         grid-column: span 2;
         gap: 4px;
       }
 
+      .gp-grid > div:nth-child(2),
       .gp-grid > div:nth-child(3) {
         display: none;
       }
@@ -2687,7 +2688,7 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <p class="hero-eyebrow" data-i18n="hero-eyebrow">Podbablje · Imotski · 30 km od mora</p>
+      <p class="hero-eyebrow" data-i18n="hero-eyebrow">Podbablje · Imotski</p>
       <h1>Luxury Apartment<br><em data-i18n="hero-title">Antonia</em></h1>
       <p class="hero-sub" data-i18n="hero-sub">Privatna oaza za 3 gosta · Etno konoba · Dvorište · Roštilj</p>
       <div class="hero-btns">
@@ -2705,36 +2706,6 @@
       <i class="fa-solid fa-chevron-down"></i>
     </a>
   </section>
-
-  <!-- SOCIAL PROOF BAR -->
-  <div class="proof-bar">
-    <div class="proof-bar-inner">
-      <div class="proof-item">
-        <i class="fa-solid fa-star"></i>
-        <span data-i18n="proof-rating">Ocjena 5.0 ⭐</span>
-      </div>
-      <div class="proof-sep"></div>
-      <div class="proof-item">
-        <i class="fa-solid fa-paw"></i>
-        <span data-i18n="proof-pets">Kućni ljubimci dobrodošli</span>
-      </div>
-      <div class="proof-sep"></div>
-      <div class="proof-item">
-        <i class="fa-solid fa-car"></i>
-        <span data-i18n="proof-parking">Besplatan Parking</span>
-      </div>
-      <div class="proof-sep"></div>
-      <div class="proof-item">
-        <i class="fa-solid fa-umbrella-beach"></i>
-        <span data-i18n="proof-sea">30km do mora</span>
-      </div>
-      <div class="proof-sep"></div>
-      <div class="proof-item">
-        <i class="fa-solid fa-comment-dots"></i>
-        <span data-i18n="proof-reply">Odgovor u roku od 1h</span>
-      </div>
-    </div>
-  </div>
 
   <!-- O APARTMANU -->
   <section class="section" id="o-apartmanu">
@@ -2815,7 +2786,30 @@
     </div>
   </section>
 
-
+  <!-- SOCIAL PROOF BAR -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-item">
+        <i class="fa-solid fa-star"></i>
+        <span data-i18n="proof-rating">Ocjena 5.0 ⭐</span>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <i class="fa-solid fa-paw"></i>
+        <span data-i18n="proof-pets">Kućni ljubimci dobrodošli</span>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <i class="fa-solid fa-car"></i>
+        <span data-i18n="proof-parking">Besplatan Parking</span>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span data-i18n="proof-reply">Odgovor u roku od 1h</span>
+      </div>
+    </div>
+  </div>
 
   <!-- AMENITIJI -->
   <section class="section" id="amenitiji">
@@ -3838,7 +3832,7 @@
         "nav-faq": { hr: "FAQ", en: "FAQ", de: "FAQ" },
         "nav-map": { hr: "Lokacija", en: "Location", de: "Lage" },
         "nav-book": { hr: "Rezerviraj", en: "Book Now", de: "Jetzt buchen" },
-        "hero-eyebrow": { hr: "Podbablje · Imotski · 30 km od mora", en: "Podbablje · Imotski · 30 km from the sea", de: "Podbablje · Imotski · 30 km vom Meer" },
+        "hero-eyebrow": { hr: "Podbablje · Imotski", en: "Podbablje · Imotski", de: "Podbablje · Imotski" },
         "hero-title": { hr: "Antonia", en: "Antonia", de: "Antonia" },
         "hero-sub": { hr: "Privatna oaza za 3 gosta · Etno konoba · Dvorište · Roštilj", en: "Private oasis for 3 guests · Ethno tavern · Courtyard · BBQ", de: "Private Oase für 3 Gäste · Ethno-Taverne · Innenhof · Grill" },
         "hero-btn-book": { hr: "<i class=\"fa-brands fa-whatsapp\"></i> Rezerviraj izravno", en: " < i class=\"fa-brands fa-whatsapp\"></i> Book directly", de: "<i class=\"fa-brands fa-whatsapp\"></i> Direkt buchen" },
@@ -4290,10 +4284,23 @@
     }
 
     function applyTranslations(lang) {
+      // Calculate average rating dynamically from reviews list
+      const reviews = siteContent.reviews || [];
+      let avgRating = "5.0";
+      if (reviews.length > 0) {
+        const totalStars = reviews.reduce((sum, r) => sum + (Number(r.stars) || 5), 0);
+        avgRating = (totalStars / reviews.length).toFixed(1);
+      }
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (siteContent.translations[key] && siteContent.translations[key][lang]) {
-          el.innerHTML = siteContent.translations[key][lang];
+          let val = siteContent.translations[key][lang];
+          // Dynamically replace 5.0 in the translations with the calculated average
+          if (key === 'proof-rating' || key === 'rev-sub') {
+            val = val.replace('5.0', avgRating);
+          }
+          el.innerHTML = val;
         }
       });
 
