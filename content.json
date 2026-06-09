@@ -96,9 +96,9 @@
       "de": "Antwort innerhalb 1 Std."
     },
     "about-exp": {
-      "hr": "2+<br>godine<br>iskustva",
-      "en": "2+<br>years of<br>experience",
-      "de": "2+<br>Jahre<br>Erfahrung"
+      "hr": "godine<br>iskustva",
+      "en": "years of<br>experience",
+      "de": "Jahre<br>Erfahrung"
     },
     "about-eyebrow": {
       "hr": "O apartmanu",
@@ -486,9 +486,9 @@
       "de": "Direktbuchung"
     },
     "book-title": {
-      "hr": "Rezervirajte bez<br><em>provizije</em>",
-      "en": "Book without<br><em>commission</em>",
-      "de": "Buchen ohne<br><em>Provision</em>"
+      "hr": "Izravna<br><em>rezervacija</em>",
+      "en": "Direct<br><em>booking</em>",
+      "de": "Direkt<br><em>buchen</em>"
     },
     "book-desc": {
       "hr": "Pošaljite svoj upit putem WhatsAppa. Odgovor u roku od 1 sat.",
