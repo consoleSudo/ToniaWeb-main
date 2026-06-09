@@ -86,9 +86,9 @@
       "de": "Kostenloser Parkplatz"
     },
     "proof-sea": {
-      "hr": "30km do mora",
-      "en": "30km from sea",
-      "de": "30km zum Meer"
+      "hr": "Kratka vožnja do mora",
+      "en": "Short drive to the sea",
+      "de": "Kurze Fahrt zum Meer"
     },
     "proof-reply": {
       "hr": "Odgovor u roku od 1h",
@@ -111,9 +111,9 @@
       "de": "Mehr als nur ein Apartment —<br><em>ein Erlebnis</em>"
     },
     "about-desc": {
-      "hr": "Opustite se u ugodnom i moderno uređenom smještaju, smještenom svega 30 km od mora. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima. Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.",
-      "en": "Relax in a cozy and modernly decorated accommodation, located just 30 km from the sea. You have at your disposal a private entrance, a fully equipped kitchen, a living room, a bedroom and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room with sound and light effects. An ideal choice for couples looking for peace, privacy, and complete relaxation.",
-      "de": "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft, die nur 30 km vom Meer entfernt liegt. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum mit Sound- und Lichteffekten. Eine ideale Wahl für Paare, die Ruhe, Privatsphäre und völlige Entspannung suchen."
+      "hr": "Opustite se u ugodnom i moderno uređenom smještaju, na kratku vožnju od predivnog Jadranskog mora. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima. Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.",
+      "en": "Relax in a cozy and modernly decorated accommodation, just a short drive from the beautiful Adriatic Sea. You have at your disposal a private entrance, a fully equipped kitchen, a living room, a bedroom and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room with sound and light effects. An ideal choice for couples looking for peace, privacy, and complete relaxation.",
+      "de": "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft, nur eine kurze Fahrt von der wunderschönen Adria entfernt. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum mit Sound- und Lichteffekten. Eine ideale Wahl für Paare, die Ruhe, Privatsphäre und völlige Entspannung suchen."
     },
     "about-list-1": {
       "hr": "Okružen prirodom i šumom,",
@@ -126,9 +126,9 @@
       "de": "nur 3 km vom Fluss entfernt,"
     },
     "about-list-3": {
-      "hr": "7 km od jezera i 30 km od mora.",
-      "en": "7 km from the lake and 30 km from the sea.",
-      "de": "7 km vom See und 30 km vom Meer."
+      "hr": "7 km od jezera i kratka vožnja do mora.",
+      "en": "7 km from the lake and a short drive to the sea.",
+      "de": "7 km vom See und eine kurze Fahrt zum Meer."
     },
     "about-list-4": {
       "hr": "Restoran 400 m, dućan 1 km.",
@@ -635,6 +635,31 @@
       "en": "Everything you need to know before arrival.",
       "de": "Alles, was Sie vor Ihrer Anreise wissen müssen."
     },
+    "faq-bot-name": {
+      "hr": "Antonia Pomoćnik",
+      "en": "Antonia Assistant",
+      "de": "Antonia-Assistent"
+    },
+    "faq-bot-status": {
+      "hr": "Aktivan · Odgovara odmah",
+      "en": "Active · Replies instantly",
+      "de": "Aktiv · Antwortet sofort"
+    },
+    "faq-suggestions-title": {
+      "hr": "Česta pitanja",
+      "en": "Popular Questions",
+      "de": "Häufige Fragen"
+    },
+    "faq-suggestions-sub": {
+      "hr": "Odaberite jedno od brzih pitanja:",
+      "en": "Choose one of the quick questions:",
+      "de": "Wählen Sie eine der schnellen Fragen:"
+    },
+    "faq-chat-placeholder": {
+      "hr": "Upišite svoje pitanje...",
+      "en": "Type your question...",
+      "de": "Schreiben Sie Ihre Frage..."
+    },
     "map-eyebrow": {
       "hr": "Kako doći do nas",
       "en": "How to find us",
@@ -646,9 +671,9 @@
       "de": "Lage"
     },
     "map-sub": {
-      "hr": "Podbablje Gornje, Imotski · 30 km do mora · Besplatan parking",
-      "en": "Podbablje Gornje, Imotski · 30 km to the sea · Free parking",
-      "de": "Podbablje Gornje, Imotski · 30 km zum Meer · Kostenloser Parkplatz"
+      "hr": "Podbablje Gornje, Imotski · Kratka vožnja do mora · Besplatan parking",
+      "en": "Podbablje Gornje, Imotski · Short drive to the sea · Free parking",
+      "de": "Podbablje Gornje, Imotski · Kurze Fahrt zum Meer · Kostenloser Parkplatz"
     },
     "map-btn": {
       "hr": "Navigiraj — Google Maps",
@@ -661,9 +686,9 @@
       "de": "Podbablje Gornje, Imotski, HR"
     },
     "map-pill-2": {
-      "hr": "30 km do Makarske rivijere",
-      "en": "30 km to Makarska Riviera",
-      "de": "30 km zur Makarska Riviera"
+      "hr": "Kratka vožnja do Makarske rivijere",
+      "en": "Short drive to Makarska Riviera",
+      "de": "Kurze Fahrt zur Makarska-Riviera"
     },
     "map-pill-3": {
       "hr": "7 km do jezera",
@@ -849,9 +874,9 @@
         "de": "Wie weit ist das Meer entfernt?"
       },
       "a": {
-        "hr": "Makarska rivijera je oko 30 km (otprilike 30 minuta vožnje). U blizini su i rijeka (3 km) i jezero (7 km) za kupanje u prirodi.",
-        "en": "The Makarska Riviera is about 30 km (roughly a 30-minute drive). Nearby are also a river (3 km) and a lake (7 km) for nature swimming.",
-        "de": "Die Makarska Riviera ist etwa 30 km entfernt (ca. 30 Minuten Fahrt). Fluss (3 km) und See (7 km) in der Nähe laden ebenfalls zum Schwimmen in der Natur ein."
+        "hr": "Jadransko more i prekrasna Makarska rivijera udaljeni su na kratku i ugodnu vožnju (oko 30 minuta). U blizini su i rijeka (3 km) i jezero (7 km) za kupanje u prirodi.",
+        "en": "The Adriatic Sea and the beautiful Makarska Riviera are just a short and pleasant drive away (about 30 minutes). Nearby are also a river (3 km) and a lake (7 km) for nature swimming.",
+        "de": "Die Adria und die wunderschöne Makarska-Riviera sind nur eine kurze und angenehme Fahrt entfernt (ca. 30 Minuten). Fluss (3 km) und See (7 km) in der Nähe laden ebenfalls zum Schwimmen in der Natur ein."
       }
     },
     {

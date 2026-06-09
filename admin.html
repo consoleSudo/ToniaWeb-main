@@ -13,18 +13,23 @@
 
   <style>
     :root {
-      --color-bg: #0b0f19;
-      --color-surface: rgba(20, 26, 46, 0.6);
-      --color-primary: #10b981;
-      /* Emerald green */
+      --color-bg: #070a13;
+      --color-surface: rgba(17, 24, 39, 0.55);
+      --color-surface-hover: rgba(31, 41, 55, 0.65);
+      --color-card-bg: rgba(30, 41, 59, 0.25);
+      --color-primary: #10b981; /* Emerald green */
       --color-primary-hover: #059669;
-      --color-accent: #f59e0b;
-      /* Amber gold */
+      --color-primary-glow: rgba(16, 185, 129, 0.15);
+      --color-accent: #f59e0b; /* Amber gold */
+      --color-accent-glow: rgba(245, 158, 11, 0.15);
       --color-text: #f3f4f6;
       --color-text-muted: #9ca3af;
-      --color-border: rgba(255, 255, 255, 0.08);
-      --color-card-bg: rgba(255, 255, 255, 0.02);
-      --border-radius: 12px;
+      --color-border: rgba(255, 255, 255, 0.05);
+      --color-border-hover: rgba(255, 255, 255, 0.12);
+      --border-radius: 20px;
+      --border-radius-sm: 10px;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
     }
 
     * {
@@ -33,21 +38,40 @@
       padding: 0;
     }
 
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05070f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-sans);
       background-color: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
-      background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 40%);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.07), transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.05), transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.02), transparent 50%);
+      background-attachment: fixed;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 3rem 1.5rem;
     }
 
     /* Auth Screen */
@@ -55,76 +79,105 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 80vh;
+      min-height: 85vh;
     }
 
     .auth-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(17, 24, 39, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border-radius: var(--border-radius);
-      padding: 3rem;
+      padding: 4rem 3rem;
       width: 100%;
-      max-width: 440px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      max-width: 480px;
+      box-shadow: 
+        0 24px 60px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(16, 185, 129, 0.03);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
     }
 
     .auth-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
       color: #fff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .auth-logo span {
-      color: var(--color-primary);
+      background: linear-gradient(135deg, var(--color-primary), #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .auth-subtitle {
       color: var(--color-text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       font-size: 0.95rem;
+      font-weight: 400;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .form-group label {
       display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--color-text-muted);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .form-input {
       width: 100%;
-      padding: 0.85rem 1rem;
-      background: rgba(255, 255, 255, 0.03);
+      padding: 0.95rem 1.25rem;
+      background: rgba(15, 23, 42, 0.45);
       border: 1px solid var(--color-border);
-      border-radius: 6px;
+      border-radius: var(--border-radius-sm);
       color: #fff;
       font-family: inherit;
-      font-size: 1rem;
-      transition: all 0.3s;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .form-input option {
-      background-color: #0b0f19;
+      background-color: #0f172a;
       color: #f3f4f6;
     }
 
     .form-input:focus {
       outline: none;
       border-color: var(--color-primary);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+      background: rgba(15, 23, 42, 0.7);
+      box-shadow: 
+        0 0 0 3px rgba(16, 185, 129, 0.15),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      line-height: 1.6;
     }
 
     .btn {
@@ -133,49 +186,56 @@
       justify-content: center;
       gap: 0.6rem;
       width: 100%;
-      padding: 0.85rem 1.8rem;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%), var(--color-primary);
+      padding: 0.95rem 2.2rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius-sm);
       font-family: inherit;
       font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
-      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn:hover {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%), var(--color-primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+      filter: brightness(1.08);
     }
 
     .btn:active {
-      transform: translateY(-1px);
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
     }
 
     .btn-secondary {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn-secondary:hover {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.12);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 
     .btn-danger {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #ef4444;
-      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
     }
 
     .btn-danger:hover {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%), #dc2626;
-      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.25);
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
     }
 
     /* Main Dashboard Layout */
@@ -188,32 +248,64 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 3rem;
-      padding-bottom: 1.5rem;
+      padding-bottom: 2rem;
       border-bottom: 1px solid var(--color-border);
     }
 
     .header-title h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      background: linear-gradient(to right, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .header-title p {
       color: var(--color-text-muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      margin-top: 0.35rem;
     }
 
     .header-actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.85rem;
       align-items: center;
     }
 
+    .live-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--color-primary);
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .live-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+      transform: translateY(-2px);
+    }
+
     .logout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid var(--color-border);
       color: var(--color-text-muted);
-      padding: 0.55rem 1.2rem;
-      border-radius: 30px; /* pill shape for header action */
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 500;
@@ -223,51 +315,147 @@
     .logout-btn:hover {
       color: #fff;
       border-color: #ef4444;
-      background: rgba(239, 68, 68, 0.05);
-      transform: translateY(-1px);
+      background: rgba(239, 68, 68, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Dashboard Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: rgba(30, 41, 59, 0.25);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      padding: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent);
+      pointer-events: none;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      background: rgba(30, 41, 59, 0.45);
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow: 
+        0 16px 28px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(16, 185, 129, 0.03);
+    }
+
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--border-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .stat-icon {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: var(--color-primary);
+    }
+
+    .stat-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-muted);
+      font-weight: 700;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0.15rem 0;
+    }
+
+    .stat-action {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .stat-action {
+      color: var(--color-primary);
     }
 
     /* Navigation Tabs */
     .tabs {
       display: flex;
       gap: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       overflow-x: auto;
       padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
     }
 
     .tab-btn {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid transparent;
       color: var(--color-text-muted);
-      padding: 0.7rem 1.5rem;
+      padding: 0.85rem 1.75rem;
       font-family: inherit;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       border-radius: 30px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
     .tab-btn:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.10);
-      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .tab-btn.active {
       color: #fff;
       background: rgba(16, 185, 129, 0.12);
-      border-color: rgba(16, 185, 129, 0.35);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.05);
     }
 
     /* Tab Content panels */
     .tab-panel {
       display: none;
-      animation: fadeIn 0.4s ease;
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .tab-panel.active {
@@ -277,9 +465,8 @@
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(8px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -287,25 +474,26 @@
     }
 
     .card {
-      background: var(--color-surface);
+      background: rgba(17, 24, 39, 0.35);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       padding: 2.5rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
       margin-bottom: 2rem;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
       border-bottom: 1px solid var(--color-border);
-      padding-bottom: 0.75rem;
+      padding-bottom: 1rem;
+      font-weight: 700;
     }
 
     .card-title i {
@@ -314,54 +502,53 @@
 
     .row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
 
     /* Multilingual editing UI */
     .lang-tabs {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
-      background: rgba(255, 255, 255, 0.03);
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.25);
       border: 1px solid var(--color-border);
-      padding: 4px;
-      border-radius: 30px; /* Pill layout wrapper */
+      padding: 6px;
+      border-radius: 30px;
       width: fit-content;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .lang-tab-btn {
       background: transparent;
       border: none;
       color: var(--color-text-muted);
-      padding: 0.45rem 1.2rem;
+      padding: 0.55rem 1.4rem;
       font-family: inherit;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
       border-radius: 20px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s ease;
     }
 
     .lang-tab-btn:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.04);
     }
 
     .lang-tab-btn.active {
       background: rgba(16, 185, 129, 0.15);
       color: var(--color-primary);
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.05);
     }
 
     .edit-lang-tabs {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
-      background: rgba(255, 255, 255, 0.03);
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.25);
       border: 1px solid var(--color-border);
-      padding: 4px;
+      padding: 6px;
       border-radius: 30px;
       width: fit-content;
     }
@@ -370,38 +557,37 @@
       background: transparent;
       border: none;
       color: var(--color-text-muted);
-      padding: 0.45rem 1.25rem;
+      padding: 0.55rem 1.5rem;
       font-family: inherit;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
       border-radius: 20px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
     }
 
     .edit-lang-btn:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.04);
     }
 
     .edit-lang-btn.active {
       background: var(--color-primary);
       color: #fff;
-      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
     }
 
     .translation-editor {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 2.25rem;
     }
 
     .translation-row {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-bottom: 2rem;
     }
 
     .translation-row:last-child {
@@ -413,16 +599,31 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .translation-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: left;
+    }
+
+    .translation-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #fff;
     }
 
     .translation-key {
       font-family: monospace;
-      font-size: 0.8rem;
-      color: var(--color-accent);
-      background: rgba(245, 158, 11, 0.05);
-      padding: 0.2rem 0.5rem;
+      font-size: 0.72rem;
+      color: var(--color-accent) !important;
+      background: rgba(245, 158, 11, 0.06) !important;
+      padding: 0.15rem 0.5rem !important;
       border-radius: 4px;
+      border: 1px solid rgba(245, 158, 11, 0.12) !important;
+      width: fit-content;
     }
 
     .translation-inputs {
@@ -438,105 +639,243 @@
     .lang-field::before {
       content: attr(data-lang-label);
       position: absolute;
-      top: 0.4rem;
-      right: 0.6rem;
+      top: 0.55rem;
+      right: 0.85rem;
       font-size: 0.65rem;
       font-weight: 700;
       color: var(--color-text-muted);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
       pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      z-index: 5;
+    }
+
+    /* Editor and Toolbars */
+    .input-editor-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--color-border);
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+      border-bottom: none;
+      margin-bottom: -0.55rem;
+      z-index: 2;
+    }
+
+    .editor-toolbar + .form-input {
+      border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm) !important;
+    }
+
+    .tb-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--color-text-muted);
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .tb-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .tb-hint {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-left: auto;
+      opacity: 0.7;
+    }
+
+    .editor-preview-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-sm);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.9rem;
+      color: var(--color-text);
+      position: relative;
+      margin-top: 0.25rem;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .preview-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .preview-content-render {
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .preview-content-render em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .preview-content-render strong {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Stars rating widget */
+    .stars-rating-widget {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      height: 42px;
+    }
+
+    .star-rating-icon {
+      font-size: 1.35rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .star-rating-icon:hover {
+      transform: scale(1.25);
+      color: var(--color-accent);
+    }
+
+    .star-rating-icon.active {
+      color: var(--color-accent);
+      filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.3));
     }
 
     /* Testimonials & News List Manager */
     .manager-list {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .manager-item {
       background: rgba(255, 255, 255, 0.01);
       border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 1.5rem;
+      border-radius: var(--border-radius-sm);
+      padding: 2rem;
       position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .manager-item:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: var(--color-border-hover);
     }
 
     .manager-item-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      padding-bottom: 0.5rem;
+      padding-bottom: 1rem;
     }
 
     .manager-actions {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .btn-icon {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--color-border);
       color: var(--color-text-muted);
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--border-radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn-icon:hover {
       color: #fff;
-      border-color: rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.05);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .btn-icon-danger:hover {
       color: #ef4444;
-      border-color: rgba(239, 68, 68, 0.35);
+      border-color: rgba(239, 68, 68, 0.3);
       background: rgba(239, 68, 68, 0.08);
-      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.1);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
     }
 
     /* Gallery Grid in Manager */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
     }
 
     .gallery-card {
-      background: rgba(255, 255, 255, 0.01);
+      background: rgba(17, 24, 39, 0.3);
       border: 1px solid var(--color-border);
-      border-radius: 8px;
+      border-radius: var(--border-radius-sm);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-border-hover);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
     }
 
     .gallery-card-img {
       width: 100%;
-      height: 140px;
+      height: 150px;
       object-fit: cover;
-      background: #111;
+      background: #05070f;
+      transition: all 0.5s ease;
+    }
+
+    .gallery-card:hover .gallery-card-img {
+      transform: scale(1.05);
     }
 
     .gallery-card-info {
-      padding: 1rem;
+      padding: 1.25rem;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
 
     .gallery-card-actions {
@@ -545,57 +884,67 @@
       align-items: center;
       margin-top: auto;
       border-top: 1px solid rgba(255, 255, 255, 0.04);
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
     }
 
     .gallery-card-cat {
       font-size: 0.72rem;
       background: rgba(16, 185, 129, 0.1);
       color: var(--color-primary);
-      padding: 0.15rem 0.4rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 4px;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
     /* Image Dropzone */
     .dropzone {
       border: 2px dashed rgba(16, 185, 129, 0.3);
       border-radius: var(--border-radius);
-      padding: 3rem;
+      padding: 4rem;
       text-align: center;
       background: rgba(16, 185, 129, 0.01);
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       margin-bottom: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .dropzone:hover {
       background: rgba(16, 185, 129, 0.03);
       border-color: var(--color-primary);
+      box-shadow: 0 0 24px rgba(16, 185, 129, 0.06);
     }
 
     .dropzone i {
-      font-size: 3rem;
+      font-size: 3.5rem;
       color: var(--color-primary);
+      transition: all 0.3s ease;
+    }
+
+    .dropzone:hover i {
+      transform: translateY(-4px);
     }
 
     .dropzone p {
       color: var(--color-text-muted);
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     .preview-upload {
-      max-width: 200px;
-      max-height: 200px;
+      max-width: 240px;
+      max-height: 240px;
       object-fit: contain;
-      border-radius: 6px;
+      border-radius: var(--border-radius-sm);
       margin-top: 1rem;
       display: none;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
     /* Save floating bar */
@@ -604,20 +953,22 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(20, 26, 46, 0.95);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(11, 15, 25, 0.95);
+      border: 1px solid rgba(16, 185, 129, 0.35);
       border-radius: 50px;
-      padding: 0.75rem 2rem;
+      padding: 0.9rem 2.5rem;
       display: flex;
       align-items: center;
       gap: 1.5rem;
       z-index: 1000;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      animation: slideUp 0.3s ease;
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.75),
+        0 0 30px rgba(16, 185, 129, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       width: 90%;
-      max-width: 600px;
+      max-width: 640px;
       justify-content: space-between;
     }
 
@@ -626,7 +977,6 @@
         transform: translate(-50%, 100px);
         opacity: 0;
       }
-
       to {
         transform: translate(-50%, 0);
         opacity: 1;
@@ -634,14 +984,18 @@
     }
 
     .save-bar-info {
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .save-bar-btn {
       width: auto;
       border-radius: 50px !important;
-      padding: 0.65rem 2rem;
+      padding: 0.75rem 2.5rem;
     }
 
     /* Toast notification */
@@ -651,13 +1005,14 @@
       right: 2rem;
       background: rgba(16, 185, 129, 0.95);
       color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 8px;
+      padding: 1.1rem 2.5rem;
+      border-radius: var(--border-radius-sm);
       font-weight: 600;
       z-index: 10000;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
       display: none;
-      animation: slideIn 0.3s ease;
+      animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     @keyframes slideIn {
@@ -665,7 +1020,6 @@
         transform: translateX(100px);
         opacity: 0;
       }
-
       to {
         transform: translateX(0);
         opacity: 1;
@@ -714,11 +1068,50 @@
           <p>Uređivanje web stranice i upravljanje sadržajem</p>
         </div>
         <div class="header-actions">
+          <a href="/" target="_blank" class="live-btn">
+            <i class="fa-solid fa-globe"></i> Pogledaj web stranicu
+          </a>
           <button class="logout-btn" onclick="logout()">
             <i class="fa-solid fa-right-from-bracket"></i> Odjava
           </button>
         </div>
       </header>
+
+      <!-- Dashboard Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card" onclick="switchTab('opce')">
+          <div class="stat-icon"><i class="fa-solid fa-euro-sign"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">Cijena noćenja</span>
+            <span class="stat-value" id="stat-price">-- €</span>
+            <span class="stat-action">Min. <span id="stat-min-nights">--</span> noći</span>
+          </div>
+        </div>
+        <div class="stat-card" onclick="switchTab('recenzije')">
+          <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">Recenzije gostiju</span>
+            <span class="stat-value" id="stat-reviews">--</span>
+            <span class="stat-action">Klikni za upravljanje</span>
+          </div>
+        </div>
+        <div class="stat-card" onclick="switchTab('faq')">
+          <div class="stat-icon"><i class="fa-solid fa-circle-question"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">Česta pitanja</span>
+            <span class="stat-value" id="stat-faqs">--</span>
+            <span class="stat-action">Chatbot baza</span>
+          </div>
+        </div>
+        <div class="stat-card" onclick="switchTab('galerija')">
+          <div class="stat-icon"><i class="fa-solid fa-images"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">Slike u galeriji</span>
+            <span class="stat-value" id="stat-gallery">--</span>
+            <span class="stat-action">Upravljaj galerijom</span>
+          </div>
+        </div>
+      </div>
 
       <!-- Tab Buttons -->
       <div class="tabs">
@@ -922,6 +1315,250 @@
     let currentEditLang = 'hr';
     let currentCategory = 'hero';
 
+    // ── Key Mappings for Human-Readable Labels ──
+    const keyLabels = {
+      // Navigation
+      "nav-logo": "Logotip u navigaciji (naziv)",
+      "nav-about": "Link 'O apartmanu'",
+      "nav-gallery": "Link 'Galerija'",
+      "nav-amenities": "Link 'Sadržaji'",
+      "nav-reviews": "Link 'Recenzije'",
+      "nav-faq": "Link 'FAQ'",
+      "nav-map": "Link 'Lokacija'",
+      "nav-book": "Gumb 'Rezerviraj' u navigaciji",
+      
+      // Hero
+      "hero-eyebrow": "Nadnaslov na početnoj (lokacija)",
+      "hero-title": "Glavni naslov na početnoj",
+      "hero-sub": "Podnaslov na početnoj (kratki opis)",
+      "hero-btn-book": "Gumb za izravnu rezervaciju",
+      "hero-btn-gallery": "Gumb za galeriju slika",
+      "hero-scroll": "Tekst za pomicanje prema dolje",
+      
+      // Trust badges
+      "proof-rating": "Značka: Ocjena apartmana",
+      "proof-pets": "Značka: Kućni ljubimci",
+      "proof-parking": "Značka: Besplatan parking",
+      "proof-sea": "Značka: Udaljenost do mora",
+      "proof-reply": "Značka: Brzina odgovora",
+      
+      // About
+      "about-exp": "Tekst za godine iskustva",
+      "about-eyebrow": "Nadnaslov 'O apartmanu'",
+      "about-title": "Glavni naslov 'O apartmanu'",
+      "about-desc": "Glavni opisni tekst o apartmanu",
+      "about-list-1": "Popis 1 (okruženje)",
+      "about-list-2": "Popis 2 (rijeka)",
+      "about-list-3": "Popis 3 (jezero i more)",
+      "about-list-4": "Popis 4 (trgovina/restoran)",
+      "about-btn": "Gumb za provjeru dostupnosti",
+      
+      // Gallery
+      "gallery-eyebrow": "Nadnaslov galerije",
+      "gallery-title": "Naslov galerije",
+      "gallery-subtitle": "Podnaslov galerije",
+      "gal-show-all": "Gumb 'Prikaži sve fotografije'",
+      "gal-filter-all": "Filter galerije: Sve",
+      "gal-filter-living": "Filter galerije: Dnevni boravak",
+      "gal-filter-kitchen": "Filter galerije: Kuhinja",
+      "gal-filter-dining": "Filter galerije: Trpezarija",
+      "gal-filter-bed": "Filter galerije: Spavaća soba",
+      "gal-filter-bath": "Filter galerije: Kupaonica",
+      "gal-filter-ext": "Filter galerije: Eksterijer",
+      "gal-filter-more": "Filter galerije: Dodatno",
+      "gal-hide-btn": "Gumb 'Sakrij galeriju'",
+      "gal-book-cta": "Gumb za rezervaciju u galeriji",
+      
+      // Amenities
+      "am-eyebrow": "Sadržaji: Nadnaslov",
+      "am-title": "Sadržaji: Naslov",
+      "am-sub": "Sadržaji: Podnaslov",
+      "am-bath-title": "Kupaonica - Naslov grupe",
+      "am-bath-1": "Kupaonica - Stavka 1",
+      "am-bath-2": "Kupaonica - Stavka 2",
+      "am-bath-3": "Kupaonica - Stavka 3",
+      "am-bath-4": "Kupaonica - Stavka 4",
+      "am-bath-5": "Kupaonica - Stavka 5",
+      "am-bath-6": "Kupaonica - Stavka 6",
+      "am-bed-title": "Spavaća soba - Naslov grupe",
+      "am-bed-1": "Spavaća soba - Stavka 1",
+      "am-bed-2": "Spavaća soba - Stavka 2",
+      "am-bed-3": "Spavaća soba - Stavka 3",
+      "am-bed-4": "Spavaća soba - Stavka 4",
+      "am-bed-5": "Spavaća soba - Stavka 5",
+      "am-bed-6": "Spavaća soba - Stavka 6",
+      "am-ent-title": "Zabava - Naslov grupe",
+      "am-ent-1": "Zabava - Stavka 1",
+      "am-ent-2": "Zabava - Stavka 2",
+      "am-ent-3": "Zabava - Stavka 3",
+      "am-ent-4": "Zabava - Stavka 4",
+      "am-ent-5": "Zabava - Stavka 5",
+      "am-ac-title": "Klimatizacija/Grijanje - Naslov grupe",
+      "am-ac-1": "Klima/Grijanje - Stavka 1",
+      "am-ac-2": "Klima/Grijanje - Stavka 2",
+      "am-ac-3": "Klima/Grijanje - Stavka 3",
+      "am-kit-title": "Kuhinja - Naslov grupe",
+      "am-kit-1": "Kuhinja - Stavka 1",
+      "am-kit-2": "Kuhinja - Stavka 2",
+      "am-kit-3": "Kuhinja - Stavka 3",
+      "am-kit-4": "Kuhinja - Stavka 4",
+      "am-kit-5": "Kuhinja - Stavka 5",
+      "am-kit-6": "Kuhinja - Stavka 6",
+      "am-out-title": "Vanjski prostor - Naslov grupe",
+      "am-out-1": "Vanjski prostor - Stavka 1",
+      "am-out-2": "Vanjski prostor - Stavka 2",
+      "am-out-3": "Vanjski prostor - Stavka 3",
+      "am-out-4": "Vanjski prostor - Stavka 4",
+      "am-out-5": "Vanjski prostor - Stavka 5",
+      "am-out-6": "Vanjski prostor - Stavka 6",
+      "am-gen-title": "Općenito - Naslov grupe",
+      "am-gen-1": "Općenito - Stavka 1",
+      "am-gen-2": "Općenito - Stavka 2",
+      "am-gen-3": "Općenito - Stavka 3",
+      "am-gen-4": "Općenito - Stavka 4",
+      "am-gen-5": "Općenito - Stavka 5",
+      "am-gen-6": "Općenito - Stavka 6",
+      "am-spec-title": "Posebna pravila - Naslov grupe",
+      "am-spec-1": "Posebno - Stavka 1",
+      "am-spec-2": "Posebno - Stavka 2",
+      "am-spec-3": "Posebno - Stavka 3",
+      "am-spec-4": "Posebno - Stavka 4",
+      "am-spec-5": "Posebno - Stavka 5",
+      
+      // Booking Form and Perks
+      "book-eyebrow": "Rezervacija: Mali nadnaslov",
+      "book-title": "Rezervacija: Glavni naslov",
+      "book-desc": "Rezervacija: Opisni tekst",
+      "book-perk-1": "Rezervacija: Prednost 1",
+      "book-perk-2": "Rezervacija: Prednost 2",
+      "book-perk-3": "Rezervacija: Prednost 3",
+      "book-perk-4": "Rezervacija: Prednost 4",
+      "book-price-from": "Oznaka 'Od' za cijenu",
+      "book-price-night": "Oznaka '/ noćenju' za cijenu",
+      "book-price-note": "Napomena o uvjetima cijene",
+      
+      // Form fields
+      "form-checkin": "Forma: Oznaka za datum prijave",
+      "form-checkout": "Forma: Oznaka za datum odjave",
+      "form-name-label": "Forma: Oznaka za ime i prezime",
+      "form-name-ph": "Forma: Unos imena (vodič)",
+      "form-guests-label": "Forma: Oznaka za broj gostiju",
+      "form-guest-1": "Forma: Opcija '1 gost'",
+      "form-guest-2": "Forma: Opcija '2 gosta'",
+      "form-guest-3": "Forma: Opcija '3 gosta'",
+      "form-email-label": "Forma: Oznaka za email",
+      "form-email-ph": "Forma: Unos emaila (vodič)",
+      "form-note-label": "Forma: Oznaka za napomenu",
+      "form-note-ph": "Forma: Unos napomene (vodič)",
+      "form-pet-label": "Forma: Oznaka 'Donosim kućnog ljubimca'",
+      "form-btn": "Forma: Gumb za slanje upita",
+      "form-reply-note": "Forma: Napomena o brzini odgovora",
+      
+      // Reviews
+      "rev-eyebrow": "Recenzije: Nadnaslov",
+      "rev-title": "Recenzije: Naslov",
+      "rev-sub": "Recenzije: Podnaslov",
+      
+      // FAQs
+      "faq-eyebrow": "FAQ: Nadnaslov",
+      "faq-title": "FAQ: Naslov sekcije",
+      "faq-sub": "FAQ: Podnaslov sekcije",
+      "faq-bot-name": "FAQ Chatbot: Ime pomoćnika",
+      "faq-bot-status": "FAQ Chatbot: Status (npr. Aktivan)",
+      "faq-suggestions-title": "FAQ Chatbot: Naslov čestih pitanja",
+      "faq-suggestions-sub": "FAQ Chatbot: Podnaslov izbora pitanja",
+      "faq-chat-placeholder": "FAQ Chatbot: Unos poruke (vodič)",
+      
+      // Location Map
+      "map-eyebrow": "Lokacija: Nadnaslov",
+      "map-title": "Lokacija: Naslov",
+      "map-sub": "Lokacija: Podnaslov",
+      "map-btn": "Gumb 'Navigiraj — Google Maps'",
+      "map-pill-1": "Značka lokacije 1",
+      "map-pill-2": "Značka lokacije 2",
+      "map-pill-3": "Značka lokacije 3",
+      "map-pill-4": "Značka lokacije 4",
+      
+      // Footer
+      "footer-tagline": "Footer: Slogan apartmana",
+      "footer-links": "Footer: Naslov brzih linkova",
+      "footer-contact": "Footer: Naslov kontakt podataka",
+      "footer-addr": "Footer: Adresa apartmana",
+      "footer-reply": "Footer: Napomena o odgovoru",
+      "footer-btn": "Footer: Gumb za slanje upita",
+      "footer-copy": "Footer: Autorska prava"
+    };
+
+    // Helper: Clean HTML tags for editing
+    function cleanHtmlForEditing(htmlString) {
+      if (!htmlString) return { text: '', icon: '' };
+      let working = htmlString;
+      
+      // Extract prepended icon if exists, e.g., <i class="fa-brands fa-whatsapp"></i>
+      let iconPart = '';
+      const iconRegex = /^(\s*<i\b[^>]*><\/i>\s*)/i;
+      const match = working.match(iconRegex);
+      if (match) {
+        iconPart = match[1];
+        working = working.substring(iconPart.length);
+      }
+      
+      // Convert <br> or <br/> to \n
+      working = working.replace(/<br\s*\/?>/gi, '\n');
+      
+      // Convert <em\b[^>]*>(.*?)<\/em> to *text*
+      working = working.replace(/<em\b[^>]*>(.*?)<\/em>/gi, '*$1*');
+      
+      // Convert <strong\b[^>]*>(.*?)<\/strong> to **text**
+      working = working.replace(/<strong\b[^>]*>(.*?)<\/strong>/gi, '**$1**');
+      
+      return {
+        text: working,
+        icon: iconPart
+      };
+    }
+
+    // Helper: Format edited text back to HTML
+    function formatEditingToHtml(text, iconPart = '') {
+      if (!text) return '';
+      let working = text;
+      
+      // Convert **text** to <strong>text</strong>
+      working = working.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      
+      // Convert *text* to <em>text</em>
+      working = working.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      
+      // Convert newlines to <br>
+      working = working.replace(/\n/g, '<br>');
+      
+      // Prepend icon
+      if (iconPart) {
+        working = iconPart + working;
+      }
+      
+      return working;
+    }
+
+    // Helper: Insert formatting at cursor position in textarea
+    function insertFormatting(textareaId, prefix, suffix) {
+      const textarea = document.getElementById(textareaId);
+      if (!textarea) return;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const text = textarea.value;
+      const selected = text.substring(start, end);
+      const replacement = prefix + selected + suffix;
+      textarea.value = text.substring(0, start) + replacement + text.substring(end);
+      
+      textarea.focus();
+      textarea.selectionStart = start + prefix.length;
+      textarea.selectionEnd = start + prefix.length + selected.length;
+      
+      // Trigger input event to update rawContent
+      textarea.dispatchEvent(new Event('input'));
+    }
+
     function setEditLang(lang) {
       currentEditLang = lang;
       document.querySelectorAll('.edit-lang-btn').forEach(btn => {
@@ -953,14 +1590,46 @@
     function triggerChange() {
       hasChanges = true;
       document.getElementById('saveBar').style.display = 'flex';
+      updateDashboardStats();
     }
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
 
-      event.currentTarget.classList.add('active');
+      // Match the tab button by its onclick attribute (supports calls from stat cards too)
+      const matchBtn = Array.from(document.querySelectorAll('.tab-btn')).find(
+        btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabId}'`)
+      );
+      if (matchBtn) matchBtn.classList.add('active');
       document.getElementById('panel-' + tabId).classList.add('active');
+    }
+
+    /* ── DASHBOARD STATS SYNC ── */
+    function updateDashboardStats() {
+      if (!rawContent) return;
+
+      // Price card
+      const price = rawContent.pricePerNight
+        || parseInt(document.getElementById('price-per-night')?.value) || 0;
+      const minN = rawContent.minNights
+        || parseInt(document.getElementById('min-nights')?.value) || 0;
+      const priceEl = document.getElementById('stat-price');
+      const minNEl  = document.getElementById('stat-min-nights');
+      if (priceEl) priceEl.textContent = price + ' €';
+      if (minNEl)  minNEl.textContent  = minN;
+
+      // Reviews
+      const revEl = document.getElementById('stat-reviews');
+      if (revEl) revEl.textContent = (rawContent.reviews || []).length;
+
+      // FAQs
+      const faqEl = document.getElementById('stat-faqs');
+      if (faqEl) faqEl.textContent = (rawContent.faqs || []).length;
+
+      // Gallery
+      const galEl = document.getElementById('stat-gallery');
+      if (galEl) galEl.textContent = (rawContent.gallery || []).length;
     }
 
     /* ── AUTHENTICATION ── */
@@ -1038,6 +1707,7 @@
           renderReviewsManager();
           renderFaqManager();
           renderGalleryManager();
+          updateDashboardStats();
 
           hasChanges = false;
           document.getElementById('saveBar').style.display = 'none';
@@ -1070,15 +1740,28 @@
       const container = document.getElementById('translationsContainer');
       container.innerHTML = '';
 
-      const keys = Object.keys(rawContent.translations).filter(k => k.startsWith(category));
+      // Include keys starting with "form" under the "book" category
+      const keys = Object.keys(rawContent.translations).filter(k => {
+        if (category === 'book') {
+          return k.startsWith('book') || k.startsWith('form');
+        }
+        return k.startsWith(category);
+      });
 
-      keys.forEach(key => {
+      keys.forEach((key, idx) => {
         const row = document.createElement('div');
         row.className = 'translation-row';
 
+        const labelText = keyLabels[key] || key;
+
         const label = document.createElement('div');
         label.className = 'translation-meta';
-        label.innerHTML = `<span class="translation-key">${key}</span>`;
+        label.innerHTML = `
+          <div class="translation-info">
+            <span class="translation-title">${labelText}</span>
+            <span class="translation-key">${key}</span>
+          </div>
+        `;
         row.appendChild(label);
 
         const inputs = document.createElement('div');
@@ -1089,25 +1772,72 @@
         field.className = 'lang-field';
         field.setAttribute('data-lang-label', lang.toUpperCase());
 
-        const text = rawContent.translations[key][lang] || '';
+        const rawText = rawContent.translations[key][lang] || '';
+        const parsed = cleanHtmlForEditing(rawText);
+
+        const inputId = `translation-input-${idx}`;
+        const previewId = `translation-preview-${idx}`;
+
+        let inputContainer = document.createElement('div');
+        inputContainer.className = 'input-editor-container';
 
         let input;
-        if (text.length > 50 || key.includes('desc') || key.includes('sub')) {
+        const isTextArea = parsed.text.length > 50 || key.includes('desc') || key.includes('sub') || parsed.text.includes('\n') || key.includes('tagline') || key.includes('addr');
+
+        if (isTextArea) {
+          // Render textarea with formatting toolbar
+          const toolbar = document.createElement('div');
+          toolbar.className = 'editor-toolbar';
+          toolbar.innerHTML = `
+            <button type="button" class="tb-btn" title="Podebljano (Bold)" onclick="insertFormatting('${inputId}', '**', '**')"><i class="fa-solid fa-bold"></i></button>
+            <button type="button" class="tb-btn" title="Koso (Italic)" onclick="insertFormatting('${inputId}', '*', '*')"><i class="fa-solid fa-italic"></i></button>
+            <button type="button" class="tb-btn" title="Novi red" onclick="insertFormatting('${inputId}', '\\n', '')"><i class="fa-solid fa-paragraph"></i></button>
+            <span class="tb-hint">Koristite *koso* i **podebljano**. Enter stvara novi red.</span>
+          `;
+          inputContainer.appendChild(toolbar);
+
           input = document.createElement('textarea');
-          input.rows = 3;
+          input.id = inputId;
+          input.rows = Math.max(3, parsed.text.split('\n').length);
         } else {
           input = document.createElement('input');
           input.type = 'text';
+          input.id = inputId;
         }
 
         input.className = 'form-input';
-        input.value = text;
+        input.value = parsed.text;
+        input.setAttribute('data-icon', parsed.icon);
+        
+        // Save handler
         input.oninput = (e) => {
-          rawContent.translations[key][lang] = e.target.value;
+          const icon = e.target.getAttribute('data-icon') || '';
+          const cleanVal = e.target.value;
+          const htmlVal = formatEditingToHtml(cleanVal, icon);
+          rawContent.translations[key][lang] = htmlVal;
           triggerChange();
+
+          // Update preview if exists
+          const previewEl = document.getElementById(previewId);
+          if (previewEl) {
+            previewEl.innerHTML = htmlVal;
+          }
         };
 
-        field.appendChild(input);
+        inputContainer.appendChild(input);
+
+        // Add Live Preview for textareas and formatted text
+        if (isTextArea || parsed.icon) {
+          const previewBox = document.createElement('div');
+          previewBox.className = 'editor-preview-box';
+          previewBox.innerHTML = `
+            <span class="preview-label">Pregled izgleda:</span>
+            <div class="preview-content-render" id="${previewId}">${rawText}</div>
+          `;
+          inputContainer.appendChild(previewBox);
+        }
+
+        field.appendChild(inputContainer);
         inputs.appendChild(field);
         row.appendChild(inputs);
         container.appendChild(row);
@@ -1123,6 +1853,18 @@
         const item = document.createElement('div');
         item.className = 'manager-item';
 
+        const revRawText = rev.text[currentEditLang] || '';
+        const revParsed = cleanHtmlForEditing(revRawText);
+        const reviewTextId = `review-text-input-${idx}`;
+        const reviewPreviewId = `review-text-preview-${idx}`;
+
+        // Star rating icons render
+        let starsHtml = '';
+        for (let i = 1; i <= 5; i++) {
+          const isSolid = i <= rev.stars;
+          starsHtml += `<i class="star-rating-icon fa-star ${isSolid ? 'fa-solid active' : 'fa-regular'}" data-value="${i}" onclick="setReviewStars(${idx}, ${i})"></i>`;
+        }
+
         item.innerHTML = `
           <div class="manager-item-header">
             <span style="font-weight:600;">#${idx + 1} Recenzija: ${rev.name}</span>
@@ -1130,7 +1872,7 @@
               <button class="btn-icon btn-icon-danger" onclick="deleteReview(${idx})"><i class="fa-solid fa-trash"></i></button>
             </div>
           </div>
-          <div class="row" style="margin-bottom:1rem;">
+          <div class="row" style="margin-bottom:1.5rem;">
             <div class="form-group">
               <label>Ime gosta</label>
               <input type="text" class="form-input" value="${rev.name}" oninput="rawContent.reviews[${idx}].name = this.value; triggerChange()">
@@ -1144,15 +1886,29 @@
               <input type="text" class="form-input" value="${rev.countryFlag || ''}" oninput="rawContent.reviews[${idx}].countryFlag = this.value; triggerChange()">
             </div>
             <div class="form-group">
-              <label>Broj zvjezdica (1-5)</label>
-              <input type="number" class="form-input" min="1" max="5" value="${rev.stars}" onchange="rawContent.reviews[${idx}].stars = parseInt(this.value); triggerChange()">
+              <label>Broj zvjezdica</label>
+              <div class="stars-rating-widget" data-idx="${idx}">
+                ${starsHtml}
+              </div>
             </div>
           </div>
 
-          <div style="display:grid; gap:1rem; grid-template-columns: 1fr; margin-bottom:1rem;">
+          <div style="display:grid; gap:1rem; grid-template-columns: 1fr; margin-bottom:1.5rem;">
             <div class="form-group">
               <label>Tekst recenzije (${currentEditLang.toUpperCase()})</label>
-              <textarea class="form-input" rows="3" oninput="rawContent.reviews[${idx}].text.${currentEditLang} = this.value; triggerChange()">${rev.text[currentEditLang] || ''}</textarea>
+              <div class="input-editor-container">
+                <div class="editor-toolbar">
+                  <button type="button" class="tb-btn" title="Podebljano (Bold)" onclick="insertFormatting('${reviewTextId}', '**', '**')"><i class="fa-solid fa-bold"></i></button>
+                  <button type="button" class="tb-btn" title="Koso (Italic)" onclick="insertFormatting('${reviewTextId}', '*', '*')"><i class="fa-solid fa-italic"></i></button>
+                  <button type="button" class="tb-btn" title="Novi red" onclick="insertFormatting('${reviewTextId}', '\\n', '')"><i class="fa-solid fa-paragraph"></i></button>
+                  <span class="tb-hint">Označite tekst i kliknite za stiliziranje.</span>
+                </div>
+                <textarea id="${reviewTextId}" class="form-input" rows="3" oninput="rawContent.reviews[${idx}].text.${currentEditLang} = formatEditingToHtml(this.value); document.getElementById('${reviewPreviewId}').innerHTML = formatEditingToHtml(this.value); triggerChange()">${revParsed.text}</textarea>
+                <div class="editor-preview-box">
+                  <span class="preview-label">Pregled izgleda:</span>
+                  <div class="preview-content-render" id="${reviewPreviewId}">${revRawText}</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1163,14 +1919,32 @@
             </div>
           </div>
 
-          <div style="display:flex; justify-content: flex-end; margin-top: 1rem;">
-            <button class="btn" style="width: auto; padding: 0.5rem 1.2rem; font-size: 0.85rem; background: var(--color-accent);" onclick="translateReview(${idx}, this)">
+          <div style="display:flex; justify-content: flex-end; margin-top: 1.5rem;">
+            <button class="btn" style="width: auto; padding: 0.6rem 1.5rem; font-size: 0.85rem; background: var(--color-accent);" onclick="translateReview(${idx}, this)">
               <i class="fa-solid fa-wand-magic-sparkles"></i> Prevedi automatski na ostale jezike
             </button>
           </div>
         `;
         container.appendChild(item);
       });
+    }
+
+    function setReviewStars(idx, starsVal) {
+      rawContent.reviews[idx].stars = parseInt(starsVal);
+      triggerChange();
+      
+      // Update visual stars state
+      const widget = document.querySelector(`.stars-rating-widget[data-idx="${idx}"]`);
+      if (widget) {
+        widget.querySelectorAll('.star-rating-icon').forEach(star => {
+          const val = parseInt(star.getAttribute('data-value'));
+          if (val <= starsVal) {
+            star.className = 'star-rating-icon fa-star fa-solid active';
+          } else {
+            star.className = 'star-rating-icon fa-star fa-regular';
+          }
+        });
+      }
     }
 
     function addNewReview() {
@@ -1184,6 +1958,7 @@
       });
       renderReviewsManager();
       triggerChange();
+      updateDashboardStats();
     }
 
     function deleteReview(idx) {
@@ -1191,6 +1966,7 @@
         rawContent.reviews.splice(idx, 1);
         renderReviewsManager();
         triggerChange();
+        updateDashboardStats();
       }
     }
 
@@ -1263,6 +2039,11 @@
         const item = document.createElement('div');
         item.className = 'manager-item';
 
+        const faqRawAnswer = faq.a[currentEditLang] || '';
+        const faqParsed = cleanHtmlForEditing(faqRawAnswer);
+        const faqAnswerId = `faq-answer-input-${idx}`;
+        const faqPreviewId = `faq-answer-preview-${idx}`;
+
         item.innerHTML = `
           <div class="manager-item-header">
             <span style="font-weight:600;">#${idx + 1} Pitanje (${currentEditLang.toUpperCase()})</span>
@@ -1271,19 +2052,31 @@
             </div>
           </div>
 
-          <div style="display:grid; gap:1.5rem; grid-template-columns: 1fr; margin-bottom:1rem;">
+          <div style="display:grid; gap:1.5rem; grid-template-columns: 1fr; margin-bottom:1.5rem;">
             <div class="form-group">
               <label>Pitanje (${currentEditLang.toUpperCase()})</label>
               <input type="text" class="form-input" value="${faq.q[currentEditLang] || ''}" oninput="rawContent.faqs[${idx}].q['${currentEditLang}'] = this.value; triggerChange()">
             </div>
             <div class="form-group">
               <label>Odgovor (${currentEditLang.toUpperCase()})</label>
-              <textarea class="form-input" rows="3" oninput="rawContent.faqs[${idx}].a['${currentEditLang}'] = this.value; triggerChange()">${faq.a[currentEditLang] || ''}</textarea>
+              <div class="input-editor-container">
+                <div class="editor-toolbar">
+                  <button type="button" class="tb-btn" title="Podebljano (Bold)" onclick="insertFormatting('${faqAnswerId}', '**', '**')"><i class="fa-solid fa-bold"></i></button>
+                  <button type="button" class="tb-btn" title="Koso (Italic)" onclick="insertFormatting('${faqAnswerId}', '*', '*')"><i class="fa-solid fa-italic"></i></button>
+                  <button type="button" class="tb-btn" title="Novi red" onclick="insertFormatting('${faqAnswerId}', '\\n', '')"><i class="fa-solid fa-paragraph"></i></button>
+                  <span class="tb-hint">Koristite Enter za prijelom reda.</span>
+                </div>
+                <textarea id="${faqAnswerId}" class="form-input" rows="3" oninput="rawContent.faqs[${idx}].a['${currentEditLang}'] = formatEditingToHtml(this.value); document.getElementById('${faqPreviewId}').innerHTML = formatEditingToHtml(this.value); triggerChange()">${faqParsed.text}</textarea>
+                <div class="editor-preview-box">
+                  <span class="preview-label">Pregled izgleda:</span>
+                  <div class="preview-content-render" id="${faqPreviewId}">${faqRawAnswer}</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div style="display:flex; justify-content: flex-end; margin-top: 1rem;">
-            <button class="btn" style="width: auto; padding: 0.5rem 1.2rem; font-size: 0.85rem; background: var(--color-accent);" onclick="translateFaq(${idx}, this)">
+          <div style="display:flex; justify-content: flex-end; margin-top: 1.5rem;">
+            <button class="btn" style="width: auto; padding: 0.6rem 1.5rem; font-size: 0.85rem; background: var(--color-accent);" onclick="translateFaq(${idx}, this)">
               <i class="fa-solid fa-wand-magic-sparkles"></i> Prevedi automatski na ostale jezike
             </button>
           </div>
@@ -1302,6 +2095,7 @@
       });
       renderFaqManager();
       triggerChange();
+      updateDashboardStats();
     }
 
     function deleteFaq(idx) {
@@ -1309,6 +2103,7 @@
         rawContent.faqs.splice(idx, 1);
         renderFaqManager();
         triggerChange();
+        updateDashboardStats();
       }
     }
 
@@ -1448,6 +2243,7 @@
 
       renderGalleryManager();
       triggerChange();
+      updateDashboardStats();
       showToast('Fotografija je dodana. Obavezno kliknite "Spremi sve promjene" na dnu za objavu!');
     }
 
@@ -1456,6 +2252,7 @@
         rawContent.gallery.splice(idx, 1);
         renderGalleryManager();
         triggerChange();
+        updateDashboardStats();
       }
     }
 

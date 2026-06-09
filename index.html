@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Luksuzni apartman Antonia – Imotski, 30 km od mora. Privatna oaza za 3 gosta, etno konoba, dvorište, roštilj. Rezervirajte izravno." />
+    content="Luksuzni apartman Antonia – Imotski, na kratku vožnju od predivnog Jadranskog mora. Privatna oaza za 3 gosta, etno konoba, dvorište, roštilj. Rezervirajte izravno." />
   <meta name="keywords"
     content="apartment Imotski, accommodation Makarska, Podbablje, private apartment, ethno tavern, holiday Dalmatia" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Luxury Apartment Antonia – Imotski" />
   <meta property="og:description"
-    content="Privatna oaza 30 km od mora. Etno konoba, dvorište, roštilj. Rezervirajte izravno." />
+    content="Privatna oaza na kratku vožnju od Jadranskog mora. Etno konoba, dvorište, roštilj. Rezervirajte izravno." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="hr_HR" />
 
@@ -122,6 +122,9 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
     }
 
     @media (max-width: 360px) {
@@ -136,7 +139,9 @@
       color: var(--color-text);
       line-height: 1.6;
       transition: background-color 0.4s ease, color 0.4s ease;
+      max-width: 100%;
       overflow-x: hidden;
+      position: relative;
     }
 
     /* ============================================================
@@ -953,46 +958,91 @@
     ============================================================ */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 6rem;
       align-items: center;
     }
 
     .about-img-wrap {
       position: relative;
+      height: 540px;
+      display: block;
     }
 
-    .about-img {
-      width: 100%;
-      height: 520px;
+    .about-img-primary {
+      width: 78%;
+      height: 460px;
       object-fit: cover;
       display: block;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .about-img-wrap:hover .about-img-primary {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-img-secondary {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 52%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+      border: 10px solid var(--color-bg);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
+      z-index: 2;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .about-img-wrap:hover .about-img-secondary {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 28px 55px rgba(0, 0, 0, 0.22);
     }
 
     .about-img-badge {
       position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
+      bottom: 50px;
+      left: -25px;
       background: var(--color-cta-bg);
       color: var(--color-cta-text);
-      padding: 1.25rem 1.5rem;
+      padding: 1.25rem 1.75rem;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      z-index: 3;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-img-wrap:hover .about-img-badge {
+      transform: scale(1.08) rotate(-3deg);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
     }
 
     .about-badge-num {
       display: block;
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
       line-height: 1;
+      margin-bottom: 0.2rem;
     }
 
     .about-badge-txt {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      opacity: 0.85;
+      opacity: 0.9;
+      line-height: 1.3;
     }
 
     .about-text .divider,
@@ -1004,28 +1054,50 @@
       color: var(--color-text-muted);
       margin-bottom: 2rem;
       font-size: 1.05rem;
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
     .about-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 1rem;
     }
 
     .about-list li {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 0.95rem;
+      gap: 1rem;
+      font-size: 1rem;
       color: var(--color-text);
+      transition: transform 0.2s ease;
+    }
+
+    .about-list li:hover {
+      transform: translateX(4px);
     }
 
     .about-list li i {
+      background: var(--color-bg-alt);
       color: var(--color-accent);
-      font-size: 0.8rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
       flex-shrink: 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+    }
+
+    .about-list li:hover i {
+      background: var(--color-accent);
+      color: var(--color-cta-text);
+      border-color: var(--color-accent);
+      transform: scale(1.1);
     }
 
     @media (max-width: 900px) {
@@ -1034,13 +1106,29 @@
         gap: 3rem;
       }
 
-      .about-img {
-        height: 320px;
+      .about-img-wrap {
+        height: 420px;
+        max-width: 500px;
+        margin: 0 auto 2rem auto;
+      }
+
+      .about-img-primary {
+        width: 80%;
+        height: 350px;
+      }
+
+      .about-img-secondary {
+        width: 50%;
+        height: 220px;
+        bottom: 0;
+        right: 0;
+        border-width: 6px;
       }
 
       .about-img-badge {
-        right: 1rem;
-        bottom: -1rem;
+        bottom: 30px;
+        left: -10px;
+        padding: 1rem 1.25rem;
       }
     }
 
@@ -1848,83 +1936,288 @@
     }
 
     /* ============================================================
-       FAQ ACCORDION
+       FAQ CHATBOT
     ============================================================ */
-    .faq-list {
-      max-width: 760px;
+    .faq-chat-wrapper {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3rem;
+      align-items: start;
+      max-width: 1100px;
       margin: 0 auto;
+    }
+
+    .faq-chat-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
-      gap: 0;
+      overflow: hidden;
+      transition: background-color 0.4s ease, border-color 0.4s ease;
     }
 
-    .faq-item {
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .faq-item:first-child {
-      border-top: 1px solid var(--color-border);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 1.3rem 0;
+    .faq-chat-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
-      cursor: pointer;
-      text-align: left;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--color-text);
-      transition: color 0.2s;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      background: rgba(0, 0, 0, 0.04);
     }
 
-    .faq-question:hover {
-      color: var(--color-primary);
-    }
-
-    .faq-icon {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
+    .faq-chat-avatar {
+      position: relative;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      border: 1px solid var(--color-border);
+      background: var(--color-primary);
+      color: var(--color-cta-text);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
-      color: var(--color-primary);
-      transition: transform 0.3s ease, background 0.2s, border-color 0.2s;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: var(--color-cta-text);
+    .faq-online-dot {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 11px;
+      height: 11px;
+      background-color: var(--color-whatsapp);
+      border-radius: 50%;
+      border: 2px solid var(--color-surface);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
     }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.3s ease;
-    }
-
-    .faq-answer-inner {
-      padding-bottom: 1.3rem;
+    .faq-chat-header-info h4 {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem;
-      color: var(--color-text-muted);
-      line-height: 1.7;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
     }
 
-    .faq-item.open .faq-answer {
-      max-height: 300px;
+    .faq-chat-status {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      opacity: 0.85;
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    .faq-chat-messages {
+      height: 380px;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: rgba(0, 0, 0, 0.02);
+      scroll-behavior: smooth;
+    }
+
+    /* Message Bubbles */
+    .faq-message {
+      max-width: 82%;
+      padding: 0.85rem 1.15rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      animation: bubble-slide-up 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+    }
+
+    .message--bot {
+      background: var(--color-bg-alt);
+      color: var(--color-text);
+      border-radius: 16px 16px 16px 4px;
+      align-self: flex-start;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .message--user {
+      background: var(--color-primary);
+      color: var(--color-cta-text);
+      border-radius: 16px 16px 4px 16px;
+      align-self: flex-end;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-chat-input-area {
+      display: flex;
+      padding: 0.9rem 1.2rem;
+      background: rgba(0, 0, 0, 0.05);
+      border-top: 1px solid var(--color-border);
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .faq-chat-input {
+      flex: 1;
+      border: 1px solid var(--color-border);
+      border-radius: 24px;
+      padding: 0.65rem 1.25rem;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .faq-chat-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+
+    .faq-chat-send-btn {
+      background: var(--color-primary);
+      color: var(--color-cta-text);
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+    }
+
+    .faq-chat-send-btn:hover {
+      transform: scale(1.06);
+      filter: brightness(1.1);
+    }
+
+    .faq-chat-send-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Suggestions Card */
+    .faq-suggestions-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+
+    .faq-suggestions-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-suggestions-subtitle {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+
+    .faq-suggestions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      max-height: 380px;
+      overflow-y: auto;
+      padding-right: 0.3rem;
+    }
+
+    .faq-suggestion-pill {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.65rem 0.95rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      line-height: 1.45;
+      font-family: inherit;
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .faq-suggestion-pill:hover {
+      background: var(--color-surface);
+      border-color: var(--color-accent);
+      transform: translateX(4px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Fallback WhatsApp Button */
+    .faq-chat-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--color-whatsapp);
+      color: #fff !important;
+      padding: 0.5rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0.6rem;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+      transition: all 0.2s;
+      width: fit-content;
+    }
+
+    .faq-chat-wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+    }
+
+    /* Keyframes */
+    @keyframes bubble-slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Typing indicators */
+    .faq-typing-indicator {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .faq-typing-indicator span {
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-text-muted);
+      border-radius: 50%;
+      display: inline-block;
+      animation: faq-typing-bounce 1.4s infinite ease-in-out both;
+      opacity: 0.6;
+    }
+
+    .faq-typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+    .faq-typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes faq-typing-bounce {
+      0%, 80%, 100% { transform: scale(0.6); }
+      40% { transform: scale(1.1); opacity: 1; }
     }
 
     /* ============================================================
@@ -2105,6 +2398,15 @@
       .booking-wrap {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+
+      .faq-chat-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .faq-suggestions-list {
+        max-height: 250px;
       }
     }
 
@@ -2493,11 +2795,39 @@
       }
 
       .about-img-wrap {
-        height: 260px;
+        height: 320px;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
       }
 
-      .about-img {
-        height: 260px;
+      .about-img-primary {
+        width: 82%;
+        height: 270px;
+        border-radius: 12px;
+      }
+
+      .about-img-secondary {
+        width: 52%;
+        height: 170px;
+        bottom: 0px;
+        right: 0px;
+        border-width: 4px;
+        border-radius: 12px;
+      }
+
+      .about-img-badge {
+        bottom: 20px;
+        left: -5px;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+      }
+
+      .about-badge-num {
+        font-size: 1.5rem;
+      }
+
+      .about-badge-txt {
+        font-size: 0.6rem;
       }
 
       /* Galerija preview */
@@ -2569,13 +2899,48 @@
         font-size: 0.95rem;
       }
 
-      /* FAQ */
-      .faq-question {
-        font-size: 0.88rem;
+      /* FAQ Chatbot */
+      .faq-chat-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
-      .faq-answer-inner {
-        font-size: 0.84rem;
+      .faq-chat-messages {
+        height: 320px;
+        padding: 1rem;
+      }
+
+      .faq-message {
+        max-width: 90%;
+        font-size: 0.88rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .faq-chat-input-area {
+        padding: 0.75rem 1rem;
+      }
+
+      .faq-chat-input {
+        font-size: 0.85rem;
+        padding: 0.55rem 1rem;
+      }
+
+      .faq-chat-send-btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .faq-suggestions-card {
+        padding: 1.25rem;
+      }
+
+      .faq-suggestions-list {
+        max-height: 200px;
+      }
+
+      .faq-suggestion-pill {
+        font-size: 0.78rem;
+        padding: 0.55rem 0.85rem;
       }
 
       /* Mapa */
@@ -2829,7 +3194,8 @@
   <section class="section" id="o-apartmanu">
     <div class="container about-grid">
       <div class="about-img-wrap">
-        <img src="images/dnevni1.jpg" alt="Apartman Antonia" class="about-img" />
+        <img src="images/dnevni1.jpg" alt="Apartman Antonia - Dnevni boravak" class="about-img-primary" />
+        <img src="images/exterior1.jpg" alt="Apartman Antonia - Eksterijer" class="about-img-secondary" />
         <div class="about-img-badge">
           <span class="about-badge-num">2+</span>
           <span class="about-badge-txt" data-i18n="about-exp">godine<br>iskustva</span>
@@ -2839,15 +3205,14 @@
         <p class="eyebrow" data-i18n="about-eyebrow">O apartmanu</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="about-title">Više od apartmana —<br><em>doživljaj</em></h2>
-        <p class="about-desc" data-i18n="about-desc">Opustite se u ugodnom i moderno uređenom smještaju, smještenom
-          svega 30 km od mora. Na
+        <p class="about-desc" data-i18n="about-desc">Opustite se u ugodnom i moderno uređenom smještaju, na kratku vožnju od predivnog Jadranskog mora. Na
           raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica. <br>
           Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima.
           Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.</p>
         <ul class="about-list">
           <li><i class="fa-solid fa-check"></i> <span data-i18n="about-list-1">Okružen prirodom i šumom,</span></li>
           <li><i class="fa-solid fa-check"></i> <span data-i18n="about-list-2">udaljen svega 3 km od rijeke,</span></li>
-          <li><i class="fa-solid fa-check"></i> <span data-i18n="about-list-3">7 km od jezera i 30 km od mora.</span>
+          <li><i class="fa-solid fa-check"></i> <span data-i18n="about-list-3">7 km od jezera i kratka vožnja do mora.</span>
           </li>
           <li><i class="fa-solid fa-check"></i> <span data-i18n="about-list-4">Restoran 400 m, dućan 1 km.</span></li>
         </ul>
@@ -3170,8 +3535,38 @@
         <p class="section-subtitle" data-i18n="faq-sub">Sve što trebate znati prije dolaska.</p>
       </div>
 
-      <div class="faq-list" id="faqList">
-        <!-- Dynamically generated -->
+      <div class="faq-chat-wrapper">
+        <!-- Chat Card (Left Column) -->
+        <div class="faq-chat-card">
+          <div class="faq-chat-header">
+            <div class="faq-chat-avatar">
+              <i class="fa-solid fa-robot"></i>
+              <span class="faq-online-dot"></span>
+            </div>
+            <div class="faq-chat-header-info">
+              <h4 data-i18n="faq-bot-name">Antonia Pomoćnik</h4>
+              <span class="faq-chat-status" data-i18n="faq-bot-status">Aktivan · Odgovara odmah</span>
+            </div>
+          </div>
+          <div class="faq-chat-messages" id="faqChatMessages">
+            <!-- Bubbles loaded dynamically -->
+          </div>
+          <div class="faq-chat-input-area">
+            <input type="text" id="faqChatInput" class="faq-chat-input" data-i18n-placeholder="faq-chat-placeholder" placeholder="Upišite svoje pitanje..." onkeydown="if(event.key === 'Enter') sendFaqMessage()" />
+            <button class="faq-chat-send-btn" onclick="sendFaqMessage()" aria-label="Send message">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Suggestions Card (Right Column) -->
+        <div class="faq-suggestions-card">
+          <h3 class="faq-suggestions-title" data-i18n="faq-suggestions-title">Česta pitanja</h3>
+          <p class="faq-suggestions-subtitle" data-i18n="faq-suggestions-sub">Odaberite jedno od brzih pitanja:</p>
+          <div class="faq-suggestions-list" id="faqSuggestionsList">
+            <!-- suggestion pills loaded dynamically -->
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3184,13 +3579,13 @@
         <p class="eyebrow" data-i18n="map-eyebrow">Kako doći do nas</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="map-title">Lokacija</h2>
-        <p class="section-subtitle" data-i18n="map-sub">Podbablje Gornje, Imotski · 30 km do mora · Besplatan parking
+        <p class="section-subtitle" data-i18n="map-sub">Podbablje Gornje, Imotski · Kratka vožnja do mora · Besplatan parking
         </p>
       </div>
       <div class="map-info-row">
         <div class="map-pill"><i class="fa-solid fa-location-dot"></i> <span data-i18n="map-pill-1">Podbablje Gornje,
             Imotski, HR</span></div>
-        <div class="map-pill"><i class="fa-solid fa-car"></i> <span data-i18n="map-pill-2">30 km do Makarske
+        <div class="map-pill"><i class="fa-solid fa-car"></i> <span data-i18n="map-pill-2">Kratka vožnja do Makarske
             rivijere</span></div>
         <div class="map-pill"><i class="fa-solid fa-water"></i> <span data-i18n="map-pill-3">7 km do jezera</span></div>
         <div class="map-pill"><i class="fa-solid fa-p"></i> <span data-i18n="map-pill-4">Besplatan privatni
@@ -4055,15 +4450,15 @@
         "proof-rating": { hr: "Ocjena 5.0 ⭐", en: "Rating 5.0 ⭐", de: "Bewertung 5.0 ⭐" },
         "proof-pets": { hr: "Kućni ljubimci dobrodošli", en: "Pets welcome", de: "Haustiere willkommen" },
         "proof-parking": { hr: "Besplatan Parking", en: "Free Parking", de: "Kostenloser Parkplatz" },
-        "proof-sea": { hr: "30km do mora", en: "30km from sea", de: "30km zum Meer" },
+        "proof-sea": { hr: "Kratka vožnja do mora", en: "Short drive to the sea", de: "Kurze Fahrt zum Meer" },
         "proof-reply": { hr: "Odgovor u roku od 1h", en: "Reply within 1h", de: "Antwort innerhalb 1 Std." },
         "about-exp": { hr: "godine<br>iskustva", en: "years of<br>experience", de: "Jahre<br>Erfahrung" },
         "about-eyebrow": { hr: "O apartmanu", en: "About the apartment", de: "Über das Apartment" },
         "about-title": { hr: "Više od apartmana —<br><em>doživljaj</em>", en: "More than an apartment —<br><em>an experience</em>", de: "Mehr als nur ein Apartment —<br><em>ein Erlebnis</em>" },
-        "about-desc": { hr: "Opustite se u ugodnom i moderno uređenom smještaju, smještenom svega 30 km od mora. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima. Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.", en: "Relax in a cozy and modernly decorated accommodation, located just 30 km from the sea. You have at your disposal a private entrance, a fully equipped kitchen, a living room, a bedroom and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room with sound and light effects. An ideal choice for couples looking for peace, privacy, and complete relaxation.", de: "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft, die nur 30 km vom Meer entfernt liegt. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum mit Sound- und Lichteffekten. Eine ideale Wahl für Paare, die Ruhe, Privatsphäre und völlige Entspannung suchen." },
+        "about-desc": { hr: "Opustite se u ugodnom i moderno uređenom smještaju, na kratku vožnju od predivnog Jadranskog mora. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu sa zvučnim i svjetlosnim efektima. Idealan izbor za parove koji traže mir, privatnost i potpuni odmor.", en: "Relax in a cozy and modernly decorated accommodation, just a short drive from the beautiful Adriatic Sea. You have at your disposal a private entrance, a fully equipped kitchen, a living room, a bedroom and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room with sound and light effects. An ideal choice for couples looking for peace, privacy, and complete relaxation.", de: "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft, nur eine kurze Fahrt von der wunderschönen Adria entfernt. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum mit Sound- und Lichteffekten. Eine ideale Wahl für Paare, die Ruhe, Privatsphäre und völlige Entspannung suchen." },
         "about-list-1": { hr: "Okružen prirodom i šumom,", en: "Surrounded by nature and forest,", de: "Umgeben von Natur und Wald," },
         "about-list-2": { hr: "udaljen svega 3 km od rijeke,", en: "only 3 km from the river,", de: "nur 3 km vom Fluss entfernt," },
-        "about-list-3": { hr: "7 km od jezera i 30 km od mora.", en: "7 km from the lake and 30 km from the sea.", de: "7 km vom See und 30 km vom Meer." },
+        "about-list-3": { hr: "7 km od jezera i kratka vožnja do mora.", en: "7 km from the lake and a short drive to the sea.", de: "7 km vom See und eine kurze Fahrt zum Meer." },
         "about-list-4": { hr: "Restoran 400 m, dućan 1 km.", en: "Restaurant 400 m, shop 1 km.", de: "Restaurant 400 m, Geschäft 1 km." },
         "about-btn": { hr: "<i class=\"fa-brands fa-whatsapp\"></i> Provjeri dostupnost", en: "<i class=\"fa-brands fa-whatsapp\"></i> Check availability", de: "<i class=\"fa-brands fa-whatsapp\"></i> Verfügbarkeit prüfen" },
         "gallery-eyebrow": { hr: "Fotografije", en: "Photos", de: "Fotos" },
@@ -4165,12 +4560,17 @@
         "faq-eyebrow": { hr: "Imate pitanja?", en: "Have questions?", de: "Haben Sie Fragen?" },
         "faq-title": { hr: "FAQ", en: "FAQ", de: "FAQ" },
         "faq-sub": { hr: "Sve što trebate znati prije dolaska.", en: "Everything you need to know before arrival.", de: "Alles, was Sie vor Ihrer Anreise wissen müssen." },
+        "faq-bot-name": { hr: "Antonia Pomoćnik", en: "Antonia Assistant", de: "Antonia-Assistent" },
+        "faq-bot-status": { hr: "Aktivan · Odgovara odmah", en: "Active · Replies instantly", de: "Aktiv · Antwortet sofort" },
+        "faq-suggestions-title": { hr: "Česta pitanja", en: "Popular Questions", de: "Häufige Fragen" },
+        "faq-suggestions-sub": { hr: "Odaberite jedno od brzih pitanja:", en: "Choose one of the quick questions:", de: "Wählen Sie eine der schnellen Fragen:" },
+        "faq-chat-placeholder": { hr: "Upišite svoje pitanje...", en: "Type your question...", de: "Schreiben Sie Ihre Frage..." },
         "map-eyebrow": { hr: "Kako doći do nas", en: "How to find us", de: "Wie Sie uns finden" },
         "map-title": { hr: "Lokacija", en: "Location", de: "Lage" },
-        "map-sub": { hr: "Podbablje Gornje, Imotski · 30 km do mora · Besplatan parking", en: "Podbablje Gornje, Imotski · 30 km to the sea · Free parking", de: "Podbablje Gornje, Imotski · 30 km zum Meer · Kostenloser Parkplatz" },
+        "map-sub": { hr: "Podbablje Gornje, Imotski · Kratka vožnja do mora · Besplatan parking", en: "Podbablje Gornje, Imotski · Short drive to the sea · Free parking", de: "Podbablje Gornje, Imotski · Kurze Fahrt zum Meer · Kostenloser Parkplatz" },
         "map-btn": { hr: "Navigiraj — Google Maps", en: "Navigate — Google Maps", de: "Navigieren — Google Maps" },
         "map-pill-1": { hr: "Podbablje Gornje, Imotski, HR", en: "Podbablje Gornje, Imotski, HR", de: "Podbablje Gornje, Imotski, HR" },
-        "map-pill-2": { hr: "30 km do Makarske rivijere", en: "30 km to Makarska Riviera", de: "30 km zur Makarska Riviera" },
+        "map-pill-2": { hr: "Kratka vožnja do Makarske rivijere", en: "Short drive to Makarska Riviera", de: "Kurze Fahrt zur Makarska-Riviera" },
         "map-pill-3": { hr: "7 km do jezera", en: "7 km to the lake", de: "7 km zum See" },
         "map-pill-4": { hr: "Besplatan privatni parking", en: "Free private parking", de: "Kostenloser Parkplatz" },
         "footer-tagline": { hr: "Vaše utočište u srcu Dalmatinske zagore.<br>Luksuz, priroda i toplina doma.", en: "Your sanctuary in the heart of the Dalmatian Hinterland.<br>Luxury, nature, and the warmth of home.", de: "Ihre Oase im Herzen des dalmatinischen Hinterlandes.<br>Luxus, Natur und die Wärme des Zuhauses." },
@@ -4241,7 +4641,7 @@
           a: {
             hr: "Check-in je fleksibilan i dogovara se direktno. Checkout je do 10:00. Apartman ima zaseban ulaz pa imate potpunu privatnost.",
             en: "Check-in is flexible and arranged directly. Checkout is by 10:00. The apartment has a separate entrance so you have complete privacy.",
-            de: "Der Check-in ist flexibel und wird direkt vereinbart. Der Check-out ist bis 10:00 Uhr. Das Apartment verfügt über einen separaten entrance, sodass Sie absolute Privatsphäre genießen."
+            de: "Der Check-in ist flexibel und wird direkt vereinbart. Der Check-out ist bis 10:00 Uhr. Das Apartment verfügt über einen separaten Eingang, sodass Sie absolute Privatsphäre genießen."
           }
         },
         {
@@ -4265,7 +4665,7 @@
           a: {
             hr: "Da! Kućni ljubimci su dobrodošli. Privatno dvorište je idealno za šetnju. Samo naznačite u upitu da donosite ljubimca.",
             en: "Yes! Pets are welcome. The private courtyard is ideal for walking. Just indicate in your inquiry that you are bringing a pet.",
-            de: "Ja! Haustiere sind herzlich willkommen. Der private Innenhof je idealan za šetnju. Samo naznačite u upitu da donosite ljubimca."
+            de: "Ja! Haustiere sind herzlich willkommen. Der private Innenhof ist ideal für Spaziergänge. Geben Sie einfach bei Ihrer Anfrage an, dass Sie ein Haustier mitbringen."
           }
         },
         {
@@ -4275,7 +4675,7 @@
             de: "Was ist eine Ethno-Taverne?"
           },
           a: {
-            hr: "Etno konoba je posebna zabavna prostorija u prizemlju s kamenim zidovima, hrastovim stolom i klupama, TV-om, mini barom i hladnjakom s pićima. Ima zvučne i svjetlosne efekte — idealna za večernje druženje.",
+            hr: "Etno konoba je posebna zabavna prostorija u prizemlju s kamenim zidovima, hrastovom stolom i klupama, TV-om, mini barom i hladnjakom s pićima. Ima zvučne i svjetlosne efekte — idealna za večernje druženje.",
             en: "The ethno tavern is a special entertainment room on the ground floor with stone walls, oak table and benches, TV, minibar, and fridge with drinks. It features sound and light effects — ideal for evening gatherings.",
             de: "Die Ethno-Taverne ist ein spezieller Partyraum im Erdgeschoss mit Steinwänden, Eichentisch und -bänken, Fernseher, Minibar und Kühlschrank mit Getränken. Sie verfügt über Sound- und Lichteffekte — ideal für gesellige Abende."
           }
@@ -4287,9 +4687,9 @@
             de: "Wie weit ist das Meer entfernt?"
           },
           a: {
-            hr: "Makarska rivijera je oko 30 km (otprilike 30 minuta vožnje). U blizini su i rijeka (3 km) i jezero (7 km) za kupanje u prirodi.",
-            en: "The Makarska Riviera is about 30 km (roughly a 30-minute drive). Nearby are also a river (3 km) and a lake (7 km) for nature swimming.",
-            de: "Die Makarska Riviera ist etwa 30 km entfernt (ca. 30 Minuten Fahrt). Fluss (3 km) und See (7 km) in der Nähe laden ebenfalls zum Schwimmen in der Natur ein."
+            hr: "Jadransko more i prekrasna Makarska rivijera udaljeni su na kratku i ugodnu vožnju (oko 30 minuta). U blizini su i rijeka (3 km) i jezero (7 km) za kupanje u prirodi.",
+            en: "The Adriatic Sea and the beautiful Makarska Riviera are just a short and pleasant drive away (about 30 minutes). Nearby are also a river (3 km) and a lake (7 km) for nature swimming.",
+            de: "Die Adria und die wunderschöne Makarska-Riviera sind nur eine kurze und angenehme Fahrt entfernt (ca. 30 Minuten). Fluss (3 km) und See (7 km) in der Nähe laden ebenfalls zum Schwimmen in der Natur ein."
           }
         },
         {
@@ -4427,41 +4827,319 @@
       }
     }
 
-    function renderFaqs(faqsList, lang) {
-      const listEl = document.getElementById('faqList');
-      if (!listEl) return;
+    let currentFaqs = [];
+    let faqLang = 'hr';
 
-      let html = '';
-      if (faqsList && faqsList.length > 0) {
-        faqsList.forEach(faq => {
-          const q = faq.q[lang] || faq.q['hr'] || '';
-          const a = faq.a[lang] || faq.a['hr'] || '';
-          html += `
-            <div class="faq-item">
-              <button class="faq-question">
-                <span>${q}</span>
-                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-              </button>
-              <div class="faq-answer">
-                <p class="faq-answer-inner">${a}</p>
-              </div>
-            </div>
+    // Typo calculation (Levenshtein Distance)
+    function getLevenshteinDistance(a, b) {
+      if (a.length === 0) return b.length;
+      if (b.length === 0) return a.length;
+      const matrix = [];
+      for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+          } else {
+            matrix[i][j] = Math.min(
+              matrix[i - 1][j - 1] + 1, // substitution
+              matrix[i][j - 1] + 1,     // insertion
+              matrix[i - 1][j] + 1      // deletion
+            );
+          }
+        }
+      }
+      return matrix[b.length][a.length];
+    }
+
+    function isFuzzyMatch(word1, word2) {
+      if (word1 === word2) return true;
+      if (word1.length < 4 || word2.length < 4) return false;
+      const maxDistance = Math.floor(word2.length / 4); 
+      return getLevenshteinDistance(word1, word2) <= maxDistance;
+    }
+
+    // Synonym maps for intents
+    const intentSynonyms = {
+      price: ['cijen', 'pric', 'plat', 'kost', 'noc', 'nocenj', 'euro', 'eur', 'skup', 'jeftin', 'bill', 'pay', 'bezahl', 'geld'],
+      pets: ['ljubim', 'pet', 'pas', 'psi', 'mack', 'dog', 'cat', 'zivotinj', 'dopust', 'tier', 'hund', 'katz'],
+      tavern: ['konob', 'tavern', 'etno', 'podrum', 'kamin', 'hrast', 'drvo', 'specijal', 'rostilj', 'kuhin', 'grill', 'essen', 'kell'],
+      sea: ['mor', 'sea', 'beach', 'plaz', 'makars', 'rivijer', 'kilomet', 'km', 'dalek', 'udalj', 'swim', 'kupanj', 'wasser', 'strand'],
+      booking: ['rezerv', 'book', 'slobod', 'termin', 'datum', 'dostup', 'kak', 'traz', 'upit', 'buchen', 'frei', 'anfrag']
+    };
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function getActionButtons(intent) {
+      if (intent === 'sea') {
+        const label = faqLang === 'en' ? 'Show on Map' : (faqLang === 'de' ? 'Auf Karte zeigen' : 'Prikaži na karti');
+        return `<br><button onclick="scrollToSection('mapa')" class="faq-chat-wa-btn" style="background: var(--color-accent); color: var(--color-cta-text); margin-top: 0.6rem;"><i class="fa-solid fa-map-location-dot"></i> ${label}</button>`;
+      }
+      if (intent === 'booking' || intent === 'price') {
+        const label = faqLang === 'en' ? 'Go to Booking Form' : (faqLang === 'de' ? 'Zum Formular gehen' : 'Idi na formu rezervacije');
+        return `<br><button onclick="scrollToSection('rezervacija')" class="faq-chat-wa-btn" style="background: var(--color-primary); color: var(--color-cta-text); margin-top: 0.6rem;"><i class="fa-regular fa-calendar-days"></i> ${label}</button>`;
+      }
+      return '';
+    }
+
+    function getFollowUps(intent) {
+      if (intent === 'price') return [4, 1]; // Booking, Pets
+      if (intent === 'pets') return [2, 3];  // Tavern, Sea
+      if (intent === 'tavern') return [0, 3]; // Price, Sea
+      if (intent === 'sea') return [0, 4];    // Price, Booking
+      if (intent === 'booking') return [0, 1]; // Price, Pets
+      return [0, 1];
+    }
+
+    function renderFaqs(faqsList, lang, highlightedIndexes = []) {
+      currentFaqs = faqsList || [];
+      faqLang = lang || 'hr';
+      
+      const suggestionsEl = document.getElementById('faqSuggestionsList');
+      const messagesEl = document.getElementById('faqChatMessages');
+      if (!suggestionsEl || !messagesEl) return;
+
+      // Tag intents dynamically on page load
+      currentFaqs.forEach((faq, index) => {
+        faq.index = index;
+        if (!faq.intent) {
+          const qText = (faq.q['hr'] + ' ' + faq.q['en'] + ' ' + faq.q['de']).toLowerCase();
+          if (qText.includes('cijen') || qText.includes('price') || qText.includes('preis')) {
+            faq.intent = 'price';
+          } else if (qText.includes('ljubim') || qText.includes('pet') || qText.includes('hund') || qText.includes('tier')) {
+            faq.intent = 'pets';
+          } else if (qText.includes('konob') || qText.includes('tavern') || qText.includes('essen')) {
+            faq.intent = 'tavern';
+          } else if (qText.includes('mor') || qText.includes('sea') || qText.includes('meer') || qText.includes('rivijer')) {
+            faq.intent = 'sea';
+          } else if (qText.includes('rezerv') || qText.includes('book') || qText.includes('buch') || qText.includes('upit')) {
+            faq.intent = 'booking';
+          }
+        }
+      });
+
+      // 1. Render suggestions list in current language. Recommendations go first.
+      let suggestionsHtml = '';
+      if (currentFaqs.length > 0) {
+        const sortedFaqs = [...currentFaqs].sort((a, b) => {
+          const aH = highlightedIndexes.includes(a.index) ? 1 : 0;
+          const bH = highlightedIndexes.includes(b.index) ? 1 : 0;
+          return bH - aH;
+        });
+
+        sortedFaqs.forEach((faq) => {
+          const q = faq.q[faqLang] || faq.q['hr'] || '';
+          const isHighlighted = highlightedIndexes.includes(faq.index);
+          const highlightStyle = isHighlighted ? ' style="border-color: var(--color-accent); background: rgba(201, 169, 110, 0.08); font-weight: 600;"' : '';
+          const starPrefix = isHighlighted ? '⭐ ' : '';
+          suggestionsHtml += `
+            <button class="faq-suggestion-pill" onclick="sendFaqSuggestion(${faq.index})"${highlightStyle}>
+               ${starPrefix}${q}
+            </button>
           `;
         });
       }
-      listEl.innerHTML = html;
+      suggestionsEl.innerHTML = suggestionsHtml;
 
-      // Bind click listeners for accordion
-      listEl.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const item = btn.closest('.faq-item');
-          const isOpen = item.classList.contains('open');
-          // Close all items
-          listEl.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-          // Open clicked if it wasn't open
-          if (!isOpen) item.classList.add('open');
+      // 2. Initial welcoming message (if empty or only welcome message remains)
+      if (messagesEl.children.length <= 1) {
+        let welcomeText = '';
+        if (faqLang === 'en') {
+          welcomeText = "Hello! I am Antonia's virtual assistant. Ask me anything about the apartment, pricing, location, or amenities!";
+        } else if (faqLang === 'de') {
+          welcomeText = "Hallo! Ich bin der virtuelle Assistent von Apartment Antonia. Fragen Sie mich alles über das Apartment, Preise, Lage oder Ausstattung!";
+        } else {
+          welcomeText = "Pozdrav! Ja sam virtualni pomoćnik apartmana Antonia. Pitajte me bilo što o apartmanu, cijenama, lokaciji ili sadržajima!";
+        }
+        
+        messagesEl.innerHTML = `
+          <div class="faq-message message--bot">
+            ${welcomeText}
+          </div>
+        `;
+      }
+    }
+
+    function sendFaqSuggestion(index) {
+      if (!currentFaqs[index]) return;
+      const faq = currentFaqs[index];
+      const q = faq.q[faqLang] || faq.q['hr'] || '';
+      let a = faq.a[faqLang] || faq.a['hr'] || '';
+      
+      appendUserMessage(q);
+      showTypingIndicator();
+      
+      setTimeout(() => {
+        removeTypingIndicator();
+        a += getActionButtons(faq.intent);
+        appendBotMessage(a);
+        
+        const followUps = getFollowUps(faq.intent);
+        renderFaqs(currentFaqs, faqLang, followUps);
+      }, 500);
+    }
+
+    function sendFaqMessage() {
+      const inputEl = document.getElementById('faqChatInput');
+      if (!inputEl) return;
+      
+      const query = inputEl.value.trim();
+      if (!query) return;
+      
+      inputEl.value = '';
+      appendUserMessage(query);
+      showTypingIndicator();
+      
+      setTimeout(() => {
+        removeTypingIndicator();
+        const matchResult = matchQuery(query);
+        appendBotMessage(matchResult.answer);
+        
+        if (matchResult.intent) {
+          const followUps = getFollowUps(matchResult.intent);
+          renderFaqs(currentFaqs, faqLang, followUps);
+        }
+      }, 700);
+    }
+
+    function appendUserMessage(text) {
+      const messagesEl = document.getElementById('faqChatMessages');
+      if (!messagesEl) return;
+      
+      const div = document.createElement('div');
+      div.className = 'faq-message message--user';
+      div.textContent = text;
+      messagesEl.appendChild(div);
+      scrollToBottom();
+    }
+
+    function appendBotMessage(html) {
+      const messagesEl = document.getElementById('faqChatMessages');
+      if (!messagesEl) return;
+      
+      const div = document.createElement('div');
+      div.className = 'faq-message message--bot';
+      div.innerHTML = html;
+      messagesEl.appendChild(div);
+      scrollToBottom();
+    }
+
+    function showTypingIndicator() {
+      const messagesEl = document.getElementById('faqChatMessages');
+      if (!messagesEl) return;
+      
+      const div = document.createElement('div');
+      div.className = 'faq-message message--bot';
+      div.id = 'faqChatTyping';
+      div.innerHTML = `
+        <div class="faq-typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+      `;
+      messagesEl.appendChild(div);
+      scrollToBottom();
+    }
+
+    function removeTypingIndicator() {
+      const el = document.getElementById('faqChatTyping');
+      if (el) el.remove();
+    }
+
+    function scrollToBottom() {
+      const messagesEl = document.getElementById('faqChatMessages');
+      if (messagesEl) {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+    }
+
+    function matchQuery(query) {
+      const cleanQuery = query.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g,"").trim();
+      const queryWords = cleanQuery.split(/\s+/).filter(w => w.length > 2);
+      
+      let bestMatch = null;
+      let highestScore = 0;
+      
+      currentFaqs.forEach(faq => {
+        const q = (faq.q[faqLang] || faq.q['hr'] || '').toLowerCase();
+        const a = (faq.a[faqLang] || faq.a['hr'] || '').toLowerCase();
+        
+        let score = 0;
+        
+        // 1. Direct substring check
+        if (q.includes(cleanQuery)) {
+          score += 20;
+        } else if (a.includes(cleanQuery)) {
+          score += 10;
+        }
+        
+        // 2. Keyword check
+        queryWords.forEach(word => {
+          if (q.includes(word)) {
+            score += 4;
+          } else {
+            const qWords = q.split(/\s+/);
+            qWords.forEach(qw => {
+              if (isFuzzyMatch(word, qw)) score += 3;
+            });
+          }
+          if (a.includes(word)) {
+            score += 1.5;
+          }
+          
+          if (faq.intent && intentSynonyms[faq.intent]) {
+            intentSynonyms[faq.intent].forEach(stem => {
+              if (word.startsWith(stem) || isFuzzyMatch(word, stem)) {
+                score += 5;
+              }
+            });
+          }
         });
+        
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = faq;
+        }
       });
+      
+      if (highestScore >= 3.5 && bestMatch) {
+        let answerText = bestMatch.a[faqLang] || bestMatch.a['hr'] || '';
+        answerText += getActionButtons(bestMatch.intent);
+        return {
+          answer: answerText,
+          intent: bestMatch.intent,
+          index: bestMatch.index
+        };
+      }
+      
+      // WhatsApp default construct
+      const waNumber = (siteContent && siteContent.contactWhatsApp) || '385915575156';
+      let defaultMsg = '';
+      if (faqLang === 'en') {
+        defaultMsg = `I'm not sure I understand completely. You can ask me about: <strong>beach/sea</strong>, <strong>parking</strong>, <strong>pets</strong>, <strong>ethno tavern</strong>, or <strong>bookings</strong>.<br>Or feel free to send a direct message to Antonia:<br>
+          <a href="https://wa.me/${waNumber}?text=${encodeURIComponent('Hi Antonia, I have a question: ' + query)}" target="_blank" class="faq-chat-wa-btn">
+            <i class="fa-brands fa-whatsapp"></i> Send WhatsApp Message
+          </a>`;
+      } else if (faqLang === 'de') {
+        defaultMsg = `Ich bin mir nicht sicher, ob ich das ganz verstanden habe. Sie können mich fragen zu: <strong>Strand/Meer</strong>, <strong>Parkplatz</strong>, <strong>Haustieren</strong>, <strong>Ethno-Taverne</strong> oder <strong>Buchungen</strong>.<br>Oder senden Sie eine direkte Nachricht an Antonia:<br>
+          <a href="https://wa.me/${waNumber}?text=${encodeURIComponent('Hallo Antonia, ich habe eine Frage: ' + query)}" target="_blank" class="faq-chat-wa-btn">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp senden
+          </a>`;
+      } else {
+        defaultMsg = `Nisam sigurna da sam potpuno razumjela. Možete me pitati o: <strong>plaži/moru</strong>, <strong>parkingu</strong>, <strong>kućnim ljubimcima</strong>, <strong>etno konobi</strong> ili <strong>rezervacijama</strong>.<br>Također možete izravno poslati poruku Antoniji na WhatsApp:<br>
+          <a href="https://wa.me/${waNumber}?text=${encodeURIComponent('Pozdrav Antonia, imam pitanje: ' + query)}" target="_blank" class="faq-chat-wa-btn">
+            <i class="fa-brands fa-whatsapp"></i> Pošalji WhatsApp poruku
+          </a>`;
+      }
+      
+      return {
+        answer: defaultMsg,
+        intent: null,
+        index: null
+      };
     }
 
 
@@ -4488,10 +5166,11 @@
         }
       });
 
-      // Update all mailto links
+      // Update all mailto links (inline text links only — skip icon-only anchors)
       document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
         el.href = `mailto:${email}`;
-        if (el.textContent.includes('@')) {
+        // Only replace text on pure text links (no child elements like <i> icons)
+        if (el.children.length === 0 && el.textContent.includes('@')) {
           el.textContent = email;
         }
       });
