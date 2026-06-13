@@ -1032,6 +1032,293 @@
     .toast-error {
       background: rgba(239, 68, 68, 0.95);
     }
+
+    /* Responsive & Mobile-friendly overrides */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      /* Auth Screen Centered and Spaced */
+      #auth-screen {
+        min-height: 80vh;
+        padding: 1rem;
+        align-items: center;
+      }
+
+      .auth-card {
+        padding: 2.5rem 1.5rem;
+        margin: 0 auto;
+        border-radius: 16px;
+      }
+
+      .auth-logo {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .auth-subtitle {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      /* Dashboard Header Stacked & Centered */
+      header {
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .header-title h1 {
+        font-size: 2rem;
+      }
+
+      .header-title p {
+        font-size: 0.9rem;
+      }
+
+      .header-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .header-actions .live-btn,
+      .header-actions .logout-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Stats Grid Layout */
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        padding: 1.25rem;
+        border-radius: 16px;
+      }
+
+      /* Scrollable Tabs indicator */
+      .tabs {
+        gap: 0.4rem;
+        margin-bottom: 1.75rem;
+        padding-bottom: 0.75rem;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tab-btn {
+        padding: 0.65rem 1.15rem;
+        font-size: 0.85rem;
+        border-radius: 20px;
+      }
+
+      /* Cards Adjustments */
+      .card {
+        padding: 1.5rem 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        text-align: center;
+      }
+      
+      .card-title span {
+        justify-content: center;
+      }
+
+      .card-title .btn {
+        width: 100% !important;
+        margin-left: 0;
+      }
+
+      /* Language Selectors */
+      .lang-tabs,
+      .edit-lang-tabs {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .lang-tab-btn,
+      .edit-lang-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      /* Form layouts */
+      .row {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .form-input {
+        padding: 0.85rem 1.1rem;
+        font-size: 0.9rem;
+      }
+
+      /* Editor Toolbars & Custom Inputs */
+      .editor-toolbar {
+        flex-wrap: wrap;
+        padding: 0.5rem;
+        gap: 0.3rem;
+      }
+
+      .tb-hint {
+        display: none; /* Hide hint on mobile to save space */
+      }
+
+      .lang-field::before {
+        right: 0.55rem;
+        top: 0.45rem;
+        font-size: 0.6rem;
+        padding: 0.15rem 0.35rem;
+      }
+
+      /* Translation Meta Layout */
+      .translation-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .translation-key {
+        align-self: flex-start;
+      }
+
+      /* Manager list and action items */
+      .manager-item {
+        padding: 1.25rem;
+        border-radius: 12px;
+      }
+
+      .manager-item-header {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        padding-bottom: 0.75rem;
+      }
+
+      .manager-item-header span {
+        text-align: center;
+      }
+
+      .manager-actions {
+        justify-content: center;
+      }
+
+      .stars-rating-widget {
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* Make action buttons touch-friendly & full-width where appropriate */
+      .manager-item button.btn {
+        width: 100% !important;
+      }
+      
+      .manager-item div[style*="justify-content: flex-end"] {
+        justify-content: center !important;
+      }
+
+      /* Dropzone */
+      .dropzone {
+        padding: 2.5rem 1.25rem;
+        border-radius: 16px;
+      }
+
+      .dropzone i {
+        font-size: 2.5rem;
+      }
+
+      .dropzone p {
+        font-size: 0.9rem;
+      }
+
+      /* Gallery Grid on Mobile */
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 1rem;
+      }
+
+      .gallery-card {
+        border-radius: 12px;
+      }
+
+      .gallery-card-img {
+        height: 100px;
+      }
+
+      .gallery-card-info {
+        padding: 0.75rem;
+        gap: 0.5rem;
+      }
+
+      .gallery-card-actions {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 0.5rem;
+      }
+
+      .gallery-card-actions button {
+        width: 100% !important;
+        height: 34px;
+      }
+
+      /* Save floating bar */
+      .save-bar {
+        bottom: 1rem;
+        padding: 0.75rem 1.25rem;
+        flex-direction: column;
+        gap: 0.75rem;
+        border-radius: 16px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .save-bar-info {
+        font-size: 0.85rem;
+        justify-content: center;
+      }
+
+      .save-bar-btn {
+        width: 100% !important;
+        padding: 0.65rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Toast Notification */
+      .toast {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.85rem;
+        text-align: center;
+        border-radius: 8px;
+      }
+    }
   </style>
 </head>
 
