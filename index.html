@@ -3214,6 +3214,40 @@
     .flatpickr-calendar.arrowBottom::after {
       border-top-color: var(--color-surface) !important;
     }
+
+    /* ============================================================
+       PREMIUM SCROLL REVEAL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1), transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-left {
+      transform: translateX(-45px) translateY(0);
+    }
+
+    .reveal-right {
+      transform: translateX(45px) translateY(0);
+    }
+
+    .reveal-scale {
+      transform: scale(0.95) translateY(0);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+    }
+
+    /* Staggered Delays */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
   </style>
 </head>
 
@@ -3278,7 +3312,7 @@
   <!-- O APARTMANU -->
   <section class="section" id="o-apartmanu">
     <div class="container about-grid">
-      <div class="about-img-wrap">
+      <div class="about-img-wrap reveal reveal-left">
         <img src="images/dnevni1.jpg" alt="Apartman Antonia - Dnevni boravak" class="about-img-primary" />
         <img src="images/exterior1.jpg" alt="Apartman Antonia - Eksterijer" class="about-img-secondary" />
         <div class="about-img-badge">
@@ -3286,7 +3320,7 @@
           <span class="about-badge-txt" data-i18n="about-exp">godine<br>iskustva</span>
         </div>
       </div>
-      <div class="about-text">
+      <div class="about-text reveal reveal-right">
         <p class="eyebrow" data-i18n="about-eyebrow">O apartmanu</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="about-title">Više od apartmana —<br><em>doživljaj</em></h2>
@@ -3311,7 +3345,7 @@
   <!-- GALERIJA -->
   <section class="section section-alt" id="galerija">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow" data-i18n="gallery-eyebrow">Fotografije</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="gallery-title">Istražite prostor</h2>
@@ -3320,7 +3354,7 @@
       </div>
 
       <!-- PREVIEW GRID (5 slika) -->
-      <div class="gallery-preview" id="galleryPreview">
+      <div class="gallery-preview reveal reveal-scale" id="galleryPreview">
         <!-- Dynamically generated -->
       </div>
 
@@ -3382,13 +3416,13 @@
   <!-- AMENITIJI -->
   <section class="section" id="amenitiji">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow" data-i18n="am-eyebrow">Što je uključeno</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="am-title">Sadržaji</h2>
         <p class="section-subtitle" data-i18n="am-sub">Sve što vam je potrebno za ugodan boravak — i više od toga.</p>
       </div>
-      <div class="amenities-grid">
+      <div class="amenities-grid reveal">
 
         <!-- Track 1 -->
         <div class="amenities-carousel-wrap" id="amenitiesWrap1">
@@ -3507,7 +3541,7 @@
   <section class="section section-alt" id="rezervacija">
     <div class="container">
       <div class="booking-wrap">
-        <div class="booking-info">
+        <div class="booking-info reveal reveal-left">
           <p class="eyebrow" data-i18n="book-eyebrow">Izravna rezervacija</p>
           <div class="divider"></div>
           <h2 class="section-title" data-i18n="book-title">Izravna <em>rezervacija</em></h2>
@@ -3527,7 +3561,7 @@
           </div>
         </div>
 
-        <div class="booking-form-wrap">
+        <div class="booking-form-wrap reveal reveal-right">
           <div class="booking-form">
             <div class="form-row">
               <div class="form-group">
@@ -3595,14 +3629,14 @@
   <!-- RECENZIJE -->
   <section class="section section-dark" id="recenzije">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow" data-i18n="rev-eyebrow">Što kažu gosti</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="rev-title">Recenzije</h2>
         <p class="section-subtitle" data-i18n="rev-sub">Ocjena 5.0 ⭐ · Gosti se uvijek rado vraćaju</p>
       </div>
 
-      <div class="reviews-carousel-wrap">
+      <div class="reviews-carousel-wrap reveal reveal-scale">
         <div class="reviews-track" id="reviewsTrack">
           <!-- Dynamically generated -->
         </div>
@@ -3613,7 +3647,7 @@
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow" data-i18n="faq-eyebrow">Imate pitanja?</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="faq-title">FAQ</h2>
@@ -3622,7 +3656,7 @@
 
       <div class="faq-chat-wrapper">
         <!-- Chat Card (Left Column) -->
-        <div class="faq-chat-card">
+        <div class="faq-chat-card reveal reveal-left">
           <div class="faq-chat-header">
             <div class="faq-chat-avatar">
               <i class="fa-solid fa-robot"></i>
@@ -3645,7 +3679,7 @@
         </div>
 
         <!-- Suggestions Card (Right Column) -->
-        <div class="faq-suggestions-card">
+        <div class="faq-suggestions-card reveal reveal-right">
           <h3 class="faq-suggestions-title" data-i18n="faq-suggestions-title">Česta pitanja</h3>
           <p class="faq-suggestions-subtitle" data-i18n="faq-suggestions-sub">Odaberite jedno od brzih pitanja:</p>
           <div class="faq-suggestions-list" id="faqSuggestionsList">
@@ -3660,21 +3694,21 @@
   <!-- MAPA -->
   <section class="section section-alt" id="mapa">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="eyebrow" data-i18n="map-eyebrow">Kako doći do nas</p>
         <div class="divider"></div>
         <h2 class="section-title" data-i18n="map-title">Lokacija</h2>
         <p class="section-subtitle" data-i18n="map-sub">Podbablje Gornje, Imotski · Kratka vožnja do mora · Besplatan parking
         </p>
       </div>
-      <div class="map-info-row">
+      <div class="map-info-row reveal">
         <div class="map-pill"><i class="fa-solid fa-location-dot"></i> <span data-i18n="map-pill-1">Podbablje Gornje, Imotski, HR</span></div>
         <div class="map-pill"><i class="fa-solid fa-car"></i> <span data-i18n="map-pill-2">Kratka vožnja do Makarske rivijere</span></div>
         <div class="map-pill"><i class="fa-solid fa-water"></i> <span data-i18n="map-pill-3">5-7 km do Modrog jezera i UNESCO Geoparka</span></div>
         <div class="map-pill"><i class="fa-solid fa-p"></i> <span data-i18n="map-pill-4">Besplatan privatni parking</span></div>
         <div class="map-pill"><i class="fa-solid fa-person-kayaking"></i> <span data-i18n="map-pill-5">Rafting & kajak na rijeci Vrljici (3 km)</span></div>
       </div>
-      <div class="map-embed">
+      <div class="map-embed reveal reveal-scale">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11598.026779428581!2d17.18128330761214!3d43.404414605963286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134adde399ff0ba9%3A0x2d77134d8493d174!2sDr.%20Ante%20Star%C4%8Devi%C4%87a%209%2C%2021260%2C%20Podbablje%20Gornje!5e0!3m2!1shr!2shr!4v1717527632681!5m2!1shr!2shr"
           width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -5420,7 +5454,26 @@
             window.setupAmenitiesCarousels();
           }
         });
+      // Initialize scroll reveal animations after everything is loaded & rendered
+      initScrollReveal();
+    }
+
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px"
       });
+      
+      revealElements.forEach(el => observer.observe(el));
     }
 
     // Run content load on DOMContentLoaded
