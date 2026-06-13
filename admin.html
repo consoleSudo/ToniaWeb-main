@@ -633,6 +633,24 @@
       width: fit-content;
     }
 
+    .btn-sm-translate {
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .btn-sm-translate:hover {
+      background: var(--color-primary) !important;
+      color: var(--color-cta-text) !important;
+      border-style: solid !important;
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.2);
+    }
+
     .translation-inputs {
       display: grid;
       grid-template-columns: 1fr;
@@ -2484,6 +2502,9 @@
             <span class="translation-title">${labelText}</span>
             <span class="translation-key">${key}</span>
           </div>
+          <button class="btn btn-sm-translate" style="width: auto; padding: 0.4rem 0.9rem; font-size: 0.78rem; background: var(--color-primary-glow); color: var(--color-primary); border: 1px dashed var(--color-primary); font-weight: 600;" onclick="translateKey('${key}', ${idx}, this)" title="Automatski prevedi ovaj tekst na ostale jezike">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Prevedi automatski
+          </button>
         `;
         row.appendChild(label);
 
@@ -2690,6 +2711,49 @@
         renderReviewsManager();
         triggerChange();
         updateDashboardStats();
+      }
+    }
+
+    async function translateKey(key, idx, btn) {
+      const textToTranslate = rawContent.translations[key][currentEditLang];
+
+      if (!textToTranslate) {
+        showToast('Molimo unesite tekst prije prevođenja.', true);
+        return;
+      }
+
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+      const cleaned = cleanHtmlForEditing(textToTranslate);
+      const targetLangs = ['hr', 'en', 'de'].filter(l => l !== currentEditLang);
+
+      try {
+        for (const target of targetLangs) {
+          const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleaned.text)}&langpair=${currentEditLang}|${target}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.responseData && data.responseData.translatedText) {
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = data.responseData.translatedText;
+              const translatedCleanText = tempDiv.textContent || tempDiv.innerText;
+
+              const htmlVal = formatEditingToHtml(translatedCleanText, cleaned.icon);
+              rawContent.translations[key][target] = htmlVal;
+            }
+          }
+        }
+
+        filterTranslations(currentCategory);
+        triggerChange();
+        showToast('Tekst je automatski preveden na ostale jezike!');
+      } catch (err) {
+        console.error('Translation error:', err);
+        showToast('Greška pri automatskom prevođenju.', true);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
       }
     }
 
