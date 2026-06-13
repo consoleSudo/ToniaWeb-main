@@ -15,6 +15,91 @@
     content="Privatna oaza na kratku vožnju od Jadranskog mora. Etno konoba, dvorište, roštilj. Rezervirajte izravno." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="hr_HR" />
+  <meta property="og:url" content="https://toniaweb.vercel.app" />
+  <meta property="og:image" content="https://toniaweb.vercel.app/images/trpezarija1.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Multi-language SEO hreflang alternates -->
+  <link rel="alternate" hreflang="hr" href="https://toniaweb.vercel.app/" />
+  <link rel="alternate" hreflang="en" href="https://toniaweb.vercel.app/?lang=en" />
+  <link rel="alternate" hreflang="de" href="https://toniaweb.vercel.app/?lang=de" />
+  <link rel="alternate" hreflang="x-default" href="https://toniaweb.vercel.app/" />
+
+  <!-- Structured Data (Schema.org JSON-LD) for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Apartment",
+    "name": "Luxury Apartment Antonia",
+    "description": "Privatna oaza za 3 gosta s besplatnim biciklima, etno konobom i roštiljem. Nalazi se u Podbablju Gornjem pokraj Imotskog i Modrog jezera.",
+    "image": [
+      "https://toniaweb.vercel.app/images/trpezarija1.jpg",
+      "https://toniaweb.vercel.app/images/dnevni1.jpg",
+      "https://toniaweb.vercel.app/images/exterior1.jpg"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dr. Ante Starčevića 9",
+      "addressLocality": "Podbablje Gornje",
+      "addressRegion": "Splitsko-dalmatinska županija",
+      "postalCode": "21260",
+      "addressCountry": "HR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.4044338,
+      "longitude": 17.1909257
+    },
+    "url": "https://toniaweb.vercel.app",
+    "telephone": "+385915575156",
+    "priceRange": "$$",
+    "numberOfRooms": 2,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "maxValue": 3
+    },
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "WiFi",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Parking",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Air Conditioning",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Tavern",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Bikes",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Barbecue",
+        "value": true
+      }
+    ],
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "5.0",
+      "bestRating": "5"
+    }
+  }
+  </script>
 
   <title>Luxury Apartment Antonia | Imotski – Makarska</title>
 
@@ -4751,6 +4836,16 @@
     let siteContent = fallbackContent;
 
     function getCurrentLang() {
+      // 1. Check URL query parameters (important for SEO indexing of different languages)
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      const supportedLangs = ['hr', 'en', 'de'];
+      if (urlLang && supportedLangs.includes(urlLang.toLowerCase())) {
+        const lang = urlLang.toLowerCase();
+        localStorage.setItem('appLang', lang); // save choice
+        return lang;
+      }
+      // 2. Fallback to localStorage or default
       return localStorage.getItem('appLang') || 'hr';
     }
 

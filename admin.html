@@ -919,7 +919,8 @@
       gap: 1.5rem;
     }
 
-    .dropzone:hover {
+    .dropzone:hover,
+    .dropzone.dragover {
       background: rgba(234, 88, 12, 0.03);
       border-color: var(--color-primary);
       box-shadow: 0 0 24px rgba(234, 88, 12, 0.06);
@@ -931,7 +932,8 @@
       transition: all 0.3s ease;
     }
 
-    .dropzone:hover i {
+    .dropzone:hover i,
+    .dropzone.dragover i {
       transform: translateY(-4px);
     }
 
@@ -1914,7 +1916,7 @@
           <div class="dropzone" id="dropzone" onclick="document.getElementById('file-input').click()">
             <i class="fa-solid fa-cloud-arrow-up"></i>
             <p>Kliknite ili povucite fotografiju ovdje za prijenos</p>
-            <span style="font-size:0.75rem; color:var(--color-text-muted);">Format: JPG, PNG · Max: 5MB</span>
+            <span style="font-size:0.75rem; color:var(--color-text-muted);">Format: JPG, PNG, WEBP · Automatska kompresija slika</span>
             <input type="file" id="file-input" style="display: none;" accept="image/*"
               onchange="handleFileSelect(event)">
             <img id="upload-preview" class="preview-upload" alt="Pretpregled">
@@ -3112,31 +3114,157 @@
       });
     }
 
-    function handleFileSelect(e) {
-      const file = e.target.files[0];
+    function compressImage(file, maxWidth = 1600, maxHeight = 1600, quality = 0.82) {
+      return new Promise((resolve, reject) => {
+        if (!file.type.startsWith('image/')) {
+          reject(new Error('Selected file is not an image.'));
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = new Image();
+          img.onload = function () {
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxWidth || height > maxHeight) {
+              if (width > height) {
+                height = Math.round((height * maxWidth) / width);
+                width = maxWidth;
+              } else {
+                width = Math.round((width * maxHeight) / height);
+                height = maxHeight;
+              }
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            let format = 'image/webp';
+            let ext = 'webp';
+            let dataUrl = canvas.toDataURL(format, quality);
+
+            if (!dataUrl.startsWith('data:image/webp')) {
+              format = 'image/jpeg';
+              ext = 'jpg';
+              dataUrl = canvas.toDataURL(format, quality);
+            }
+
+            const base64 = dataUrl.split(',')[1];
+            
+            const originalName = file.name;
+            const dotIdx = originalName.lastIndexOf('.');
+            const originalNameWithoutExt = dotIdx !== -1 ? originalName.substring(0, dotIdx) : originalName;
+            // Clean filename: lowercase, keep only alphanumeric and underscores
+            const sanitizedBaseName = originalNameWithoutExt.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_');
+            const newName = sanitizedBaseName + '.' + ext;
+
+            resolve({ base64, name: newName, dataUrl });
+          };
+          img.onerror = function () {
+            reject(new Error('Failed to load image.'));
+          };
+          img.src = e.target.result;
+        };
+        reader.onerror = function () {
+          reject(new Error('Failed to read file.'));
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function handleFile(file) {
       if (!file) return;
 
-      if (file.size > 5 * 1024 * 1024) {
-        showToast('Fotografija je prevelika. Maksimalna veličina je 5MB. Slike preko 4MB mogu se odbiti pri spremanju.', true);
+      if (!file.type.startsWith('image/')) {
+        showToast('Odabrana datoteka nije slika.', true);
         return;
       }
 
-      const reader = new FileReader();
-      reader.onload = function (evt) {
-        const preview = document.getElementById('upload-preview');
-        preview.src = evt.target.result;
-        preview.style.display = 'block';
+      showToast('Komprimiranje slike...');
 
-        // Save base64 string and file details
-        pendingImage = {
-          name: file.name,
-          base64: evt.target.result.split(',')[1] // extract pure base64
-        };
+      compressImage(file, 1600, 1600, 0.82)
+        .then(res => {
+          const preview = document.getElementById('upload-preview');
+          preview.src = res.dataUrl;
+          preview.style.display = 'block';
 
-        document.getElementById('upload-form').style.display = 'block';
-        document.getElementById('new-img-alt').value = file.name.split('.')[0];
-      };
-      reader.readAsDataURL(file);
+          pendingImage = {
+            name: res.name,
+            base64: res.base64
+          };
+
+          document.getElementById('upload-form').style.display = 'block';
+          
+          // Humanize default alt: e.g. "dnevni_boravak_1" -> "dnevni boravak 1"
+          const originalName = file.name;
+          const dotIdx = originalName.lastIndexOf('.');
+          const baseName = dotIdx !== -1 ? originalName.substring(0, dotIdx) : originalName;
+          const humanizedAlt = baseName.replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+          document.getElementById('new-img-alt').value = humanizedAlt.charAt(0).toUpperCase() + humanizedAlt.slice(1);
+          
+          showToast('Slika je uspješno komprimirana u WebP format.');
+        })
+        .catch(err => {
+          console.error(err);
+          showToast('Neuspješna kompresija. Pokušavamo s originalnom slikom...', true);
+          
+          // Fallback to original image load
+          const reader = new FileReader();
+          reader.onload = function (evt) {
+            const preview = document.getElementById('upload-preview');
+            preview.src = evt.target.result;
+            preview.style.display = 'block';
+
+            pendingImage = {
+              name: file.name,
+              base64: evt.target.result.split(',')[1]
+            };
+
+            document.getElementById('upload-form').style.display = 'block';
+            document.getElementById('new-img-alt').value = file.name.split('.')[0];
+          };
+          reader.readAsDataURL(file);
+        });
+    }
+
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      handleFile(file);
+    }
+
+    function setupDropzone() {
+      const dropzone = document.getElementById('dropzone');
+      if (!dropzone) return;
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('dragover');
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('dragover');
+        }, false);
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files && files[0]) {
+          handleFile(files[0]);
+        }
+      }, false);
     }
 
     function saveNewImage() {
@@ -3257,6 +3385,7 @@
     }
 
     // Auto load on init
+    setupDropzone();
     loadDashboard();
   </script>
 </body>

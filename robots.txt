@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+Sitemap: https://toniaweb.vercel.app/sitemap.xml
