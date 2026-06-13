@@ -121,6 +121,7 @@
     .auth-logo span {
       background: linear-gradient(135deg, var(--color-primary), #f97316);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -261,6 +262,7 @@
       letter-spacing: -0.01em;
       background: linear-gradient(to right, #0f172a, #475569);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -1319,6 +1321,129 @@
         border-radius: 8px;
       }
     }
+
+    /* Gallery Filter Tab Button in Admin */
+    .gallery-filter-bar .gallery-tab {
+      padding: 0.5rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.5);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+
+    .gallery-filter-bar .gallery-tab:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .gallery-filter-bar .gallery-tab.active {
+      background: var(--color-primary);
+      color: var(--color-cta-text);
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+    }
+
+    /* Gallery Badges */
+    .gallery-card-badge-container {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .gallery-card-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+    
+    .badge-homepage {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #fff;
+    }
+
+    .badge-hero {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: #fff;
+    }
+
+    .badge-about-p {
+      background: linear-gradient(135deg, #10b981, #047857);
+      color: #fff;
+    }
+
+    .badge-about-s {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: #fff;
+    }
+
+    .btn-sm-reorder {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      flex: 1;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-sm-reorder:hover:not(:disabled) {
+      background: var(--color-accent);
+      color: var(--color-cta-text);
+      border-color: var(--color-accent);
+    }
+
+    .btn-sm-reorder:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-role-action {
+      background: transparent;
+      border: 1px dashed var(--color-border);
+      color: var(--color-text-muted);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.65rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+      font-family: inherit;
+    }
+
+    .btn-role-action:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: rgba(234, 88, 12, 0.04);
+    }
+
+    .btn-role-action.active {
+      background: var(--color-primary);
+      color: var(--color-cta-text);
+      border-color: var(--color-primary);
+      border-style: solid;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -1574,6 +1699,20 @@
 
         <div class="card">
           <h2 class="card-title"><i class="fa-solid fa-images"></i> Trenutne fotografije u galeriji</h2>
+          
+          <!-- Filter za galeriju u admin panelu -->
+          <div class="gallery-filter-bar" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; border-bottom: 1px solid var(--color-border); padding-bottom: 1rem;">
+            <button class="gallery-tab active" data-admin-filter="all" onclick="setAdminGalleryFilter('all')">Sve</button>
+            <button class="gallery-tab" data-admin-filter="dnevni" onclick="setAdminGalleryFilter('dnevni')">Dnevni boravak</button>
+            <button class="gallery-tab" data-admin-filter="kuhinja" onclick="setAdminGalleryFilter('kuhinja')">Kuhinja</button>
+            <button class="gallery-tab" data-admin-filter="trpezarija" onclick="setAdminGalleryFilter('trpezarija')">Trpezarija</button>
+            <button class="gallery-tab" data-admin-filter="spavaca" onclick="setAdminGalleryFilter('spavaca')">Spavaća soba</button>
+            <button class="gallery-tab" data-admin-filter="kupaonica" onclick="setAdminGalleryFilter('kupaonica')">Kupaonica</button>
+            <button class="gallery-tab" data-admin-filter="eksterijer" onclick="setAdminGalleryFilter('eksterijer')">Eksterijer</button>
+            <button class="gallery-tab" data-admin-filter="dodatno" onclick="setAdminGalleryFilter('dodatno')">Dodatno</button>
+            <button class="gallery-tab" data-admin-filter="special" onclick="setAdminGalleryFilter('special')" style="border-color: var(--color-accent); color: var(--color-primary);"><i class="fa-solid fa-star"></i> Aktivne na webu</button>
+          </div>
+
           <div class="gallery-grid" id="galleryContainer">
             <!-- Dynamic Gallery Cards -->
           </div>
@@ -2459,21 +2598,128 @@
     }
 
     /* ── GALLERY MANAGER ── */
+    let currentAdminGalleryFilter = 'all';
+
+    function setAdminGalleryFilter(filter) {
+      currentAdminGalleryFilter = filter;
+      document.querySelectorAll('.gallery-filter-bar .gallery-tab').forEach(tab => {
+        if (tab.getAttribute('data-admin-filter') === filter) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      renderGalleryManager();
+    }
+
+    function moveImageUp(idx) {
+      if (idx <= 0) return;
+      const temp = rawContent.gallery[idx];
+      rawContent.gallery[idx] = rawContent.gallery[idx - 1];
+      rawContent.gallery[idx - 1] = temp;
+      
+      triggerChange();
+      renderGalleryManager();
+    }
+
+    function moveImageDown(idx) {
+      if (idx >= rawContent.gallery.length - 1) return;
+      const temp = rawContent.gallery[idx];
+      rawContent.gallery[idx] = rawContent.gallery[idx + 1];
+      rawContent.gallery[idx + 1] = temp;
+      
+      triggerChange();
+      renderGalleryManager();
+    }
+
+    function setImageRole(idx, role) {
+      const img = rawContent.gallery[idx];
+      if (role === 'hero') {
+        rawContent.heroBg = img.src;
+      } else if (role === 'aboutPrimary') {
+        rawContent.aboutPrimaryBg = img.src;
+      } else if (role === 'aboutSecondary') {
+        rawContent.aboutSecondaryBg = img.src;
+      }
+      triggerChange();
+      renderGalleryManager();
+      showToast(`Slika je postavljena za ulogu: ${role === 'hero' ? 'Hero pozadina' : (role === 'aboutPrimary' ? 'O nama (Glavna)' : 'O nama (Sporedna)')}`);
+    }
+
     function renderGalleryManager() {
       const container = document.getElementById('galleryContainer');
+      if (!container) return;
       container.innerHTML = '';
 
+      if (!rawContent.gallery) {
+        rawContent.gallery = [];
+      }
+
       rawContent.gallery.forEach((img, idx) => {
+        const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.jpg');
+        const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.jpg');
+        const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.jpg');
+        const isLanding = idx < 5;
+
+        // Apply admin category filter
+        if (currentAdminGalleryFilter !== 'all') {
+          if (currentAdminGalleryFilter === 'special') {
+            if (!isHero && !isAboutP && !isAboutS && !isLanding) return;
+          } else if (img.cat !== currentAdminGalleryFilter) {
+            return;
+          }
+        }
+
         const card = document.createElement('div');
         card.className = 'gallery-card';
 
+        // Stacking badges container
+        let badgesHtml = '';
+        if (isLanding || isHero || isAboutP || isAboutS) {
+          badgesHtml += `<div class="gallery-card-badge-container">`;
+          if (isLanding) {
+            badgesHtml += `<div class="gallery-card-badge badge-homepage">Početna #${idx + 1}</div>`;
+          }
+          if (isHero) {
+            badgesHtml += `<div class="gallery-card-badge badge-hero">Hero Pozadina</div>`;
+          }
+          if (isAboutP) {
+            badgesHtml += `<div class="gallery-card-badge badge-about-p">O nama (Glavna)</div>`;
+          }
+          if (isAboutS) {
+            badgesHtml += `<div class="gallery-card-badge badge-about-s">O nama (Sporedna)</div>`;
+          }
+          badgesHtml += `</div>`;
+        }
+
+        // Show reorder buttons only when viewing 'all' images
+        const showReorder = currentAdminGalleryFilter === 'all';
+
         card.innerHTML = `
+          ${badgesHtml}
           <img class="gallery-card-img" src="${img.src}" alt="${img.alt}">
           <div class="gallery-card-info">
             <div style="font-size:0.8rem; font-weight:600; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" title="${img.alt}">${img.alt}</div>
-            <div class="gallery-card-actions">
+            
+            <div class="gallery-card-actions" style="margin-bottom: 0.5rem;">
               <span class="gallery-card-cat">${img.cat}</span>
-              <button class="btn-icon btn-icon-danger" style="width:30px; height:30px; font-size:0.8rem;" onclick="deleteImage(${idx})"><i class="fa-solid fa-trash"></i></button>
+              <button class="btn-icon btn-icon-danger" style="width:30px; height:30px; font-size:0.8rem;" onclick="deleteImage(${idx})" title="Obriši sliku"><i class="fa-solid fa-trash"></i></button>
+            </div>
+
+            ${showReorder ? `
+            <div class="gallery-card-reorder" style="display: flex; gap: 0.4rem; margin-bottom: 0.75rem;">
+              <button class="btn-sm-reorder" onclick="moveImageUp(${idx})" ${idx === 0 ? 'disabled' : ''} title="Pomakni naprijed"><i class="fa-solid fa-arrow-left"></i> Pomakni</button>
+              <button class="btn-sm-reorder" onclick="moveImageDown(${idx})" ${idx === rawContent.gallery.length - 1 ? 'disabled' : ''} title="Pomakni natrag">Pomakni <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            ` : ''}
+
+            <div class="gallery-card-roles" style="display: flex; flex-direction: column; gap: 0.35rem; margin-top: auto; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.5rem;">
+              <span style="font-size: 0.62rem; color: var(--color-text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Postavi na webu:</span>
+              <div style="display: flex; gap: 0.25rem; flex-wrap: wrap;">
+                <button class="btn-role-action ${isHero ? 'active' : ''}" onclick="setImageRole(${idx}, 'hero')" title="Postavi za pozadinu pocetne stranice">Hero</button>
+                <button class="btn-role-action ${isAboutP ? 'active' : ''}" onclick="setImageRole(${idx}, 'aboutPrimary')" title="Postavi za glavnu sliku u 'O apartmanu'">Glavna</button>
+                <button class="btn-role-action ${isAboutS ? 'active' : ''}" onclick="setImageRole(${idx}, 'aboutSecondary')" title="Postavi za sporednu sliku u 'O apartmanu'">Sporedna</button>
+              </div>
             </div>
           </div>
         `;
@@ -2546,8 +2792,27 @@
     }
 
     function deleteImage(idx) {
-      if (confirm('Jeste li sigurni da želite obrisati ovu sliku iz galerije?')) {
+      const img = rawContent.gallery[idx];
+      const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.jpg');
+      const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.jpg');
+      const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.jpg');
+      const isLanding = idx < 5;
+
+      let msg = 'Jeste li sigurni da želite obrisati ovu sliku iz galerije?';
+      if (isHero || isAboutP || isAboutS) {
+        msg = 'UPOZORENJE: Ova slika se aktivno koristi na ključnim mjestima (Hero pozadina ili slika O apartmanu). Ako je obrišete, prikaz na tim mjestima može biti slomljen. Sigurno želite obrisati?';
+      } else if (isLanding) {
+        msg = 'Ova slika se trenutno prikazuje u početnoj galeriji (prvih 5 slika). Ako je obrišete, sljedeća dostupna slika će zauzeti njeno mjesto u prvih 5. Želite li nastaviti?';
+      }
+
+      if (confirm(msg)) {
         rawContent.gallery.splice(idx, 1);
+        
+        // If deleted image was assigned to a role, reset to default to avoid broken layout
+        if (isHero) rawContent.heroBg = 'images/trpezarija1.jpg';
+        if (isAboutP) rawContent.aboutPrimaryBg = 'images/dnevni1.jpg';
+        if (isAboutS) rawContent.aboutSecondaryBg = 'images/exterior1.jpg';
+
         renderGalleryManager();
         triggerChange();
         updateDashboardStats();

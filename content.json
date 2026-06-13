@@ -1112,5 +1112,8 @@
       "alt": "Dodatno",
       "cat": "dodatno"
     }
-  ]
+  ],
+  "heroBg": "images/trpezarija1.jpg",
+  "aboutPrimaryBg": "images/dnevni1.jpg",
+  "aboutSecondaryBg": "images/exterior1.jpg"
 }

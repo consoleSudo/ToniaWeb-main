@@ -4735,7 +4735,10 @@
         { src: "images/kuhinja1.jpg", alt: "Kuhinja", cat: "kuhinja" },
         { src: "images/exterior1.jpg", alt: "Eksterijer", cat: "eksterijer" },
         { src: "images/dodatno1.jpg", alt: "Više", cat: "dodatno" }
-      ]
+      ],
+      heroBg: "images/trpezarija1.jpg",
+      aboutPrimaryBg: "images/dnevni1.jpg",
+      aboutSecondaryBg: "images/exterior1.jpg"
     };
 
     let siteContent = fallbackContent;
@@ -5254,6 +5257,20 @@
         }
       } catch (err) {
         console.warn('CORS restriction or fetch error. Using local fallbackContent.', err);
+      }
+
+      // Set dynamic images
+      const heroBgEl = document.querySelector('.hero-bg');
+      if (heroBgEl && siteContent.heroBg) {
+        heroBgEl.style.backgroundImage = `url('${siteContent.heroBg}')`;
+      }
+      const aboutPrimaryEl = document.querySelector('.about-img-primary');
+      if (aboutPrimaryEl && siteContent.aboutPrimaryBg) {
+        aboutPrimaryEl.src = siteContent.aboutPrimaryBg;
+      }
+      const aboutSecondaryEl = document.querySelector('.about-img-secondary');
+      if (aboutSecondaryEl && siteContent.aboutSecondaryBg) {
+        aboutSecondaryEl.src = siteContent.aboutSecondaryBg;
       }
 
       // Render components

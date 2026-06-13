@@ -88,6 +88,11 @@ function isValidContent(content) {
   if (!Array.isArray(content.gallery) || content.gallery.length > 200) return false;
   if (typeof content.translations !== 'object') return false;
 
+  // Optional string fields for dynamic layout images
+  if (content.heroBg && typeof content.heroBg !== 'string') return false;
+  if (content.aboutPrimaryBg && typeof content.aboutPrimaryBg !== 'string') return false;
+  if (content.aboutSecondaryBg && typeof content.aboutSecondaryBg !== 'string') return false;
+
   return true;
 }
 
