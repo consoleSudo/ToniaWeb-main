@@ -110,16 +110,21 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet" />
 
+  <!-- Preconnect to CDNs for improved loading speeds -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
   <!-- Flatpickr CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-  <!-- Flatpickr JS -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
+  <!-- Flatpickr JS (deferred to prevent render blocking) -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hr.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js" defer></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Font Awesome (preloaded to prevent rendering delay, loaded asynchronously) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
   <style>
     /* ============================================================
@@ -2789,7 +2794,16 @@
       font-size: 1.8rem;
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .whatsapp-fab::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #25D366;
+      z-index: -1;
       animation: fab-pulse 2s infinite;
     }
 
@@ -2804,15 +2818,18 @@
 
     @keyframes fab-pulse {
       0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+        transform: scale(1);
+        opacity: 0.6;
       }
 
       70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        transform: scale(1.5);
+        opacity: 0;
       }
 
       100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        transform: scale(1.5);
+        opacity: 0;
       }
     }
 
@@ -3854,7 +3871,7 @@
 
   <!-- BOOKING FORMA JS -->
   <script>
-    (function () {
+    document.addEventListener('DOMContentLoaded', function () {
       const checkinEl = document.getElementById('checkin');
       const checkoutEl = document.getElementById('checkout');
       const nightsDisp = document.getElementById('nightsDisplay');
@@ -4202,7 +4219,7 @@
 
         window.open(`https://wa.me/385915575156?text=${encodeURIComponent(msg)}`, '_blank');
       });
-    })();
+    });
   </script>
 
   <!-- CAROUSELS (REVIEWS & AMENITIES) JS -->
