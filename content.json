@@ -1115,5 +1115,12 @@
   ],
   "heroBg": "images/trpezarija1.jpg",
   "aboutPrimaryBg": "images/dnevni1.jpg",
-  "aboutSecondaryBg": "images/exterior1.jpg"
+  "aboutSecondaryBg": "images/exterior1.jpg",
+  "homepageGallery": [
+    "images/dnevni2.jpg",
+    "images/kupaonica4.jpg",
+    "images/kuhinja1.jpg",
+    "images/exterior1.jpg",
+    "images/dodatno1.jpg"
+  ]
 }

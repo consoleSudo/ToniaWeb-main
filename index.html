@@ -4738,7 +4738,14 @@
       ],
       heroBg: "images/trpezarija1.jpg",
       aboutPrimaryBg: "images/dnevni1.jpg",
-      aboutSecondaryBg: "images/exterior1.jpg"
+      aboutSecondaryBg: "images/exterior1.jpg",
+      homepageGallery: [
+        "images/dnevni2.jpg",
+        "images/kupaonica4.jpg",
+        "images/kuhinja1.jpg",
+        "images/exterior1.jpg",
+        "images/dodatno1.jpg"
+      ]
     };
 
     let siteContent = fallbackContent;
@@ -4752,10 +4759,24 @@
       const gridEl = document.getElementById('galleryGrid');
       if (!previewEl || !gridEl) return;
 
-      // Render preview (first 5 images)
+      // Use homepageGallery if defined, otherwise fallback to first 5 images in galleryList
+      let previewImages = [];
+      if (siteContent.homepageGallery && siteContent.homepageGallery.length >= 5) {
+        previewImages = siteContent.homepageGallery.map(src => {
+          const found = galleryList.find(img => img.src === src);
+          return {
+            src: src,
+            alt: found ? found.alt : 'Apartment Antonia'
+          };
+        });
+      } else {
+        previewImages = galleryList.slice(0, 5);
+      }
+
+      // Render preview (5 images)
       let previewHtml = '';
-      if (galleryList && galleryList.length >= 5) {
-        const firstImg = galleryList[0];
+      if (previewImages && previewImages.length >= 5) {
+        const firstImg = previewImages[0];
         previewHtml += `
           <div class="gp-main">
             <img src="${firstImg.src}" alt="${firstImg.alt}" loading="lazy" />
@@ -4764,14 +4785,14 @@
 
         previewHtml += `<div class="gp-grid">`;
         for (let i = 1; i <= 3; i++) {
-          const img = galleryList[i];
+          const img = previewImages[i];
           previewHtml += `
             <div class="gp-cell">
               <img src="${img.src}" alt="${img.alt}" loading="lazy" />
             </div>
           `;
         }
-        const fifthImg = galleryList[4];
+        const fifthImg = previewImages[4];
         previewHtml += `
           <div class="gp-cell gp-last">
             <img src="${fifthImg.src}" alt="${fifthImg.alt}" loading="lazy" />

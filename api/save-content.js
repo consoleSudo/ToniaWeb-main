@@ -92,11 +92,11 @@ function isValidContent(content) {
   if (content.heroBg && typeof content.heroBg !== 'string') return false;
   if (content.aboutPrimaryBg && typeof content.aboutPrimaryBg !== 'string') return false;
   if (content.aboutSecondaryBg && typeof content.aboutSecondaryBg !== 'string') return false;
+  if (content.homepageGallery && (!Array.isArray(content.homepageGallery) || content.homepageGallery.length !== 5)) return false;
 
   return true;
 }
 
-// ── Security: Validate uploaded images ───────────────────────────────────────
 function isValidImageUpload(upload) {
   if (!upload || typeof upload !== 'object') return false;
   if (typeof upload.filename !== 'string' || upload.filename.length === 0 || upload.filename.length > 100) return false;

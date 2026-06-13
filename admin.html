@@ -1444,6 +1444,243 @@
       border-style: solid;
       font-weight: 700;
     }
+
+    /* Gallery Slots Grid */
+    .gallery-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .slot-card {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .slot-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-primary);
+      box-shadow: 0 6px 15px rgba(234, 88, 12, 0.08);
+    }
+
+    .slot-card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      background: #f1f5f9;
+      overflow: hidden;
+    }
+
+    .slot-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .slot-card:hover .slot-card-img {
+      transform: scale(1.05);
+    }
+
+    .slot-card-info {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .slot-card-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.25;
+    }
+
+    .slot-card-badge {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      background: var(--color-primary);
+      color: var(--color-cta-text);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      z-index: 2;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .slot-card-btn {
+      width: 100%;
+      padding: 0.45rem 1rem;
+      font-size: 0.78rem;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      color: var(--color-primary);
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .slot-card-btn:hover {
+      background: var(--color-primary);
+      color: var(--color-cta-text);
+      border-color: var(--color-primary);
+    }
+
+    /* Modal picker styling */
+    .picker-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .picker-modal-content {
+      background: #ffffff;
+      border-radius: var(--border-radius);
+      width: 90%;
+      max-width: 800px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--color-border);
+      animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalScaleUp {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .picker-modal-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+    }
+
+    .picker-modal-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .picker-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .picker-close-btn:hover {
+      color: #ef4444;
+    }
+
+    .picker-modal-filter-bar {
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      background: #fdfdfd;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .picker-modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .picker-images-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+
+    .picker-image-card {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      height: 100px;
+      background: #f1f5f9;
+    }
+
+    .picker-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .picker-image-card:hover {
+      border-color: var(--color-primary);
+      transform: scale(1.02);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .picker-image-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .picker-image-card.active {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
+    }
+
+    .picker-image-card.active::before {
+      content: '\f058';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 0.35rem;
+      right: 0.35rem;
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      z-index: 2;
+      background: #ffffff;
+      border-radius: 50%;
+      line-height: 1;
+    }
   </style>
 </head>
 
@@ -1659,6 +1896,18 @@
 
       <!-- TAB 5: Gallery -->
       <div class="tab-panel" id="panel-galerija">
+        
+        <!-- SLOTS SYSTEM SECTION -->
+        <div class="card">
+          <h2 class="card-title"><i class="fa-solid fa-square-poll-horizontal"></i> Raspored slika na web stranici</h2>
+          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+            Ovdje možete izravno odabrati koje se slike prikazuju na ključnim mjestima na vašoj web stranici. Kliknite na "Odaberi sliku" kako biste odabrali drugu fotografiju iz vaše baze slika.
+          </p>
+          <div class="gallery-slots-grid" id="slotsContainer">
+            <!-- Dynamic Slots -->
+          </div>
+        </div>
+
         <div class="card">
           <h2 class="card-title"><i class="fa-solid fa-upload"></i> Prenesi novu fotografiju</h2>
 
@@ -1735,6 +1984,24 @@
 
   <!-- TOAST NOTIFICATION -->
   <div class="toast" id="toast"></div>
+
+  <!-- IMAGE PICKER MODAL -->
+  <div class="picker-modal" id="imagePickerModal" onclick="if(event.target === this) closeImagePicker()">
+    <div class="picker-modal-content">
+      <div class="picker-modal-header">
+        <h3 id="pickerModalTitle">Odaberi sliku</h3>
+        <button class="picker-close-btn" onclick="closeImagePicker()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="picker-modal-filter-bar" id="pickerFilterBar">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="picker-modal-body">
+        <div class="picker-images-grid" id="pickerImagesGrid">
+          <!-- Loaded dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JS Logic -->
   <script>
@@ -2138,6 +2405,7 @@
           renderReviewsManager();
           renderFaqManager();
           renderGalleryManager();
+          renderGallerySlots();
           updateDashboardStats();
 
           hasChanges = false;
@@ -2597,8 +2865,172 @@
       }
     }
 
-    /* ── GALLERY MANAGER ── */
+    /* ── GALLERY MANAGER (SLOTS & BASE) ── */
     let currentAdminGalleryFilter = 'all';
+    let activePickerSlot = null; // { type: 'hero'|'aboutPrimary'|'aboutSecondary'|'homepageGallery', index: 0-4 }
+    let pickerFilter = 'all';
+
+    // Slots mapping labels
+    const slotLabels = {
+      'hero': 'Slika na vrhu (Početna)',
+      'aboutPrimary': 'O apartmanu - Glavna slika',
+      'aboutSecondary': 'O apartmanu - Sporedna slika',
+      'homepageGallery-0': 'Početna galerija - Slika 1',
+      'homepageGallery-1': 'Početna galerija - Slika 2',
+      'homepageGallery-2': 'Početna galerija - Slika 3',
+      'homepageGallery-3': 'Početna galerija - Slika 4',
+      'homepageGallery-4': 'Početna galerija - Slika 5'
+    };
+
+    function initHomepageGallery() {
+      if (!rawContent.homepageGallery || rawContent.homepageGallery.length < 5) {
+        rawContent.homepageGallery = [];
+        for (let i = 0; i < 5; i++) {
+          if (rawContent.gallery[i]) {
+            rawContent.homepageGallery.push(rawContent.gallery[i].src);
+          } else {
+            rawContent.homepageGallery.push('images/dnevni1.jpg');
+          }
+        }
+      }
+    }
+
+    function renderGallerySlots() {
+      initHomepageGallery();
+      const container = document.getElementById('slotsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const slots = [
+        { type: 'hero', index: 0, title: 'Slika na vrhu (Početna)', src: rawContent.heroBg || 'images/trpezarija1.jpg' },
+        { type: 'aboutPrimary', index: 0, title: 'O apartmanu - Glavna slika', src: rawContent.aboutPrimaryBg || 'images/dnevni1.jpg' },
+        { type: 'aboutSecondary', index: 0, title: 'O apartmanu - Sporedna slika', src: rawContent.aboutSecondaryBg || 'images/exterior1.jpg' },
+        { type: 'homepageGallery', index: 0, title: 'Početna galerija - Slika 1', src: rawContent.homepageGallery[0] },
+        { type: 'homepageGallery', index: 1, title: 'Početna galerija - Slika 2', src: rawContent.homepageGallery[1] },
+        { type: 'homepageGallery', index: 2, title: 'Početna galerija - Slika 3', src: rawContent.homepageGallery[2] },
+        { type: 'homepageGallery', index: 3, title: 'Početna galerija - Slika 4', src: rawContent.homepageGallery[3] },
+        { type: 'homepageGallery', index: 4, title: 'Početna galerija - Slika 5', src: rawContent.homepageGallery[4] }
+      ];
+
+      slots.forEach(slot => {
+        const card = document.createElement('div');
+        card.className = 'slot-card';
+
+        // Find alt text
+        const found = rawContent.gallery.find(img => img.src === slot.src);
+        const altText = found ? found.alt : 'Nije pronađena slika';
+
+        card.innerHTML = `
+          <div class="slot-card-img-wrap">
+            <img class="slot-card-img" src="${slot.src}" alt="${altText}">
+            <div class="slot-card-badge">${slot.type === 'hero' ? 'Naslovna' : (slot.type.startsWith('about') ? 'O nama' : 'Galerija #' + (slot.index + 1))}</div>
+          </div>
+          <div class="slot-card-info">
+            <div class="slot-card-title">${slot.title}</div>
+            <button class="slot-card-btn" onclick="openImagePicker('${slot.type}', ${slot.index})">
+              <i class="fa-solid fa-images"></i> Odaberi sliku
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function openImagePicker(type, index) {
+      activePickerSlot = { type, index };
+      
+      const modal = document.getElementById('imagePickerModal');
+      const titleEl = document.getElementById('pickerModalTitle');
+      
+      const slotKey = type === 'homepageGallery' ? `${type}-${index}` : type;
+      titleEl.textContent = `Odaberi sliku za: ${slotLabels[slotKey] || 'Slot'}`;
+      
+      // Render modal filter tabs
+      const filterBar = document.getElementById('pickerFilterBar');
+      const cats = [
+        { id: 'all', name: 'Sve' },
+        { id: 'dnevni', name: 'Dnevni boravak' },
+        { id: 'kuhinja', name: 'Kuhinja' },
+        { id: 'trpezarija', name: 'Trpezarija' },
+        { id: 'spavaca', name: 'Spavaća soba' },
+        { id: 'kupaonica', name: 'Kupaonica' },
+        { id: 'eksterijer', name: 'Eksterijer' },
+        { id: 'dodatno', name: 'Dodatno' }
+      ];
+      
+      filterBar.innerHTML = cats.map(cat => `
+        <button class="gallery-tab ${pickerFilter === cat.id ? 'active' : ''}" 
+                onclick="setPickerFilter('${cat.id}')">${cat.name}</button>
+      `).join('');
+
+      renderPickerImages();
+      modal.style.display = 'flex';
+    }
+
+    function setPickerFilter(filter) {
+      pickerFilter = filter;
+      document.querySelectorAll('#pickerFilterBar .gallery-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      // Find and activate tab
+      const clickedTab = Array.from(document.querySelectorAll('#pickerFilterBar .gallery-tab')).find(btn => 
+        btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${filter}'`)
+      );
+      if (clickedTab) clickedTab.classList.add('active');
+      renderPickerImages();
+    }
+
+    function closeImagePicker() {
+      const modal = document.getElementById('imagePickerModal');
+      modal.style.display = 'none';
+      activePickerSlot = null;
+    }
+
+    function renderPickerImages() {
+      const grid = document.getElementById('pickerImagesGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      // Determine current active src in this slot to show active border
+      let activeSrc = '';
+      if (activePickerSlot) {
+        if (activePickerSlot.type === 'hero') activeSrc = rawContent.heroBg || 'images/trpezarija1.jpg';
+        else if (activePickerSlot.type === 'aboutPrimary') activeSrc = rawContent.aboutPrimaryBg || 'images/dnevni1.jpg';
+        else if (activePickerSlot.type === 'aboutSecondary') activeSrc = rawContent.aboutSecondaryBg || 'images/exterior1.jpg';
+        else if (activePickerSlot.type === 'homepageGallery') activeSrc = rawContent.homepageGallery[activePickerSlot.index];
+      }
+
+      rawContent.gallery.forEach(img => {
+        if (pickerFilter !== 'all' && img.cat !== pickerFilter) return;
+
+        const card = document.createElement('div');
+        card.className = `picker-image-card ${img.src === activeSrc ? 'active' : ''}`;
+        card.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+        card.onclick = () => selectImageForSlot(img.src);
+        grid.appendChild(card);
+      });
+    }
+
+    function selectImageForSlot(imgSrc) {
+      if (!activePickerSlot) return;
+
+      const { type, index } = activePickerSlot;
+      if (type === 'hero') {
+        rawContent.heroBg = imgSrc;
+      } else if (type === 'aboutPrimary') {
+        rawContent.aboutPrimaryBg = imgSrc;
+      } else if (type === 'aboutSecondary') {
+        rawContent.aboutSecondaryBg = imgSrc;
+      } else if (type === 'homepageGallery') {
+        rawContent.homepageGallery[index] = imgSrc;
+      }
+
+      triggerChange();
+      renderGallerySlots();
+      renderGalleryManager();
+      closeImagePicker();
+      showToast('Slika je uspješno promijenjena!');
+    }
 
     function setAdminGalleryFilter(filter) {
       currentAdminGalleryFilter = filter;
@@ -2612,41 +3044,8 @@
       renderGalleryManager();
     }
 
-    function moveImageUp(idx) {
-      if (idx <= 0) return;
-      const temp = rawContent.gallery[idx];
-      rawContent.gallery[idx] = rawContent.gallery[idx - 1];
-      rawContent.gallery[idx - 1] = temp;
-      
-      triggerChange();
-      renderGalleryManager();
-    }
-
-    function moveImageDown(idx) {
-      if (idx >= rawContent.gallery.length - 1) return;
-      const temp = rawContent.gallery[idx];
-      rawContent.gallery[idx] = rawContent.gallery[idx + 1];
-      rawContent.gallery[idx + 1] = temp;
-      
-      triggerChange();
-      renderGalleryManager();
-    }
-
-    function setImageRole(idx, role) {
-      const img = rawContent.gallery[idx];
-      if (role === 'hero') {
-        rawContent.heroBg = img.src;
-      } else if (role === 'aboutPrimary') {
-        rawContent.aboutPrimaryBg = img.src;
-      } else if (role === 'aboutSecondary') {
-        rawContent.aboutSecondaryBg = img.src;
-      }
-      triggerChange();
-      renderGalleryManager();
-      showToast(`Slika je postavljena za ulogu: ${role === 'hero' ? 'Hero pozadina' : (role === 'aboutPrimary' ? 'O nama (Glavna)' : 'O nama (Sporedna)')}`);
-    }
-
     function renderGalleryManager() {
+      initHomepageGallery();
       const container = document.getElementById('galleryContainer');
       if (!container) return;
       container.innerHTML = '';
@@ -2659,12 +3058,17 @@
         const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.jpg');
         const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.jpg');
         const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.jpg');
-        const isLanding = idx < 5;
+        
+        // Find which slots in homepageGallery contain this image
+        const homepageGalleryIndexes = [];
+        rawContent.homepageGallery.forEach((src, sIdx) => {
+          if (src === img.src) homepageGalleryIndexes.push(sIdx + 1);
+        });
 
-        // Apply admin category filter
+        // Apply admin filter
         if (currentAdminGalleryFilter !== 'all') {
           if (currentAdminGalleryFilter === 'special') {
-            if (!isHero && !isAboutP && !isAboutS && !isLanding) return;
+            if (!isHero && !isAboutP && !isAboutS && homepageGalleryIndexes.length === 0) return;
           } else if (img.cat !== currentAdminGalleryFilter) {
             return;
           }
@@ -2673,13 +3077,13 @@
         const card = document.createElement('div');
         card.className = 'gallery-card';
 
-        // Stacking badges container
+        // Stack badges
         let badgesHtml = '';
-        if (isLanding || isHero || isAboutP || isAboutS) {
+        if (homepageGalleryIndexes.length > 0 || isHero || isAboutP || isAboutS) {
           badgesHtml += `<div class="gallery-card-badge-container">`;
-          if (isLanding) {
-            badgesHtml += `<div class="gallery-card-badge badge-homepage">Početna #${idx + 1}</div>`;
-          }
+          homepageGalleryIndexes.forEach(pos => {
+            badgesHtml += `<div class="gallery-card-badge badge-homepage">Početna #${pos}</div>`;
+          });
           if (isHero) {
             badgesHtml += `<div class="gallery-card-badge badge-hero">Hero Pozadina</div>`;
           }
@@ -2692,34 +3096,15 @@
           badgesHtml += `</div>`;
         }
 
-        // Show reorder buttons only when viewing 'all' images
-        const showReorder = currentAdminGalleryFilter === 'all';
-
         card.innerHTML = `
           ${badgesHtml}
           <img class="gallery-card-img" src="${img.src}" alt="${img.alt}">
           <div class="gallery-card-info">
-            <div style="font-size:0.8rem; font-weight:600; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" title="${img.alt}">${img.alt}</div>
+            <div style="font-size:0.8rem; font-weight:600; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; margin-bottom: 0.25rem;" title="${img.alt}">${img.alt}</div>
             
-            <div class="gallery-card-actions" style="margin-bottom: 0.5rem;">
+            <div class="gallery-card-actions" style="margin-top: auto; padding-top: 0.5rem; border-top: 1px solid rgba(0,0,0,0.04);">
               <span class="gallery-card-cat">${img.cat}</span>
               <button class="btn-icon btn-icon-danger" style="width:30px; height:30px; font-size:0.8rem;" onclick="deleteImage(${idx})" title="Obriši sliku"><i class="fa-solid fa-trash"></i></button>
-            </div>
-
-            ${showReorder ? `
-            <div class="gallery-card-reorder" style="display: flex; gap: 0.4rem; margin-bottom: 0.75rem;">
-              <button class="btn-sm-reorder" onclick="moveImageUp(${idx})" ${idx === 0 ? 'disabled' : ''} title="Pomakni naprijed"><i class="fa-solid fa-arrow-left"></i> Pomakni</button>
-              <button class="btn-sm-reorder" onclick="moveImageDown(${idx})" ${idx === rawContent.gallery.length - 1 ? 'disabled' : ''} title="Pomakni natrag">Pomakni <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            ` : ''}
-
-            <div class="gallery-card-roles" style="display: flex; flex-direction: column; gap: 0.35rem; margin-top: auto; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.5rem;">
-              <span style="font-size: 0.62rem; color: var(--color-text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Postavi na webu:</span>
-              <div style="display: flex; gap: 0.25rem; flex-wrap: wrap;">
-                <button class="btn-role-action ${isHero ? 'active' : ''}" onclick="setImageRole(${idx}, 'hero')" title="Postavi za pozadinu pocetne stranice">Hero</button>
-                <button class="btn-role-action ${isAboutP ? 'active' : ''}" onclick="setImageRole(${idx}, 'aboutPrimary')" title="Postavi za glavnu sliku u 'O apartmanu'">Glavna</button>
-                <button class="btn-role-action ${isAboutS ? 'active' : ''}" onclick="setImageRole(${idx}, 'aboutSecondary')" title="Postavi za sporednu sliku u 'O apartmanu'">Sporedna</button>
-              </div>
             </div>
           </div>
         `;
@@ -2796,24 +3181,33 @@
       const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.jpg');
       const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.jpg');
       const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.jpg');
-      const isLanding = idx < 5;
+      
+      const inHomepageSlots = [];
+      rawContent.homepageGallery.forEach((src, sIdx) => {
+        if (src === img.src) inHomepageSlots.push(sIdx);
+      });
 
       let msg = 'Jeste li sigurni da želite obrisati ovu sliku iz galerije?';
-      if (isHero || isAboutP || isAboutS) {
-        msg = 'UPOZORENJE: Ova slika se aktivno koristi na ključnim mjestima (Hero pozadina ili slika O apartmanu). Ako je obrišete, prikaz na tim mjestima može biti slomljen. Sigurno želite obrisati?';
-      } else if (isLanding) {
-        msg = 'Ova slika se trenutno prikazuje u početnoj galeriji (prvih 5 slika). Ako je obrišete, sljedeća dostupna slika će zauzeti njeno mjesto u prvih 5. Želite li nastaviti?';
+      if (isHero || isAboutP || isAboutS || inHomepageSlots.length > 0) {
+        msg = 'UPOZORENJE: Ova slika se aktivno koristi na ključnim mjestima (početna galerija ili pozadine). Ako je obrišete, sustav će automatski dodijeliti zamjensku sliku na ta mjesta kako ne bi došlo do greške u prikazu. Sigurno želite obrisati?';
       }
 
       if (confirm(msg)) {
         rawContent.gallery.splice(idx, 1);
         
-        // If deleted image was assigned to a role, reset to default to avoid broken layout
-        if (isHero) rawContent.heroBg = 'images/trpezarija1.jpg';
-        if (isAboutP) rawContent.aboutPrimaryBg = 'images/dnevni1.jpg';
-        if (isAboutS) rawContent.aboutSecondaryBg = 'images/exterior1.jpg';
+        // Find a fallback image from the remaining gallery images
+        const fallbackSrc = rawContent.gallery.length > 0 ? rawContent.gallery[0].src : 'images/dnevni1.jpg';
+
+        // Auto replace in slots
+        if (isHero) rawContent.heroBg = fallbackSrc;
+        if (isAboutP) rawContent.aboutPrimaryBg = fallbackSrc;
+        if (isAboutS) rawContent.aboutSecondaryBg = fallbackSrc;
+        inHomepageSlots.forEach(sIdx => {
+          rawContent.homepageGallery[sIdx] = fallbackSrc;
+        });
 
         renderGalleryManager();
+        renderGallerySlots();
         triggerChange();
         updateDashboardStats();
       }
