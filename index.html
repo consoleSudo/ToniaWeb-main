@@ -5369,7 +5369,6 @@
         const response = await fetch('content.json');
         if (response.ok) {
           siteContent = await response.json();
-          console.log('Loaded content.json dynamically.');
         }
       } catch (err) {
         console.warn('CORS restriction or fetch error. Using local fallbackContent.', err);
