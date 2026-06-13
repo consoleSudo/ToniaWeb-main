@@ -1111,10 +1111,30 @@
       "src": "images/dodatno11.webp",
       "alt": "Dodatno",
       "cat": "dodatno"
+    },
+    {
+      "src": "images/img_20260610_wa0005.webp",
+      "alt": "Trpezarija2",
+      "cat": "trpezarija"
+    },
+    {
+      "src": "images/img_20260610_wa0002.webp",
+      "alt": "Trpezarija3",
+      "cat": "trpezarija"
+    },
+    {
+      "src": "images/img_20260610_wa0004.webp",
+      "alt": "Dnevni3",
+      "cat": "dnevni"
+    },
+    {
+      "src": "images/img_20260610_wa0007.webp",
+      "alt": "Dnevni2",
+      "cat": "dnevni"
     }
   ],
-  "heroBg": "images/trpezarija1.webp",
-  "aboutPrimaryBg": "images/dnevni1.webp",
+  "heroBg": "images/img_20260610_wa0005.webp",
+  "aboutPrimaryBg": "images/exterior2.webp",
   "aboutSecondaryBg": "images/exterior1.webp",
   "homepageGallery": [
     "images/dnevni2.webp",
