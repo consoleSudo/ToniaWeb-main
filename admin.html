@@ -2891,7 +2891,7 @@
           if (rawContent.gallery[i]) {
             rawContent.homepageGallery.push(rawContent.gallery[i].src);
           } else {
-            rawContent.homepageGallery.push('images/dnevni1.jpg');
+            rawContent.homepageGallery.push('images/dnevni1.webp');
           }
         }
       }
@@ -2904,9 +2904,9 @@
       container.innerHTML = '';
 
       const slots = [
-        { type: 'hero', index: 0, title: 'Slika na vrhu (Početna)', src: rawContent.heroBg || 'images/trpezarija1.jpg' },
-        { type: 'aboutPrimary', index: 0, title: 'O apartmanu - Glavna slika', src: rawContent.aboutPrimaryBg || 'images/dnevni1.jpg' },
-        { type: 'aboutSecondary', index: 0, title: 'O apartmanu - Sporedna slika', src: rawContent.aboutSecondaryBg || 'images/exterior1.jpg' },
+        { type: 'hero', index: 0, title: 'Slika na vrhu (Početna)', src: rawContent.heroBg || 'images/trpezarija1.webp' },
+        { type: 'aboutPrimary', index: 0, title: 'O apartmanu - Glavna slika', src: rawContent.aboutPrimaryBg || 'images/dnevni1.webp' },
+        { type: 'aboutSecondary', index: 0, title: 'O apartmanu - Sporedna slika', src: rawContent.aboutSecondaryBg || 'images/exterior1.webp' },
         { type: 'homepageGallery', index: 0, title: 'Početna galerija - Slika 1', src: rawContent.homepageGallery[0] },
         { type: 'homepageGallery', index: 1, title: 'Početna galerija - Slika 2', src: rawContent.homepageGallery[1] },
         { type: 'homepageGallery', index: 2, title: 'Početna galerija - Slika 3', src: rawContent.homepageGallery[2] },
@@ -2996,9 +2996,9 @@
       // Determine current active src in this slot to show active border
       let activeSrc = '';
       if (activePickerSlot) {
-        if (activePickerSlot.type === 'hero') activeSrc = rawContent.heroBg || 'images/trpezarija1.jpg';
-        else if (activePickerSlot.type === 'aboutPrimary') activeSrc = rawContent.aboutPrimaryBg || 'images/dnevni1.jpg';
-        else if (activePickerSlot.type === 'aboutSecondary') activeSrc = rawContent.aboutSecondaryBg || 'images/exterior1.jpg';
+        if (activePickerSlot.type === 'hero') activeSrc = rawContent.heroBg || 'images/trpezarija1.webp';
+        else if (activePickerSlot.type === 'aboutPrimary') activeSrc = rawContent.aboutPrimaryBg || 'images/dnevni1.webp';
+        else if (activePickerSlot.type === 'aboutSecondary') activeSrc = rawContent.aboutSecondaryBg || 'images/exterior1.webp';
         else if (activePickerSlot.type === 'homepageGallery') activeSrc = rawContent.homepageGallery[activePickerSlot.index];
       }
 
@@ -3057,9 +3057,9 @@
       }
 
       rawContent.gallery.forEach((img, idx) => {
-        const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.jpg');
-        const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.jpg');
-        const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.jpg');
+        const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.webp');
+        const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.webp');
+        const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.webp');
         
         // Find which slots in homepageGallery contain this image
         const homepageGalleryIndexes = [];
@@ -3306,9 +3306,9 @@
 
     function deleteImage(idx) {
       const img = rawContent.gallery[idx];
-      const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.jpg');
-      const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.jpg');
-      const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.jpg');
+      const isHero = img.src === (rawContent.heroBg || 'images/trpezarija1.webp');
+      const isAboutP = img.src === (rawContent.aboutPrimaryBg || 'images/dnevni1.webp');
+      const isAboutS = img.src === (rawContent.aboutSecondaryBg || 'images/exterior1.webp');
       
       const inHomepageSlots = [];
       rawContent.homepageGallery.forEach((src, sIdx) => {
@@ -3324,7 +3324,7 @@
         rawContent.gallery.splice(idx, 1);
         
         // Find a fallback image from the remaining gallery images
-        const fallbackSrc = rawContent.gallery.length > 0 ? rawContent.gallery[0].src : 'images/dnevni1.jpg';
+        const fallbackSrc = rawContent.gallery.length > 0 ? rawContent.gallery[0].src : 'images/dnevni1.webp';
 
         // Auto replace in slots
         if (isHero) rawContent.heroBg = fallbackSrc;

@@ -16,7 +16,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="hr_HR" />
   <meta property="og:url" content="https://toniaweb.vercel.app" />
-  <meta property="og:image" content="https://toniaweb.vercel.app/images/trpezarija1.jpg" />
+  <meta property="og:image" content="https://toniaweb.vercel.app/images/trpezarija1.webp" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -36,9 +36,9 @@
     "name": "Luxury Apartment Antonia",
     "description": "Privatna oaza za 3 gosta s besplatnim biciklima, etno konobom i roštiljem. Nalazi se u Podbablju Gornjem pokraj Imotskog i Modrog jezera.",
     "image": [
-      "https://toniaweb.vercel.app/images/trpezarija1.jpg",
-      "https://toniaweb.vercel.app/images/dnevni1.jpg",
-      "https://toniaweb.vercel.app/images/exterior1.jpg"
+      "https://toniaweb.vercel.app/images/trpezarija1.webp",
+      "https://toniaweb.vercel.app/images/dnevni1.webp",
+      "https://toniaweb.vercel.app/images/exterior1.webp"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -806,11 +806,12 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('images/trpezarija1.jpg');
+      background-image: url('images/trpezarija1.webp');
       background-size: cover;
       background-position: center;
       transform: scale(1.05);
       animation: heroZoom 12s ease-out forwards;
+      will-change: transform;
     }
 
     @keyframes heroZoom {
@@ -835,6 +836,7 @@
       padding: 0 1.5rem;
       max-width: 780px;
       animation: heroFadeUp 1s ease 0.3s both;
+      will-change: transform, opacity;
     }
 
     @keyframes heroFadeUp {
@@ -931,6 +933,7 @@
       animation: bounce 2s infinite 2s;
       text-decoration: none;
       cursor: pointer;
+      will-change: transform;
     }
 
     .hero-scroll span {
@@ -2300,6 +2303,7 @@
       display: inline-block;
       animation: faq-typing-bounce 1.4s infinite ease-in-out both;
       opacity: 0.6;
+      will-change: transform, opacity;
     }
 
     .faq-typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
@@ -2805,6 +2809,7 @@
       background: #25D366;
       z-index: -1;
       animation: fab-pulse 2s infinite;
+      will-change: transform, opacity;
     }
 
     .whatsapp-fab:hover {
@@ -3330,8 +3335,8 @@
   <section class="section" id="o-apartmanu">
     <div class="container about-grid">
       <div class="about-img-wrap reveal reveal-left">
-        <img src="images/dnevni1.jpg" alt="Apartman Antonia - Dnevni boravak" class="about-img-primary" />
-        <img src="images/exterior1.jpg" alt="Apartman Antonia - Eksterijer" class="about-img-secondary" />
+        <img src="images/dnevni1.webp" alt="Apartman Antonia - Dnevni boravak" class="about-img-primary" />
+        <img src="images/exterior1.webp" alt="Apartman Antonia - Eksterijer" class="about-img-secondary" />
         <div class="about-img-badge">
           <span class="about-badge-num">2+</span>
           <span class="about-badge-txt" data-i18n="about-exp">godine<br>iskustva</span>
@@ -4866,21 +4871,21 @@
         }
       ],
       gallery: [
-        { src: "images/dnevni2.jpg", alt: "Dnevni boravak", cat: "dnevni" },
-        { src: "images/kupaonica4.jpg", alt: "Kupaonica", cat: "kupaonica" },
-        { src: "images/kuhinja1.jpg", alt: "Kuhinja", cat: "kuhinja" },
-        { src: "images/exterior1.jpg", alt: "Eksterijer", cat: "eksterijer" },
-        { src: "images/dodatno1.jpg", alt: "Više", cat: "dodatno" }
+        { src: "images/dnevni2.webp", alt: "Dnevni boravak", cat: "dnevni" },
+        { src: "images/kupaonica4.webp", alt: "Kupaonica", cat: "kupaonica" },
+        { src: "images/kuhinja1.webp", alt: "Kuhinja", cat: "kuhinja" },
+        { src: "images/exterior1.webp", alt: "Eksterijer", cat: "eksterijer" },
+        { src: "images/dodatno1.webp", alt: "Više", cat: "dodatno" }
       ],
-      heroBg: "images/trpezarija1.jpg",
-      aboutPrimaryBg: "images/dnevni1.jpg",
-      aboutSecondaryBg: "images/exterior1.jpg",
+      heroBg: "images/trpezarija1.webp",
+      aboutPrimaryBg: "images/dnevni1.webp",
+      aboutSecondaryBg: "images/exterior1.webp",
       homepageGallery: [
-        "images/dnevni2.jpg",
-        "images/kupaonica4.jpg",
-        "images/kuhinja1.jpg",
-        "images/exterior1.jpg",
-        "images/dodatno1.jpg"
+        "images/dnevni2.webp",
+        "images/kupaonica4.webp",
+        "images/kuhinja1.webp",
+        "images/exterior1.webp",
+        "images/dodatno1.webp"
       ]
     };
 
