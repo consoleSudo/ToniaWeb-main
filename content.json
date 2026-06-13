@@ -51,9 +51,9 @@
       "de": "Antonia"
     },
     "hero-sub": {
-      "hr": "Privatna oaza za 3 gosta · Etno konoba · Dvorište · Roštilj",
-      "en": "Private oasis for 3 guests · Ethno tavern · Courtyard · BBQ",
-      "de": "Private Oase für 3 Gäste · Ethno-Taverne · Innenhof · Grill"
+      "hr": "Privatna oaza za 3 gosta s besplatnim biciklima · Etno konoba & roštilj · Blizu Modrog jezera",
+      "en": "Private oasis for 3 guests with free bikes · Ethno tavern & BBQ · Near Blue Lake",
+      "de": "Private Oase für 3 Gäste mit kostenlosen Fahrrädern · Ethno-Taverne & Grill · Nahe dem Blauen See"
     },
     "hero-btn-book": {
       "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Rezerviraj izravno",
@@ -95,6 +95,11 @@
       "en": "Reply within 1h",
       "de": "Antwort innerhalb 1 Std."
     },
+    "proof-bikes": {
+      "hr": "Besplatni bicikli za goste",
+      "en": "Free bicycles for guests",
+      "de": "Kostenlose Fahrräder für Gäste"
+    },
     "about-exp": {
       "hr": "godine<br>iskustva",
       "en": "years of<br>experience",
@@ -111,29 +116,29 @@
       "de": "Mehr als nur ein Apartment —<br><em>ein Erlebnis</em>"
     },
     "about-desc": {
-      "hr": "Opustite se u ugodnom i moderno uređenom smještaju smještenom na brdašcu okruženom šumom, pješačkim stazama i livadama, što vam jamči potpuni mir i privatnost. Na raspolaganju su vam privatni ulaz, potpuno opremljena kuhinja, dnevni boravak, spavaća soba i kupaonica.<br>Uživajte u privatnom dvorištu, vanjskom roštilju te prostoriji za zabavu (etno konobi) sa zvučnim i svjetlosnim efektima. Idealan izbor za sve koji traže mir, privatnost i opuštanje.",
-      "en": "Relax in a cozy and modern accommodation located on a hill surrounded by forest, walking paths, and meadows, ensuring complete peace and privacy. You have a private entrance, a fully equipped kitchen, a living room, a bedroom, and a bathroom.<br>Enjoy the private courtyard, outdoor barbecue, and an entertainment room (ethno tavern) with sound and light effects. An ideal choice for those seeking peace, privacy, and relaxation.",
-      "de": "Entspannen Sie sich in einer gemütlichen und modernen Unterkunft auf einem Hügel, umgeben von Wald, Spazierwegen und Wiesen, was absolute Ruhe und Privatsphäre garantiert. Ihnen stehen ein privater Eingang, eine voll ausgestattete Küche, ein Wohnzimmer, ein Schlafzimmer und ein Badezimmer zur Verfügung.<br>Genießen Sie den privaten Innenhof, den Grill im Freien und einen Partyraum (Ethno-Taverne) mit Sound- und Lichteffekten. Eine ideale Wahl für alle, die Ruhe, Privatsphäre und Entspannung suchen."
+      "hr": "Pobjegnite u svoju privatnu oazu mira i opuštanja! Smješten na slikovitom brdašcu i okružen mirisnom šumom te netaknutom prirodom, naš moderno uređeni apartman nudi vam apsolutnu privatnost. Istražite slikovitu okolicu na besplatnim biciklima koje smo pripremili za vas, doživite avanturu raftinga i kajakinga na rijeci Vrljici (svega 3 km udaljenoj) ili posjetite čudesna Modro i Crveno jezero te UNESCO Geopark (samo 5-7 km).<br>Nakon aktivnog dana, opustite se u prostranom dvorištu uz vanjski roštilj ili u našoj jedinstvenoj, autentičnoj etno konobi s vrhunskim svjetlosnim i zvučnim efektima za nezaboravne večeri.",
+      "en": "Escape to your private oasis of peace and relaxation! Situated on a picturesque hill and surrounded by fragrant forest and untouched nature, our modern apartment offers absolute privacy. Explore the scenic surroundings on the free bicycles provided for our guests, experience the thrill of rafting and kayaking on the Vrljica River (just 3 km away), or visit the stunning Blue and Red Lakes and the UNESCO Geopark (only 5-7 km away).<br>After a day of adventure, unwind in the spacious courtyard with an outdoor BBQ or gather in our unique, authentic ethno tavern equipped with premium light and sound effects for unforgettable evenings.",
+      "de": "Entfliehen Sie in Ihre private Oase der Ruhe und Entspannung! Auf einem malerischen Hügel gelegen und umgeben von duftendem Wald und unberührter Natur, bietet Ihnen unser modernes Apartment absolute Privatsphäre. Erkunden Sie die malerische Umgebung mit den kostenlosen Fahrrädern, die wir für Sie bereitgestellt haben, erleben Sie das Abenteuer von Rafting und Kajakfahren auf dem Fluss Vrljica (nur 3 km entfernt) oder besuchen Sie den atemberaubenden Blauen und Roten See sowie den UNESCO-Geopark (nur 5-7 km entfernt).<br>Entspannen Sie sich nach einem aktiven Tag im weitläufigen Innenhof am Außengrill oder in unserer einzigartigen, authentischen Ethno-Taverne mit erstklassigen Licht- und Soundeffekten für unvergessliche Abende."
     },
     "about-list-1": {
-      "hr": "Smješten na brdašcu, okružen šumom i livadama s potpunom privatnošću,",
-      "en": "Located on a hill, surrounded by forest and meadows with complete privacy,",
-      "de": "Auf einem Hügel gelegen, umgeben von Wald und Wiesen mit absoluter Privatsphäre,"
+      "hr": "Privatni posjed na brdašcu okružen mirisnom šumom i livadama — savršeno za opuštanje,",
+      "en": "Private property on a hill surrounded by fragrant forest and meadows — perfect for relaxation,",
+      "de": "Privates Anwesen auf einem Hügel, umgeben von duftendem Wald und Wiesen — perfekt zur Entspannung,"
     },
     "about-list-2": {
-      "hr": "udaljen svega 3 km od rijeke,",
-      "en": "only 3 km from the river,",
-      "de": "nur 3 km vom Fluss entfernt,"
+      "hr": "Samo 3 km od rijeke Vrljice (rafting i kajaking) te 5 km od Modrog jezera,",
+      "en": "Just 3 km from the Vrljica River (rafting & kayaking) and 5 km from the Blue Lake,",
+      "de": "Nur 3 km vom Fluss Vrljica (Rafting & Kajak) und 5 km vom Blauen See entfernt,"
     },
     "about-list-3": {
-      "hr": "7 km od jezera i kratka vožnja do mora.",
-      "en": "7 km from the lake and a short drive to the sea.",
-      "de": "7 km vom See und eine kurze Fahrt zum Meer."
+      "hr": "UNESCO Geopark Biokovo-Imotska jezera na 7 km, ugodna kratka vožnja do plaža Makarske,",
+      "en": "UNESCO Geopark Biokovo-Imotski Lakes at 7 km, a pleasant short drive to Makarska beaches,",
+      "de": "UNESCO Geopark Biokovo-Imotski Seen in 7 km, angenehme kurze Fahrt zu den Stränden von Makarska,"
     },
     "about-list-4": {
-      "hr": "Restoran 400 m, dućan 1 km.",
-      "en": "Restaurant 400 m, shop 1 km.",
-      "de": "Restaurant 400 m, Geschäft 1 km."
+      "hr": "Besplatni bicikli na raspolaganju za istraživanje okolice (dućan 1 km, restoran 400 m).",
+      "en": "Free bicycles available for exploring the area (shop 1 km, restaurant 400 m).",
+      "de": "Kostenlose Fahrräder stehen zur Erkundung bereit (Geschäft 1 km, Restaurant 400 m)."
     },
     "about-btn": {
       "hr": "<i class=\"fa-brands fa-whatsapp\"></i> Provjeri dostupnost",
@@ -691,14 +696,19 @@
       "de": "Kurze Fahrt zur Makarska-Riviera"
     },
     "map-pill-3": {
-      "hr": "7 km do jezera",
-      "en": "7 km to the lake",
-      "de": "7 km zum See"
+      "hr": "5-7 km do Modrog jezera i UNESCO Geoparka",
+      "en": "5-7 km to Blue Lake & UNESCO Geopark",
+      "de": "5-7 km zum Blauen See & UNESCO Geopark"
     },
     "map-pill-4": {
       "hr": "Besplatan privatni parking",
       "en": "Free private parking",
       "de": "Kostenloser privater Parkplatz"
+    },
+    "map-pill-5": {
+      "hr": "Rafting & kajak na rijeci Vrljici (3 km)",
+      "en": "Rafting & kayaking on Vrljica River (3 km)",
+      "de": "Rafting & Kajak auf dem Fluss Vrljica (3 km)"
     },
     "footer-tagline": {
       "hr": "Vaše utočište u srcu Dalmatinske zagore.<br>Luksuz, priroda i toplina doma.",

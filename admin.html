@@ -1631,6 +1631,7 @@
       "proof-parking": "Značka: Besplatan parking",
       "proof-sea": "Značka: Udaljenost do mora",
       "proof-reply": "Značka: Brzina odgovora",
+      "proof-bikes": "Značka: Besplatni bicikli",
       
       // About
       "about-exp": "Tekst za godine iskustva",
@@ -1768,6 +1769,7 @@
       "map-pill-2": "Značka lokacije 2",
       "map-pill-3": "Značka lokacije 3",
       "map-pill-4": "Značka lokacije 4",
+      "map-pill-5": "Značka lokacije 5 (Aktivnosti)",
       
       // Footer
       "footer-tagline": "Footer: Slogan apartmana",
@@ -2030,8 +2032,14 @@
       const container = document.getElementById('translationsContainer');
       container.innerHTML = '';
 
-      // Include keys starting with "form" under the "book" category
+      // Include keys starting with "form" under the "book" category, etc.
       const keys = Object.keys(rawContent.translations).filter(k => {
+        if (category === 'hero') {
+          return k.startsWith('hero') || k.startsWith('proof') || k.startsWith('nav');
+        }
+        if (category === 'about') {
+          return k.startsWith('about') || k.startsWith('map') || k.startsWith('gallery') || k.startsWith('gal');
+        }
         if (category === 'book') {
           return k.startsWith('book') || k.startsWith('form');
         }
