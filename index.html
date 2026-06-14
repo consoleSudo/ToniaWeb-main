@@ -54,7 +54,7 @@
       "longitude": 17.1909257
     },
     "url": "https://toniaweb.vercel.app",
-    "telephone": "+387603423951",
+    "telephone": "+385915575156",
     "priceRange": "$$",
     "numberOfRooms": 2,
     "occupancy": {
@@ -3757,7 +3757,7 @@
           <p class="footer-tagline" data-i18n="footer-tagline">Vaše utočište u srcu Dalmatinske zagore.<br>Luksuz,
             priroda i toplina doma.</p>
           <div class="footer-social">
-            <a href="https://wa.me/387603423951" target="_blank" aria-label="WhatsApp"><i
+            <a href="https://wa.me/385915575156" target="_blank" aria-label="WhatsApp"><i
                 class="fa-brands fa-whatsapp"></i></a>
             <a href="mailto:tona0009@icloud.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
           </div>
@@ -3785,7 +3785,7 @@
             </li>
             <li>
               <i class="fa-brands fa-whatsapp"></i>
-              <a href="https://wa.me/387603423951" target="_blank">+387 60 34 23 951</a>
+              <a href="https://wa.me/385915575156" target="_blank">+385 91 557 5156</a>
             </li>
             <li>
               <i class="fa-solid fa-envelope"></i>
@@ -3796,7 +3796,7 @@
               <span data-i18n="footer-reply">Odgovor u roku od 1 sata</span>
             </li>
           </ul>
-          <a href="https://wa.me/387603423951" target="_blank" class="footer-cta" data-i18n="footer-btn">
+          <a href="https://wa.me/385915575156" target="_blank" class="footer-cta" data-i18n="footer-btn">
             <i class="fa-brands fa-whatsapp"></i> Pošalji upit
           </a>
         </div>
@@ -3809,7 +3809,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/387603423951" target="_blank" class="whatsapp-fab" aria-label="WhatsApp">
+  <a href="https://wa.me/385915575156" target="_blank" class="whatsapp-fab" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
@@ -4222,7 +4222,8 @@
           if (napomena) msg += `📝 Napomena: ${napomena}\n`;
         }
 
-        window.open(`https://wa.me/387603423951?text=${encodeURIComponent(msg)}`, '_blank');
+        const waNumber = (typeof siteContent !== 'undefined' && siteContent.contactWhatsApp) || '385915575156';
+        window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
       });
     });
   </script>
@@ -4724,7 +4725,7 @@
       },
       pricePerNight: 70,
       minNights: 4,
-      contactWhatsApp: "387603423951",
+      contactWhatsApp: "385915575156",
       contactEmail: "tona0009@icloud.com",
       reviews: [
         {
@@ -5315,7 +5316,7 @@
       }
       
       // WhatsApp default construct
-      const waNumber = (siteContent && siteContent.contactWhatsApp) || '387603423951';
+      const waNumber = (siteContent && siteContent.contactWhatsApp) || '385915575156';
       let defaultMsg = '';
       if (faqLang === 'en') {
         defaultMsg = `I'm not sure I understand completely. You can ask me about: <strong>beach/sea</strong>, <strong>parking</strong>, <strong>pets</strong>, <strong>ethno tavern</strong>, or <strong>bookings</strong>.<br>Or feel free to send a direct message to Antonia:<br>
@@ -5344,7 +5345,7 @@
 
 
     function updateContactInfo() {
-      const waNumber = siteContent.contactWhatsApp || '387603423951';
+      const waNumber = siteContent.contactWhatsApp || '385915575156';
       const email = siteContent.contactEmail || 'tona0009@icloud.com';
 
       // Update all wa.me links
@@ -5377,6 +5378,20 @@
           el.textContent = email;
         }
       });
+
+      // Update JSON-LD structured data telephone
+      try {
+        const ldJsonScript = document.querySelector('script[type="application/ld+json"]');
+        if (ldJsonScript) {
+          const schema = JSON.parse(ldJsonScript.textContent);
+          if (schema) {
+            schema.telephone = '+' + waNumber;
+            ldJsonScript.textContent = JSON.stringify(schema, null, 2);
+          }
+        }
+      } catch (e) {
+        console.warn('Could not update JSON-LD telephone', e);
+      }
     }
 
     function applyTranslations(lang) {
