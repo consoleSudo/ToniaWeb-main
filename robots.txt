@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /admin
 
-Sitemap: https://toniaweb.vercel.app/sitemap.xml
+Sitemap: https://antonialuxury.com/sitemap.xml
