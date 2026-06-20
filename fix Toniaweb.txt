@@ -1,0 +1,21 @@
+-galerija mobitel fix ograniciti na 4 slike $
+-dodati na mobitelu galerija slike listati strelice maybe ispod $
+-premjestiti eyebrow section pomakni ukloniti i povecati (sa ocjenom itd novi dizajn)))) $
+-ocjene fixati da je average prikazan umjesto fixanog 5.0 $
+-fixati 30km od mora da kaze da si na moru (ne bukv) $
+-username admin page dodati $
+-faq chatbot umjesto faq $
+-2+godina iskustva u o apartmanu $
+-ponavljanja ukloniti $
+-sadrzaj skrolati amenities kao recenzije (mobitel) $
+-"bez provizije" ukloniti $ 
+-footer fixati na mobitelu (iphone) $
+-prilagoditi tj skalirati za velicinu ekrana $
+-admin panel user friendly fixati (da bude ljepse) $
+-srednja tema $
+I VERCEL PREBACITI $
+
+
+kurseve o webovima
+skaliraj certifikate o webovima
+

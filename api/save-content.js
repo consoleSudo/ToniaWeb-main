@@ -220,9 +220,9 @@ module.exports = async function handler(req, res) {
 
   // ── 1. Validate credentials ───────────────────────────────────────────────
   const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
-  const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'antonia';
-  if (!ADMIN_PASSWORD) {
-    console.error('ADMIN_PASSWORD environment variable is not set.');
+  const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+  if (!ADMIN_PASSWORD || !ADMIN_USERNAME) {
+    console.error('ADMIN_PASSWORD or ADMIN_USERNAME environment variable is not set.');
     return res.status(500).json({ error: 'Server misconfiguration' });
   }
 

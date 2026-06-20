@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="hr" data-theme="emerald">
+<html lang="hr">
 
 <head>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
@@ -132,30 +138,7 @@
        Mijenja se samo data-theme na <html> tagu
     ============================================================ */
 
-    /* --- TEMA 1: EMERALD ESCAPE (default) --- */
-    [data-theme="emerald"] {
-      --color-bg: #F5F0E8;
-      --color-bg-alt: #EDE8DF;
-      --color-surface: #FFFFFF;
-      --color-primary: #1B4332;
-      --color-primary-light: #2D6A4F;
-      --color-accent: #C9A96E;
-      --color-text: #1A1A1A;
-      --color-text-muted: #6B6560;
-      --color-border: #D8D0C4;
-      --color-hero-overlay: rgba(27, 67, 50, 0.55);
-      --color-cta-bg: #1B4332;
-      --color-cta-text: #F5F0E8;
-      --color-cta-hover: #2D6A4F;
-      --color-nav-bg: transparent;
-      --color-nav-scrolled: rgba(245, 240, 232, 0.97);
-      --color-whatsapp: #25D366;
-      --color-nav-cta-bg: #C9A96E;
-      --color-nav-cta-text: #1B4332;
-    }
-
-    /* --- TEMA 2: LUXURY MODERN --- */
-    [data-theme="luxury"] {
+    :root {
       --color-bg: #0D0D0D;
       --color-bg-alt: #141414;
       --color-surface: #1A1A1A;
@@ -174,28 +157,6 @@
       --color-whatsapp: #25D366;
       --color-nav-cta-bg: #C9A96E;
       --color-nav-cta-text: #0D0D0D;
-    }
-
-    /* --- TEMA 3: RUSTIC & COZY --- */
-    [data-theme="rustic"] {
-      --color-bg: #F2EBE0;
-      --color-bg-alt: #E8DDD0;
-      --color-surface: #FDF8F3;
-      --color-primary: #8B5E3C;
-      --color-primary-light: #A67650;
-      --color-accent: #1B4332;
-      --color-text: #2C1F14;
-      --color-text-muted: #7A6555;
-      --color-border: #D4C4B0;
-      --color-hero-overlay: rgba(44, 31, 20, 0.60);
-      --color-cta-bg: #8B5E3C;
-      --color-cta-text: #FDF8F3;
-      --color-cta-hover: #A67650;
-      --color-nav-bg: transparent;
-      --color-nav-scrolled: rgba(242, 235, 224, 0.97);
-      --color-whatsapp: #25D366;
-      --color-nav-cta-bg: #1B4332;
-      --color-nav-cta-text: #FDF8F3;
     }
 
     /* ============================================================
@@ -447,46 +408,7 @@
       margin: 1.25rem auto;
     }
 
-    /* ============================================================
-       THEME DEMO SWITCHER (samo za prezentaciju klijentu)
-       Ukloniti iz finalne verzije
-    ============================================================ */
-    .theme-switcher {
-      position: fixed;
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
 
-    .theme-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid white;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s;
-    }
-
-    .theme-btn:hover {
-      transform: scale(1.15);
-    }
-
-    .theme-btn[data-t="emerald"] {
-      background: #1B4332;
-    }
-
-    .theme-btn[data-t="luxury"] {
-      background: #C9A96E;
-    }
-
-    .theme-btn[data-t="rustic"] {
-      background: #8B5E3C;
-    }
 
     /* ============================================================
        NAV
@@ -1717,16 +1639,7 @@
         width: fit-content;
       }
 
-      /* Reposition theme switcher to bottom-left horizontally */
-      .theme-switcher {
-        top: auto !important;
-        bottom: 2rem !important;
-        right: auto !important;
-        left: 1.5rem !important;
-        transform: none !important;
-        flex-direction: row !important;
-        gap: 0.6rem !important;
-      }
+
 
       /* Gallery Preview Layout stack (1 large + 2 small) on all screens <= 768px */
       .gallery-preview {
@@ -3097,11 +3010,7 @@
         font-size: 1.4rem;
       }
 
-      /* Theme Switcher alignment with WhatsApp FAB on small mobile */
-      .theme-switcher {
-        bottom: 1.2rem !important;
-        left: 1.2rem !important;
-      }
+
     }
 
     /* Tablet fixes 481px–768px */
@@ -3275,12 +3184,7 @@
 
 <body>
 
-  <!-- THEME SWITCHER (prezentacija) -->
-  <div class="theme-switcher">
-    <button class="theme-btn" data-t="emerald" title="Emerald Escape"></button>
-    <button class="theme-btn" data-t="luxury" title="Luxury Modern"></button>
-    <button class="theme-btn" data-t="rustic" title="Rustic & Cozy"></button>
-  </div>
+
 
   <!-- NAV -->
   <nav class="nav" id="nav">
@@ -4422,19 +4326,7 @@
   </script>
 
 
-  <!-- THEME SWITCHER JS -->
-  <script>
-    document.querySelectorAll('.theme-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.documentElement.setAttribute('data-theme', btn.dataset.t);
-        localStorage.setItem('antonia-theme', btn.dataset.t);
-      });
-    });
 
-    // Zapamti odabranu temu
-    const saved = localStorage.getItem('antonia-theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
-  </script>
 
   <!-- LIGHTBOX HTML -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pregled fotografije">
